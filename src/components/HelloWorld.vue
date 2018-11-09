@@ -5,7 +5,7 @@
 
 <script>
 import axios from 'axios'
-import url from '../global/url'
+import url from '@/global/url'
 export default {
   name: 'HelloWorld',
   data () {
