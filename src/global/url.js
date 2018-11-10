@@ -1,10 +1,10 @@
 var url = {
-    index:'/index',
-    indexSwiper:'/indexSwiper',
-    indexClass1:'/indexClass1',
-    indexClass2:'/indexClass2',
+    index:'/data/index',
+    indexSwiper:'/data/indexSwiper',
+    indexClass1:'/data/indexClass1',
+    indexClass2:'/data/indexClass2',
 
-    listing:'/listing'
+    listing:'/data/listing'
 }
 export default url;
     
