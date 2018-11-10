@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import './style/style.css'
 Vue.config.productionTip = false
 
 import './mockjs/app-mock';

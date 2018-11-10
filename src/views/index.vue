@@ -4,12 +4,21 @@
       <p>index首页</p>
       <div class="mt-swipe">
         <mt-swipe :auto='4000'>
-          <mt-swipe-item>a</mt-swipe-item>
-          <mt-swipe-item>b</mt-swipe-item>
-          <mt-swipe-item>c</mt-swipe-item>
+          <mt-swipe-item>
+            <img src="../assets/ds320_220.png" alt="">
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="../assets/ds50.png" alt="">
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="../assets/ds320_220.png" alt="">
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="../assets/ds50.png" alt="">
+          </mt-swipe-item>
         </mt-swipe>
       </div>
-        
+      <p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页4</p><p>index首页3</p><p>index首页2</p><p>index首页end</p>
     </div>
     
 </template>
