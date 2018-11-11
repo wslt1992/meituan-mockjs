@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import mainPage from './views/main'
+import MainPage from './views/MainPage'
 export default {
   name: 'App',
   components:{
-    'main-page':mainPage
+    'main-page':MainPage
   }
 }
 </script>

@@ -3,7 +3,7 @@
     <div>
       <p>index首页</p>
       <div class="mt-swipe">
-        <mt-swipe :auto='4000'>
+        <mt-swipe :auto='2000'>
           <mt-swipe-item>
             <img src="../assets/ds320_220.png" alt="">
           </mt-swipe-item>
@@ -18,7 +18,28 @@
           </mt-swipe-item>
         </mt-swipe>
       </div>
-      <p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页</p><p>index首页4</p><p>index首页3</p><p>index首页2</p><p>index首页end</p>
+      <div class="classify">
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          <p>美食</p>
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          电影/演出
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          酒店住宿
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          休闲娱乐
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          外卖
+        </div>
+      </div>
     </div>
     
 </template>
@@ -27,10 +48,8 @@
 import Vue from 'vue'
 import axios from 'axios'
 import url from '@/global/url'
-import {Toast, Swipe, SwipeItem} from 'mint-ui'
+import {Toast} from 'mint-ui'
 
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
 export default {
   data: function() {
     return {};
@@ -43,9 +62,35 @@ export default {
   }
 };
 </script>
-
-<style scoped>
+<style lang="scss" scoped>
+.mint-swipe-item{
+  img{
+    
+  }
+}
 .mt-swipe{
   height: 200px;
+}
+.classify{
+  display: flex;
+  flex-wrap:wrap;
+}
+.classify-item{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items:center;
+  box-sizing: border-box;
+  width: 20vw;
+  height: 20vw;
+  border:1px solid black;
+  font-size: 4vw;
+  img{
+    width: 12vw;
+  }
+  p{
+    margin: 0;
+    padding: 0;
+  }
 }
 </style>

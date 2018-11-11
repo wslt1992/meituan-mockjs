@@ -32,16 +32,32 @@
 
 <script>
 import Vue from "vue";
-import { Tabbar, TabItem } from "mint-ui";
-Vue.component(Tabbar.name, Tabbar);
-Vue.component(TabItem.name, TabItem);
 export default {
-  name: "main",
+  name: "main-root",
   data: function() {
     return {
       nameArray: ["首页", "附近", "发现", "订单", "我的"],
       selected: "首页"
     };
+  },
+  watch:{
+      selected:function(newVal){
+          switch(newVal){
+            case this.nameArray[0]:
+            this.$router.push('/index');
+            break;
+            case this.nameArray[1]:
+            break;
+            case this.nameArray[2]:
+            break;
+            case this.nameArray[3]:
+            this.$router.push('/order');
+            break;
+            case this.nameArray[4]:
+            this.$router.push('/my');
+            break;
+          }
+      }
   }
 };
 </script>
@@ -55,7 +71,7 @@ export default {
 .container {
   /* height: 90vh; */
   flex-grow:1;
-  background-color: red;
+  /* background-color: red; */
   overflow-y: scroll;
 }
 .footer-tab {
