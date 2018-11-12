@@ -9,6 +9,7 @@ import MainPage from '@/views/MainPage'
 import My from '@/views/my'
 import Order from '@/views/order'
 import ClasstifyAll from '@/views/ClasstifyAll'
+import Search from '@/views/search'
 import url from '../global/url'
 Vue.use(Mint)
 Vue.use(Router)
@@ -53,8 +54,12 @@ export default new Router({
       path: nav.classtifyAll,
       name: 'classtifyAll',
       component: ClasstifyAll,
-      //todo
     },
+    {
+      path: nav.searchPath,
+      name: 'Search',
+      component: Search,
+    }
     
   ]
 })

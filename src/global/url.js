@@ -22,7 +22,8 @@ var url = {
       }
       
     },
-    classtifyAll:'/classtifyall'
+    classtifyAll:'/classtifyall',
+    searchPath:'/search'
   }
 
 }

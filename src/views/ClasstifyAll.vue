@@ -4,9 +4,10 @@
         <div class="header-bar">
             <mt-header  title="全部分类">
                 <mt-button icon="back" slot="left" @click="$router.go(-1)">返回</mt-button>
-                <mt-button icon="more" slot="right"></mt-button>
+                <!-- <mt-button icon="more" slot="right"></mt-button> -->
             </mt-header>
         </div>
+        <search-bar class="search-bar"></search-bar>
         <div class="namelist-all">
             <div  v-for="item in namelistAll" :key="item.id">
                 <span>{{item.classtifyName}}</span>
@@ -22,9 +23,11 @@
  * 访问uri '/classtifyall'
  */
 import ClasstifyItem from '../components/classtify-item'
+import SearchBar from '../components/search-bar'
 export default {
     components:{
-        'classtify-item':ClasstifyItem
+        'search-bar':SearchBar,
+        'classtify-item':ClasstifyItem,
     },
     data() {
         return {
@@ -106,8 +109,15 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: #eee;
+    position: relative;
     .header-bar{
         
+    }
+    .search-bar{
+        position: absolute;
+        top:1.2vw;
+        left:50%;
+        margin-left: -28vw;
     }
     .namelist-all{
         flex-grow: 1;
