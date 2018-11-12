@@ -119,6 +119,7 @@ export default {
             padding-left: 3vw;
             margin: 3vw 0;
             text-align: start;
+            box-sizing: border-box;
         }
     }
 }
