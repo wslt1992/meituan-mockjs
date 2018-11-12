@@ -82,7 +82,7 @@
           <img src="../assets/logo.png" alt="">
           <p>按摩/足疗</p>
         </div>
-        <div class="classify-item">
+        <div class="classify-item" @click="navigatorTo('全部分类')">
           <img src="../assets/logo.png" alt="">
           <p>全部分类</p>
         </div>
@@ -101,6 +101,16 @@ import {Toast} from 'mint-ui'
 export default {
   data: function() {
     return {};
+  },
+  methods:{
+    navigatorTo(flag){
+      switch(flag){
+        case '全部分类':
+          this.$router.push(url.navigator.classtifyAll)
+          break;
+
+      }
+    }
   },
   mounted() {
     Toast('提示信息');

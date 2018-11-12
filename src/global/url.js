@@ -21,7 +21,8 @@ var url = {
         myFullPath:'/mainpage/my',
       }
       
-    }
+    },
+    classtifyAll:'/classtifyall'
   }
 
 }

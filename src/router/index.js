@@ -8,7 +8,7 @@ import Index from '@/views/index'
 import MainPage from '@/views/MainPage'
 import My from '@/views/my'
 import Order from '@/views/order'
-
+import ClasstifyAll from '@/views/ClasstifyAll'
 import url from '../global/url'
 Vue.use(Mint)
 Vue.use(Router)
@@ -21,6 +21,9 @@ export default new Router({
       // name: 'HelloWorld',
       redirect:'/mainpage/index'
     },
+    /**
+     * mainpage页，主页
+     */
     {
       path: nav.mainPage.selfpath,
       name: 'MainPage',
@@ -42,6 +45,15 @@ export default new Router({
           component: Order
         }
       ]
+    },
+    /**
+     * classtifyAll页，全部分类页
+     */
+    {
+      path: nav.classtifyAll,
+      name: 'classtifyAll',
+      component: ClasstifyAll,
+      //todo
     },
     
   ]
