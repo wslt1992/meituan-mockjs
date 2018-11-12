@@ -63,6 +63,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import '../style/vm_base.scss';
 .mint-swipe-item{
   img{
     
@@ -81,7 +82,8 @@ export default {
   justify-items: center;
   align-items:center;
   box-sizing: border-box;
-  width: 20vw;
+  // width: 20vw;
+  width: vw(375*0.2);
   height: 20vw;
   border:1px solid black;
   font-size: 4vw;
