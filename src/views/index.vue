@@ -2,6 +2,7 @@
 <template>
     <div>
       <p>index首页</p>
+      <!-- 轮播开始 -->
       <div class="mt-swipe">
         <mt-swipe :auto='2000'>
           <mt-swipe-item>
@@ -18,6 +19,8 @@
           </mt-swipe-item>
         </mt-swipe>
       </div>
+      <!-- 轮播结束 -->
+      <!-- 分类开始 -->
       <div class="classify">
         <div class="classify-item">
           <img src="../assets/logo.png" alt="">
@@ -40,6 +43,51 @@
           外卖
         </div>
       </div>
+      <!-- 分类结束 -->
+      <!-- 分类全部开始 -->
+      <div class="classify classifyAll">
+        <div class="classify-item">
+        <img src="../assets/logo.png" alt="">
+        <p>学习培训</p>
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          <p>民宿/公寓</p>
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          <p>周边游/旅游</p>
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          <p>丽人/美发</p>
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          <p>结婚/摄影</p>
+        </div>
+        <div class="classify-item">
+        <img src="../assets/logo.png" alt="">
+        <p>闪购超市</p>
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          <p>景点/门票</p>
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          <p>火车票/机票</p>
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          <p>按摩/足疗</p>
+        </div>
+        <div class="classify-item">
+          <img src="../assets/logo.png" alt="">
+          <p>全部分类</p>
+        </div>
+      </div>
+      <!-- 分类全部结束 -->
     </div>
     
 </template>
@@ -75,24 +123,29 @@ export default {
 .classify{
   display: flex;
   flex-wrap:wrap;
-}
-.classify-item{
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-items:center;
-  box-sizing: border-box;
-  // width: 20vw;
-  width: vw(375*0.2);
-  height: 20vw;
-  border:1px solid black;
   font-size: 4vw;
-  img{
-    width: 12vw;
-  }
-  p{
-    margin: 0;
-    padding: 0;
-  }
+    .classify-item{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items:center;
+    box-sizing: border-box;
+    // width: 20vw;
+    width: vw(375*0.2);
+    height: 20vw;
+    border:1px solid black;
+      img{
+        width: 12vw;
+      }
+      p{
+        margin: 0;
+        padding: 0;
+      }
+    
+    }
+}
+
+.classifyAll{
+    font-size: 3vw;
 }
 </style>
