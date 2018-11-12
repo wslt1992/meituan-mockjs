@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 
 import './style/style.css'
+import './assets/iconfont/iconfont.css'
 Vue.config.productionTip = false
 
 import './mockjs/app-mock';
