@@ -1,6 +1,6 @@
 // 首页
 <template>
-    <div>
+    <div class="index-root"  id="mainContent">
       <p>index首页</p>
       <!-- 轮播开始 -->
       <div class="mt-swipe">
@@ -88,8 +88,11 @@
         </div>
       </div>
       <!-- 分类全部结束 -->
+      <div v-for="{item,index} in items" :key="index">
+        <img src="../assets/ds320_220.png" alt="">
+        <img src="../assets/ds50.png" alt="">
+      </div>
     </div>
-    
 </template>
 
 <script>
@@ -100,7 +103,10 @@ import {Toast} from 'mint-ui'
 
 export default {
   data: function() {
-    return {};
+    return {
+      offsetTop:0,
+      items:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,]
+    };
   },
   methods:{
     navigatorTo(flag){
@@ -117,11 +123,25 @@ export default {
     axios.get(url.listing).then(res => {
       console.log(res, url.listing);
     });
-  }
+  },
+  activated() {
+　　// keep-alive组件 页面进入的时候设置滚动高度
+    document.getElementById("mainContent").scrollTop = this.offsetTop;
+  },
+　 beforeRouteLeave(to, from, next) {
+   //组件离开的时候，获取页面滚动高度 
+   this.offsetTop = document.getElementById('mainContent').scrollTop;
+   next() 
+　 },
+   
 };
 </script>
 <style lang="scss" scoped>
 @import '../style/vm_base.scss';
+.index-root{
+  height: 100%;
+  overflow-y: scroll;
+}
 .mint-swipe-item{
   img{
     

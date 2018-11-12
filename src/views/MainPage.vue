@@ -1,7 +1,9 @@
 <template>
   <div class="main-root">
     <div class="container">
-      <router-view/>
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
     </div>
     <div class="footer-tab">
         <mt-tabbar v-model="selected">
@@ -39,7 +41,8 @@ export default {
   data: function() {
     return {
       nameArray: ["首页", "附近", "发现", "订单", "我的"],
-      selected: "首页"
+      selected: "首页",
+    //   offsetTop:0,
     };
   },
   watch:{
@@ -72,10 +75,10 @@ export default {
     flex-direction: column;
 }
 .container {
-  /* height: 90vh; */
+  height: 90vh;
   flex-grow:1;
   /* background-color: red; */
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 .footer-tab {
     height: 9vh;
