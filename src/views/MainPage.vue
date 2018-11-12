@@ -32,6 +32,8 @@
 
 <script>
 import Vue from "vue";
+import url from '../global/url.js'
+
 export default {
   name: "main-root",
   data: function() {
@@ -42,19 +44,20 @@ export default {
   },
   watch:{
       selected:function(newVal){
+          let children = url.navigator.mainPage.children
           switch(newVal){
             case this.nameArray[0]:
-            this.$router.push('/index');
+            this.$router.push(children.indexFullPath);
             break;
             case this.nameArray[1]:
             break;
             case this.nameArray[2]:
             break;
             case this.nameArray[3]:
-            this.$router.push('/order');
+            this.$router.push(children.orderFullPath);
             break;
             case this.nameArray[4]:
-            this.$router.push('/my');
+            this.$router.push(children.myFullPath);
             break;
           }
       }
