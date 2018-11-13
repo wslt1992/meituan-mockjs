@@ -7,27 +7,29 @@
                 <i class="iconfont icon-youxiang"></i>
             </div>
             <div class="login-entry">
+                <router-link to="/login">
                 <!-- <img src="" alt=""> -->
                 <i class="iconfont icon-touxiang-kong"></i>
                 <h2>{{userInfo.username}}</h2>
+                </router-link>
             </div>
         </div>
         <ul class="list-box main-list w33 pd30 line">
             <li>
                 <a href="#">
-                    <i class="iconfont icon-star"></i>
+                    <i class="iconfont icon-star linear135-red"></i>
                     <p>收藏</p>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-xiaoxi"></i>
+                    <i class="iconfont icon-xiaoxi linear135-blue"></i>
                     <p>评价</p>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-ico_home_committed"></i>
+                    <i class="iconfont icon-ico_home_committed linear135-green"></i>
                     <p>最近浏览</p>
                 </a></li>     
         </ul>
@@ -35,38 +37,38 @@
         <ul class="list-box w25 pd30 line wallet-list">
             <li>
                 <a href="#">
-                    <i class="iconfont icon-star"></i>
+                    <i class="iconfont icon-star linear135-orange"></i>
                     <p>我的钱包</p>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-xiaoxi"></i>
+                    <i class="iconfont icon-xiaoxi linear135-orange"></i>
                     <p>红包/卡券</p>
                     <b>领卷</b>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-qian"></i>
+                    <i class="iconfont icon-qian linear135-orange"></i>
                     <p>余额</p>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-ico_home_committed"></i>
+                    <i class="iconfont icon-ico_home_committed linear135-orange"></i>
                     <p>美团信用卡</p>
                 </a>
             </li>
              <li>
                  <a href="#">
-                    <i class="iconfont icon-qiandai"></i>
+                    <i class="iconfont icon-qiandai linear135-orange"></i>
                     <p>理财</p>
                 </a>
             </li>     
              <li>
                  <a href="#">
-                    <i class="iconfont icon-chongzhi01"></i>
+                    <i class="iconfont icon-chongzhi01 linear135-orange"></i>
                     <p>手机充值</p>
                     <b>抽奖</b>
                 </a>
@@ -76,37 +78,37 @@
         <ul class="list-box w25 pd30 wallet-list">
             <li>
                 <a href="#">
-                    <i class="iconfont icon-star"></i>
+                    <i class="iconfont icon-star linear135-orange"></i>
                     <p>会员中心</p>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-xiaoxi"></i>
+                    <i class="iconfont icon-xiaoxi linear135-orange"></i>
                     <p>美团公益</p>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-qian"></i>
+                    <i class="iconfont icon-qian linear135-green"></i>
                     <p>免流用美团</p>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-ico_home_committed"></i>
+                    <i class="iconfont icon-ico_home_committed linear135-green"></i>
                     <p>发票助手</p>
                 </a>
             </li>
              <li>
                  <a href="#">
-                    <i class="iconfont icon-qiandai"></i>
+                    <i class="iconfont icon-qiandai linear135-green"></i>
                     <p>我要合作</p>
                 </a>
             </li>     
              <li>
                  <a href="#">
-                    <i class="iconfont icon-chongzhi01"></i>
+                    <i class="iconfont icon-meituan linear135-green"></i>
                     <p>关于美团</p>
                 </a>
             </li>            
@@ -129,7 +131,7 @@ export default {
     methods:{
         menuScroll:function(evt){
           let scrollTop = evt.target.scrollTop || evt.srcElement.scrollTop;
-          if(scrollTop>20){
+          if(scrollTop>0){
               this.menuFixed = true;
           }else if(scrollTop<50){
               this.menuFixed = false;
@@ -155,9 +157,16 @@ a{text-decoration:none;}
 .pd30{padding-left:3vw;padding-right:3vw;}
 .line::after{border-bottom:1px solid #ddd;content:"";display:block;height:0;position:absolute;bottom:0;right:3vw;left:3vw;transform:scaleY(0.5);}
 
+/* 135deg渐变色 */
+.linear135-red{background-image:linear-gradient(135deg,#fb8297,#e9516c);filter:drop-shadow(1px 1px 1px rgba(250,94,119,0.3));}
+.linear135-green{background-image:linear-gradient(135deg,#03ebd8,#09b8b8);filter:drop-shadow(1px 1px 1px rgba(12,213,187,0.3));}
+.linear135-blue{background-image:linear-gradient(135deg,#7dc5fe,#68acec);filter:drop-shadow(1px 1px 1px rgba(104,172,236,0.3)
+);}
+.linear135-orange{background-image:linear-gradient(135deg,#ffbb86,#fc9443);}
+
 .login-box{background-color:#fff;height:100%;overflow-y:scroll;}
-.login-header{background-image:linear-gradient(180deg,#25abb1,#b9e7d7);background-repeat:no-repeat;background-size:100% 100%;overflow-x:hidden;padding-top:16vh;;}
-.login-menu{margin-bottom: 14vw;transition:background-color 0.2s linear;top:0;right:0;left:0;position:absolute;display:flex;flex-direction:row;padding:2.5vw 0 2.5vw 2.5vw;z-index:999;}
+.login-header{background-image:linear-gradient(180deg,#25abb1,#b9e7d7);background-repeat:no-repeat;background-size:100% 100%;overflow-x:hidden;padding-top:16vh;position:relative;z-index:10;}
+.login-menu{margin-bottom: 14vw;transition:background-color 0.1s linear;top:0;right:0;left:0;position:fixed;display:flex;flex-direction:row;padding:2.5vw 0 2.5vw 2.5vw;z-index:999;}
 .login-menu i{margin-right:2.5vw;font-size:6.2vw;color:rgba(255,255,255,0.8);}
 .login-menu i.shezhi{margin-right:auto;}
 
@@ -171,16 +180,12 @@ a{text-decoration:none;}
 
 .main-list{padding:4vw 0;}
 .main-list li i{-webkit-background-clip:text;-webkit-text-fill-color: transparent;}
-.main-list li i.icon-star{background-image:linear-gradient(135deg,#fb8297,#e9516c);filter:drop-shadow(1px 1px 1px rgba(250,94,119,0.3));}
-.main-list li i.icon-ico_home_committed{background-image:linear-gradient(135deg,#00f3bf,#0cd5bb);filter:drop-shadow(1px 1px 1px rgba(12,213,187,0.3));}
-.main-list li i.icon-xiaoxi{background-image:linear-gradient(135deg,#7dc5fe,#68acec);filter:drop-shadow(1px 1px 1px rgba(104,172,236,0.3)
-);}
 
 .login-title{color:#333;font-size:3.8vw;margin-top:3.6vw;text-align:left;}
 
 .wallet-list{padding-top: 4vw;}
 .wallet-list li{margin-bottom:5vw;position:relative;}
-.wallet-list li i{-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-image:linear-gradient(135deg,#fea661,#fc9443);}
+.wallet-list li i{-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .wallet-list li b{display:inline-block;padding:0.4vw 1.3vw;background-image:linear-gradient(90deg,#ff4548,#fe4b44);color:#ffffff;font-size:1.8vw;border-radius:3vw;text-align:center;position:absolute;left:55%;top:-1.4vw;}
 
 .menu-fixed{position: fixed;background-color:#25abb1;}
