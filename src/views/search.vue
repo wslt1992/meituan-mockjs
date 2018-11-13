@@ -15,10 +15,8 @@
 </template>
 
 <script>
-import ltHeader from '../components/lt-header'
     export default {
         components:{
-            'lt-header':ltHeader
         },
         data:function() {
             return {

@@ -34,7 +34,6 @@
 
 <script>
 import Vue from "vue";
-import url from '../global/url.js'
 
 export default {
   name: "main-root",
@@ -47,7 +46,7 @@ export default {
   },
   watch:{
       selected:function(newVal){
-          let children = url.navigator.mainPage.children
+          let children = this.$url.navigator.mainPage.children
           switch(newVal){
             case this.nameArray[0]:
             this.$router.push(children.indexFullPath);
