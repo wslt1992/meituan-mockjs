@@ -35,7 +35,7 @@
 }
 .center{
         position: absolute;
-        top:1.3vw;;
+        top:1.6vw;
         left:50%;
         // margin-top: 
         margin-left: -28vw;

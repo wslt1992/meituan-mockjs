@@ -3,7 +3,7 @@
         <div class="root">
             <router-link to="/search">
             <i class="iconfont icon-sousuo"></i>
-            <span>搜索bar</span>
+            <span>请输入商家名、品类或商圈名</span>
             </router-link>
         </div>
         
@@ -31,10 +31,11 @@
     text-align: center;
     color: #999;
     background-color: #fff;
-    width: 60vw;
+    width: 70vw;
     height: 8vw;
     line-height: 8vw;
     border-radius: 4vw;
+    margin-left: -3vw;
     a{
         color: #999;
         text-decoration: none;

@@ -23,7 +23,8 @@ var url = {
       
     },
     classtifyAll:'/classtifyall',
-    searchPath:'/search'
+    searchPath:'/search',
+    loginPath:'/login'
   }
 
 }
