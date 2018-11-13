@@ -1,7 +1,7 @@
 <template>
     <div class="login-box">
         <div class="login-header">
-            <div class="login-menu">
+            <div class="login-menu" :class="{'menu-fixed':menuFixed}">
                 <i class="iconfont icon-shezhi shezhi"></i>
                 <i class="iconfont icon-fuwuerji"></i>
                 <i class="iconfont icon-youxiang"></i>
@@ -9,7 +9,7 @@
             <div class="login-entry">
                 <!-- <img src="" alt=""> -->
                 <i class="iconfont icon-touxiang-kong"></i>
-                <h2>请点击登录</h2>
+                <h2>{{userInfo.username}}</h2>
             </div>
         </div>
         <ul class="list-box main-list w33 pd30 line">
@@ -43,6 +43,7 @@
                  <a href="#">
                     <i class="iconfont icon-xiaoxi"></i>
                     <p>红包/卡券</p>
+                    <b>领卷</b>
                 </a>
             </li>
             <li>
@@ -67,6 +68,46 @@
                  <a href="#">
                     <i class="iconfont icon-chongzhi01"></i>
                     <p>手机充值</p>
+                    <b>抽奖</b>
+                </a>
+            </li>            
+        </ul>
+        <h3 class="login-title pd30">美团服务</h3>
+        <ul class="list-box w25 pd30 wallet-list">
+            <li>
+                <a href="#">
+                    <i class="iconfont icon-star"></i>
+                    <p>会员中心</p>
+                </a>
+            </li>
+            <li>
+                 <a href="#">
+                    <i class="iconfont icon-xiaoxi"></i>
+                    <p>美团公益</p>
+                </a>
+            </li>
+            <li>
+                 <a href="#">
+                    <i class="iconfont icon-qian"></i>
+                    <p>免流用美团</p>
+                </a>
+            </li>
+            <li>
+                 <a href="#">
+                    <i class="iconfont icon-ico_home_committed"></i>
+                    <p>发票助手</p>
+                </a>
+            </li>
+             <li>
+                 <a href="#">
+                    <i class="iconfont icon-qiandai"></i>
+                    <p>我要合作</p>
+                </a>
+            </li>     
+             <li>
+                 <a href="#">
+                    <i class="iconfont icon-chongzhi01"></i>
+                    <p>关于灭团</p>
                 </a>
             </li>            
         </ul>
@@ -74,12 +115,33 @@
 </template>
 
 <script>
-
+import Vue from "vue";
 export default {
     data:function(){
         return {
-
+            userInfo:{
+                username:"请点击登录",
+                userphoto:""
+            },
+            menuFixed:false
         }
+    },
+    methods:{
+        menuScroll:function(evt){
+          let scrollTop = evt.target.scrollTop || evt.srcElement.scrollTop;
+          if(scrollTop>20){
+              this.menuFixed = true;
+          }else if(scrollTop<50){
+              this.menuFixed = false;
+          }
+        }
+    },
+    mounted:function(){
+        let loginBox = document.querySelector(".login-box");
+        loginBox.addEventListener("scroll",this.menuScroll);
+    },
+    watch:{
+       
     }
 }
 </script>
@@ -93,15 +155,15 @@ a{text-decoration:none;}
 .pd30{padding-left:3vw;padding-right:3vw;}
 .line::after{border-bottom:1px solid #eee;content:"";display:block;height:0;position:absolute;bottom:0;right:3vw;left:3vw;transform:scaleY(0.5)}
 
-.login-box{background-color:#fff;}
-.login-header{background-image:linear-gradient(180deg,#25abb1,#b9e7d7);background-repeat:no-repeat;background-size:100% 100%;overflow-x:hidden;}
-.login-menu{margin-bottom: 14vw;}
+.login-box{background-color:#fff;height:100%;overflow-y:scroll;}
+.login-header{background-image:linear-gradient(180deg,#25abb1,#b9e7d7);background-repeat:no-repeat;background-size:100% 100%;overflow-x:hidden;padding-top:19vh;;}
+.login-menu{margin-bottom: 14vw;transition:background-color 0.1s linear;top:0;right:0;left:0;position:absolute;display:flex;flex-direction:row;padding:2.5vw 0 2.5vw 2.5vw;z-index:999;}
+.login-menu i{margin-right:2.5vw;font-size:6.2vw;color:rgba(255,255,255,0.8);}
+.login-menu i.shezhi{margin-right:auto;}
+
 .login-entry{background-color:#fff;width:110%;height:22vw;border-radius:50% 50% 0 0/50% 50% 0 0;margin-left:-5%;}
 .login-entry i,.login-entry img{font-size:16vw;display:inline-block;color:#aaa;background-color:#fff;border-radius:50%;border:1vw solid #fff;margin-top:-8vw;display:inline-block;width:16vw;height:16vw;}
 .login-entry h2{color:#333;font-size:4.2vw;margin-top:0.6vw;}
-.login-menu{display:flex;flex-direction:row;padding:2.5vw 0 0 2.5vw;}
-.login-menu i{margin-right:2.5vw;font-size:6.2vw;color:rgba(255,255,255,0.8);}
-.login-menu i.shezhi{margin-right:auto;}
 
 .list-box{display:flex;flex-direction:row;flex-wrap:wrap;position:relative;}
 .list-box li i{font-size:6.4vw;display:inline-block;}
@@ -114,8 +176,12 @@ a{text-decoration:none;}
 .main-list li i.icon-xiaoxi{background-image:linear-gradient(135deg,#7dc5fe,#68acec);filter:drop-shadow(1px 1px 1px rgba(104,172,236,0.3)
 );}
 
-.login-title{color:#333;font-size:3.8vw;margin-top:3vw;text-align:left;}
+.login-title{color:#333;font-size:3.8vw;margin-top:3.6vw;text-align:left;}
 
 .wallet-list{padding-top: 4vw;}
-.wallet-list li{margin-bottom:5vw;}
+.wallet-list li{margin-bottom:5vw;position:relative;}
+.wallet-list li i{-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-image:linear-gradient(135deg,#fea661,#fc9443);}
+.wallet-list li b{display:inline-block;padding:0.4vw 1.3vw;background-image:linear-gradient(90deg,#ff4548,#fe4b44);color:#ffffff;font-size:1.8vw;border-radius:3vw;text-align:center;position:absolute;left:55%;top:-1.4vw;}
+
+.menu-fixed{position: fixed;background-color:#25abb1;}
 </style>
