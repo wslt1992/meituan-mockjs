@@ -3,7 +3,7 @@
         <div class="header-root">
             <mt-header  title="全部分类">
                 <mt-button icon="back" slot="left" @click="$router.go(-1)">返回</mt-button>
-                <!-- <mt-button icon="more" slot="right"></mt-button> -->
+                <slot name="right" slot="right"></slot>
             </mt-header>
         </div>
         <div class="center">
@@ -38,6 +38,6 @@
         top:3vw;
         left:50%;
         // margin-top: 
-        margin-left: -31vw;
+        margin-left: -27vw;
     }
 </style>

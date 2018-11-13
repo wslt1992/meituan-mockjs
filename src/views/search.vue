@@ -5,6 +5,7 @@
                 <i class="iconfont icon-sousuo"></i>
                 <input type="text" :placeholder="tips">
             </div>
+            <span class="sousuo" slot='right' @click="toSearchRulter">搜索</span>
         </lt-header>
         <div class="content">
             <div>
@@ -26,9 +27,29 @@
         data:function() {
             return {
                 tips: '广东长隆野生动物园',
-                hotArr:['热门搜索','热门搜索3123','热门4234搜索','热门搜5353索','热门53453搜索','热门搜索','热门搜索3123','热门4234搜索','热门搜5353索','热门53453搜索',]
+                hotArr:[
+                    '正新鸡排',
+                    '撸天下音乐烧烤吧（坪洲店）',
+                    '串福居江边渔火（桃园店）',
+                    '大汗碳烤羊腿（坂田店）',
+                    '原石牛扒（龙华九方店）',
+                    '蓬客精品酒店(深圳北站店)',
+                    '喜发烧味', '永盛豆浆王（大芬店）',
+                    '秋菊螺蛳粉', '虾皇蟹将（泥岗店）',
+                    '深南玖月海鲜烧烤音乐餐吧',
+                    'Hui Hotel回酒店·La cafe自助餐',
+                    'UNIVERSAL CAFFEN BAR环球咖啡厅（海上世界店）'
+                    ]
             }
         },
+        methods:{
+            /**
+             * 跳转到搜索结果页
+             */
+            toSearchRulter:function(){
+                this.$router.push(this.$url.navigator.SearchResultPath);
+            }
+        }
     }
 </script>
 
@@ -39,10 +60,11 @@
     text-align: center;
     color: #999;
     background-color: #fff;
-    width: 70vw;
+    width: 60vw;
     height: 10vw;
     line-height: 10vw;
     border-radius: 5vw;
+
     a{
         color: #999;
         text-decoration: none;
@@ -50,9 +72,13 @@
     input{
         border: none;
         outline: none;
-        font-size: 4.5vw;
+        width: 50vw;
         color: #333;
     }
+    
+}
+.sousuo{
+    margin-right: 2vw;
 }
 .content{
     .class-tag{
@@ -66,6 +92,7 @@
             margin: 0.5vw;
             border-radius: 1vw;
             padding: 1vw;
+            font-size: 3vw;
         }
     }
     

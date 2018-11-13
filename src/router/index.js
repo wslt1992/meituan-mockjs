@@ -10,6 +10,7 @@ import My from '@/views/my'
 import Order from '@/views/order'
 import ClasstifyAll from '@/views/ClasstifyAll'
 import Search from '@/views/search'
+import SearchResult from '@/views/search-result'
 import url from '../global/url'
 import Login from '@/views/login'
 Vue.use(Mint)
@@ -68,6 +69,14 @@ export default new Router({
       path:nav.loginPath,
       name:"login",
       component:Login,
+    },
+    {
+      /**
+     * 搜索的结果页/搜索的列表页
+     */
+      path:nav.SearchResultPath,
+      name:"SearchResult",
+      component:SearchResult,
     }
     
   ]
