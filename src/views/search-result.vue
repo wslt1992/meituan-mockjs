@@ -98,8 +98,7 @@ import axios from 'axios';
                     color: #aaa;
                 }
                 .tips{
-
-                    width: 53vw;
+                    width: 40vw;
                     color: #aaa;
                     overflow: hidden;    
                     text-overflow:ellipsis;    
