@@ -1,13 +1,16 @@
 
 <template>
     <div class="classtify-all">
-        <div class="header-bar">
+        <!-- <div class="header-bar">
             <mt-header  title="全部分类">
-                <mt-button icon="back" slot="left" @click="$router.go(-1)">返回</mt-button>
+                <mt-button icon="back" slot="left" @click="$router.go(-1)">返回</mt-button> -->
                 <!-- <mt-button icon="more" slot="right"></mt-button> -->
-            </mt-header>
-        </div>
-        <search-bar class="search-bar"></search-bar>
+            <!-- </mt-header>
+        </div> -->
+        <!-- <search-bar class="search-bar"></search-bar> -->
+        <lt-header>
+            <search-bar class="search-bar"></search-bar>
+        </lt-header>
         <div class="namelist-all">
             <div  v-for="item in namelistAll" :key="item.id">
                 <span>{{item.classtifyName}}</span>
@@ -24,10 +27,12 @@
  */
 import ClasstifyItem from '../components/classtify-item'
 import SearchBar from '../components/search-bar'
+import ltHeader from '../components/lt-header'
 export default {
     components:{
         'search-bar':SearchBar,
         'classtify-item':ClasstifyItem,
+        'lt-header':ltHeader
     },
     data() {
         return {
@@ -112,12 +117,6 @@ export default {
     position: relative;
     .header-bar{
         
-    }
-    .search-bar{
-        position: absolute;
-        top:1.2vw;
-        left:50%;
-        margin-left: -28vw;
     }
     .namelist-all{
         flex-grow: 1;
