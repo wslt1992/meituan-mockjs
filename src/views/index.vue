@@ -98,7 +98,6 @@
 <script>
 import Vue from 'vue'
 import axios from 'axios'
-import url from '@/global/url'
 import {Toast} from 'mint-ui'
 
 export default {
@@ -112,7 +111,7 @@ export default {
     navigatorTo(flag){
       switch(flag){
         case '全部分类':
-          this.$router.push(url.navigator.classtifyAll)
+          this.$router.push(this.$url.navigator.classtifyAll)
           break;
 
       }
@@ -120,8 +119,8 @@ export default {
   },
   mounted() {
     Toast('提示信息');
-    axios.get(url.listing).then(res => {
-      console.log(res, url.listing);
+    axios.get(this.$url.listing).then(res => {
+      console.log(res, this.$url.listing);
     });
   },
   activated() {
