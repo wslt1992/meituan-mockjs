@@ -25,14 +25,8 @@
  * 全部的分类页
  * 访问uri '/classtifyall'
  */
-import ClasstifyItem from '../components/classtify-item'
-import SearchBar from '../components/search-bar'
-import ltHeader from '../components/lt-header'
 export default {
     components:{
-        'search-bar':SearchBar,
-        'classtify-item':ClasstifyItem,
-        'lt-header':ltHeader
     },
     data() {
         return {
