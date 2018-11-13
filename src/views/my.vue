@@ -73,7 +73,7 @@
                     <b>抽奖</b>
                 </a>
             </li>            
-        </ul>  
+        </ul>
         <h3 class="login-title pd30">美团服务</h3>
         <ul class="list-box w25 pd30 wallet-list">
             <li>

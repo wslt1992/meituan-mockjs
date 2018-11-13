@@ -32,10 +32,9 @@
     color: #999;
     background-color: #fff;
     width: 70vw;
-    height: 8vw;
-    line-height: 8vw;
-    border-radius: 4vw;
-    margin-left: -3vw;
+    height: 10vw;
+    line-height: 10vw;
+    border-radius: 6vw;
     a{
         color: #999;
         text-decoration: none;

@@ -30,14 +30,14 @@
     background-color: #eee;
     position: relative;
     .mint-header{
-        height: 11vw;
+        height: 16vw;
     }
 }
 .center{
         position: absolute;
-        top:1.6vw;
+        top:3vw;
         left:50%;
         // margin-top: 
-        margin-left: -28vw;
+        margin-left: -31vw;
     }
 </style>
