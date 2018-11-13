@@ -10,6 +10,9 @@ Vue.config.productionTip = false
 
 import './mockjs/app-mock';
 
+/**
+ * 可以在子vue中通过 this.$url调用
+ */
 Vue.prototype.$url = url;
 /* eslint-disable no-new */
 new Vue({
