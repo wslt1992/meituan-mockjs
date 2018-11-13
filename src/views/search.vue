@@ -3,12 +3,17 @@
         <lt-header>
             <div class="search-input">
                 <i class="iconfont icon-sousuo"></i>
-                <input type="text">
+                <input type="text" :placeholder="tips">
             </div>
         </lt-header>
         <div class="content">
             <div>
-                24242
+                <div class="class-tag">热门搜索</div>
+                <div class="class-tag-content">
+                    <span class="class-tag-item" v-for="item in hotArr" :key="item.id">
+                        {{ item }}
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -20,7 +25,8 @@
         },
         data:function() {
             return {
-                // key: value
+                tips: '广东长隆野生动物园',
+                hotArr:['热门搜索','热门搜索3123','热门4234搜索','热门搜5353索','热门53453搜索','热门搜索','热门搜索3123','热门4234搜索','热门搜5353索','热门53453搜索',]
             }
         },
     }
@@ -44,6 +50,24 @@
     input{
         border: none;
         outline: none;
+        font-size: 4.5vw;
+        color: #333;
     }
+}
+.content{
+    .class-tag{
+            text-align: start;
+        }
+    .class-tag-content{
+        display: flex;
+        flex-wrap: wrap;
+        .class-tag-item{
+            background-color: #ddd;
+            margin: 0.5vw;
+            border-radius: 1vw;
+            padding: 1vw;
+        }
+    }
+    
 }
 </style>
