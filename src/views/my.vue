@@ -8,9 +8,9 @@
             </div>
             <div class="login-entry">
                 <router-link to="/login">
-                <!-- <img src="" alt=""> -->
-                <i class="iconfont icon-touxiang-kong"></i>
-                <h2>{{userInfo.username}}</h2>
+                    <!-- <img src="" alt=""> -->
+                    <i class="iconfont icon-touxiang-kong"></i>
+                    <h2>{{userInfo.username}}</h2>
                 </router-link>
             </div>
         </div>
@@ -73,7 +73,7 @@
                     <b>抽奖</b>
                 </a>
             </li>            
-        </ul>
+        </ul>  
         <h3 class="login-title pd30">美团服务</h3>
         <ul class="list-box w25 pd30 wallet-list">
             <li>
@@ -158,12 +158,12 @@ a{text-decoration:none;}
 .line::after{border-bottom:1px solid #ddd;content:"";display:block;height:0;position:absolute;bottom:0;right:3vw;left:3vw;transform:scaleY(0.5);}
 
 /* 135deg渐变色 */
-.linear135-red{background-image:linear-gradient(135deg,#fb8297,#e9516c);filter:drop-shadow(1px 1px 1px rgba(250,94,119,0.3));}
-.linear135-green{background-image:linear-gradient(135deg,#03ebd8,#09b8b8);filter:drop-shadow(1px 1px 1px rgba(12,213,187,0.3));}
-.linear135-blue{background-image:linear-gradient(135deg,#7dc5fe,#68acec);filter:drop-shadow(1px 1px 1px rgba(104,172,236,0.3)
-);}
+.linear135-red{background-image:linear-gradient(135deg,#fb8297,#e9516c);}
+.linear135-green{background-image:linear-gradient(135deg,#03ebd8,#09b8b8);}
+.linear135-blue{background-image:linear-gradient(135deg,#7dc5fe,#68acec);}
 .linear135-orange{background-image:linear-gradient(135deg,#ffbb86,#fc9443);}
 
+/* 登录 设置 邮箱 耳机 */
 .login-box{background-color:#fff;height:100%;overflow-y:scroll;}
 .login-header{background-image:linear-gradient(180deg,#25abb1,#b9e7d7);background-repeat:no-repeat;background-size:100% 100%;overflow-x:hidden;padding-top:16vh;position:relative;z-index:10;}
 .login-menu{margin-bottom: 14vw;transition:background-color 0.1s linear;top:0;right:0;left:0;position:fixed;display:flex;flex-direction:row;padding:2.5vw 0 2.5vw 2.5vw;z-index:999;}
@@ -174,8 +174,12 @@ a{text-decoration:none;}
 .login-entry i,.login-entry img{font-size:16vw;display:inline-block;color:#aaa;background-color:#fff;border-radius:50%;border:1vw solid #fff;margin-top:-8vw;display:inline-block;width:16vw;height:16vw;}
 .login-entry h2{color:#333;font-size:4.2vw;margin-top:0.6vw;}
 
+/* 列表 */
 .list-box{display:flex;flex-direction:row;flex-wrap:wrap;position:relative;}
 .list-box li i{font-size:6.4vw;display:inline-block;}
+.list-box li i.icon-ico_home_committed{filter:drop-shadow(1px 1px 1px rgba(12,213,187,0.3));}
+.list-box li i.icon-xiaoxi{filter:drop-shadow(1px 1px 1px rgba(104,172,236,0.3));}
+.list-box li i.icon-star{filter:drop-shadow(1px 1px 1px rgba(250,94,119,0.3));}
 .list-box li p{color:#333;font-size:3.2vw;margin-top:2vw;}
 
 .main-list{padding:4vw 0;}
