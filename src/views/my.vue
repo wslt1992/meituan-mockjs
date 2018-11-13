@@ -107,7 +107,7 @@
              <li>
                  <a href="#">
                     <i class="iconfont icon-chongzhi01"></i>
-                    <p>关于灭团</p>
+                    <p>关于美团</p>
                 </a>
             </li>            
         </ul>
@@ -153,11 +153,11 @@ a{text-decoration:none;}
 .w33 li{width:33.3%}
 .w25 li{width:25%;}
 .pd30{padding-left:3vw;padding-right:3vw;}
-.line::after{border-bottom:1px solid #eee;content:"";display:block;height:0;position:absolute;bottom:0;right:3vw;left:3vw;transform:scaleY(0.5)}
+.line::after{border-bottom:1px solid #ddd;content:"";display:block;height:0;position:absolute;bottom:0;right:3vw;left:3vw;transform:scaleY(0.5);}
 
 .login-box{background-color:#fff;height:100%;overflow-y:scroll;}
-.login-header{background-image:linear-gradient(180deg,#25abb1,#b9e7d7);background-repeat:no-repeat;background-size:100% 100%;overflow-x:hidden;padding-top:19vh;;}
-.login-menu{margin-bottom: 14vw;transition:background-color 0.1s linear;top:0;right:0;left:0;position:absolute;display:flex;flex-direction:row;padding:2.5vw 0 2.5vw 2.5vw;z-index:999;}
+.login-header{background-image:linear-gradient(180deg,#25abb1,#b9e7d7);background-repeat:no-repeat;background-size:100% 100%;overflow-x:hidden;padding-top:16vh;;}
+.login-menu{margin-bottom: 14vw;transition:background-color 0.2s linear;top:0;right:0;left:0;position:absolute;display:flex;flex-direction:row;padding:2.5vw 0 2.5vw 2.5vw;z-index:999;}
 .login-menu i{margin-right:2.5vw;font-size:6.2vw;color:rgba(255,255,255,0.8);}
 .login-menu i.shezhi{margin-right:auto;}
 
