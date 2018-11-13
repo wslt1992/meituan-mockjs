@@ -1,11 +1,16 @@
 <template>
     <div>
         <lt-header>
-            <div class="root">
+            <div class="search-input">
                 <i class="iconfont icon-sousuo"></i>
                 <input type="text">
             </div>
         </lt-header>
+        <div class="content">
+            <div>
+                24242
+            </div>
+        </div>
     </div>
 </template>
 
@@ -24,16 +29,16 @@ import ltHeader from '../components/lt-header'
 </script>
 
 <style lang='scss' scoped>
-.root{
+.search-input{
     // border: 1px solid #ddd;
     font-size: 4vw;
     text-align: center;
     color: #999;
     background-color: #fff;
-    width: 60vw;
-    height: 8vw;
-    line-height: 8vw;
-    border-radius: 4vw;
+    width: 70vw;
+    height: 10vw;
+    line-height: 10vw;
+    border-radius: 5vw;
     a{
         color: #999;
         text-decoration: none;
