@@ -25,7 +25,8 @@ var url = {
     classtifyAll:'/classtifyall',
     searchPath:'/search',
     SearchResultPath:'/searchresult',
-    loginPath:'/login'
+    loginPath:'/login',
+    settingPath:'/setting'
   },
 
   /**

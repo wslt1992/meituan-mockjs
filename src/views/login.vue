@@ -145,13 +145,13 @@ input:focus{outline: none;border:none;}
 /* 获取短信验证码 */
 .login-btn{color:#fff;display: block;border:none;width:100%;height:12vw;border-radius:7vw;margin-top: 5.5vw;font-size:4.5vw;}
 .login-btn-bg1{background-color:rgba(7, 192, 179,0.3);}
-.login-btn-bg2{background-color:rgba(7, 192, 179,1);}
+.login-btn-bg2{background-color:rgba(7, 192, 179,1);box-shadow:0 1px 3px rgba(0,0,0,0.2)}
 /* 密码登录 */
 .login-pass,.login-code{color:#333;font-size: 3.5vw;text-align: left;margin-top: 5vw;}
 .login-code{display: flex;justify-content: space-between;}
 
 /* 登录方式  用户协议 */
-.login-footer{margin-top: 22.5vh;}
+.login-footer{margin-top: 13vh;}
 .login-footer i{width:17vw;height:17vw;border:1px solid #efefef;vertical-align: middle;display: inline-flex;align-items:center;justify-content: center;border-radius: 50%;margin:4.5vw 8.5vw;}
 .login-footer i.icon-weixin{font-size: 9vw;color:#54c33b;}
 .login-footer i.icon-QQ{font-size: 8vw;color:#0db9e6;}

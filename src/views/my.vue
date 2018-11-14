@@ -2,7 +2,9 @@
     <div class="login-box">
         <div class="login-header">
             <div class="login-menu" :class="{'menu-fixed':menuFixed}">
-                <i class="iconfont icon-shezhi shezhi"></i>
+                <router-link class="shezhi" to="/setting">
+                    <i class="iconfont icon-shezhi"></i>
+                </router-link>
                 <i class="iconfont icon-fuwuerji"></i>
                 <i class="iconfont icon-youxiang"></i>
             </div>
@@ -168,7 +170,7 @@ a{text-decoration:none;}
 .login-header{background-image:linear-gradient(180deg,#25abb1,#b9e7d7);background-repeat:no-repeat;background-size:100% 100%;overflow-x:hidden;padding-top:16vh;position:relative;z-index:10;}
 .login-menu{margin-bottom: 14vw;transition:background-color 0.1s linear;top:0;right:0;left:0;position:fixed;display:flex;flex-direction:row;padding:2.5vw 0 2.5vw 2.5vw;z-index:999;}
 .login-menu i{margin-right:2.5vw;font-size:6.2vw;color:rgba(255,255,255,0.8);}
-.login-menu i.shezhi{margin-right:auto;}
+.login-menu .shezhi{margin-right:auto;}
 
 .login-entry{background-color:#fff;width:110%;height:22vw;border-radius:50% 50% 0 0/50% 50% 0 0;margin-left:-5%;}
 .login-entry i,.login-entry img{font-size:16vw;display:inline-block;color:#aaa;background-color:#fff;border-radius:50%;border:1vw solid #fff;margin-top:-8vw;display:inline-block;width:16vw;height:16vw;}
