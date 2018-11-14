@@ -13,6 +13,7 @@ import Search from '@/views/search'
 import SearchResult from '@/views/search-result'
 import url from '../global/url'
 import Login from '@/views/login'
+import Setting from '@/views/setting'
 Vue.use(Mint)
 Vue.use(Router)
 
@@ -63,7 +64,7 @@ export default new Router({
       component: Search,
     },
     /**
-     * my页子页面
+     * login页面
      */
     {
       path:nav.loginPath,
@@ -77,7 +78,14 @@ export default new Router({
       path:nav.SearchResultPath,
       name:"SearchResult",
       component:SearchResult,
+    },
+    /**
+     * setting页面
+     */
+    {
+      path:nav.settingPath,
+      name:"login",
+      component:Setting,
     }
-    
   ]
 })
