@@ -19,19 +19,19 @@
         <ul class="list-box main-list w33 pd30 line">
             <li>
                 <a href="#">
-                    <i class="iconfont icon-star linear135-red"></i>
+                    <i class="iconfont icon-star linear135-red red-shadow"></i>
                     <p>收藏</p>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-xiaoxi linear135-blue"></i>
+                    <i class="iconfont icon-xiaoxi linear135-blue blue-shadow"></i>
                     <p>评价</p>
                 </a>
             </li>
             <li>
                  <a href="#">
-                    <i class="iconfont icon-ico_home_committed linear135-green"></i>
+                    <i class="iconfont icon-ico_home_committed linear135-green green-shadow"></i>
                     <p>最近浏览</p>
                 </a></li>     
         </ul>
@@ -115,6 +115,7 @@
                 </a>
             </li>            
         </ul>
+        <my-list-unit linearGradients="linearGradients"></my-list-unit>
     </div>
 </template>
 
@@ -127,7 +128,8 @@ export default {
                 username:"请点击登录",
                 userphoto:""
             },
-            menuFixed:false
+            menuFixed:false,
+            linearGradients:['linear135-red']
         }
     },
     methods:{
@@ -165,6 +167,11 @@ a{text-decoration:none;}
 .linear135-blue{background-image:linear-gradient(135deg,#7dc5fe,#68acec);}
 .linear135-orange{background-image:linear-gradient(135deg,#ffbb86,#fc9443);}
 
+/* 投影 */
+.red-shadow{filter:drop-shadow(1px 1px 1px rgba(250,94,119,0.3));}
+.blue-shadow{filter:drop-shadow(1px 1px 1px rgba(104,172,236,0.3));}
+.green-shadow{filter:drop-shadow(1px 1px 1px rgba(12,213,187,0.3));}
+
 /* 登录 设置 邮箱 耳机 */
 .login-box{background-color:#fff;height:100%;overflow-y:scroll;}
 .login-header{background-image:linear-gradient(180deg,#25abb1,#b9e7d7);background-repeat:no-repeat;background-size:100% 100%;overflow-x:hidden;padding-top:16vh;position:relative;z-index:10;}
@@ -179,9 +186,6 @@ a{text-decoration:none;}
 /* 列表 */
 .list-box{display:flex;flex-direction:row;flex-wrap:wrap;position:relative;}
 .list-box li i{font-size:6.4vw;display:inline-block;}
-.list-box li i.icon-ico_home_committed{filter:drop-shadow(1px 1px 1px rgba(12,213,187,0.3));}
-.list-box li i.icon-xiaoxi{filter:drop-shadow(1px 1px 1px rgba(104,172,236,0.3));}
-.list-box li i.icon-star{filter:drop-shadow(1px 1px 1px rgba(250,94,119,0.3));}
 .list-box li p{color:#333;font-size:3.2vw;margin-top:2vw;}
 
 .main-list{padding:4vw 0;}
