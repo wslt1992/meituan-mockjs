@@ -8,10 +8,10 @@
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="50">
- 
             <div v-for="(item,index) in items" :key="index" class="list-item">
-                <h1>{{item.id}}</h1>
+                <h6>{{item.id}}</h6>
                 <div class="item-left">
+                    <!-- <img :src='item.img' alt=""> -->
                     <img src="../assets/imgs/shop.jpg" alt="">
                 </div>
                 <div class="item-right">
@@ -36,7 +36,6 @@
 /**
  * 搜索后的结果页/搜索列表页
  */
-import axios from 'axios';
     export default {
         
         data:function(){
@@ -53,9 +52,8 @@ import axios from 'axios';
                 
             },
             requestData(){
-                axios.get(this.$url.listing).then((res)=>{
-                    console.log(res.data.list)
-                    this.items.push(...res.data.list)
+                this.$https.listing.request().then((data)=>{
+                    this.items.push(...data.list)
                 })
             }
         },

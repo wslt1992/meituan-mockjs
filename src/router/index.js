@@ -84,7 +84,7 @@ export default new Router({
      */
     {
       path:nav.settingPath,
-      name:"login",
+      name:"setting",
       component:Setting,
     }
   ]

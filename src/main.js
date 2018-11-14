@@ -8,7 +8,8 @@ import './style/style.css'
 import './assets/iconfont/iconfont.css'
 Vue.config.productionTip = false
 /**自动注册components中的组件,为index.js文件 */
-import './components'
+import './components/index.js'
+
 /**模拟数据 */
 import './mockjs/app-mock';
 
@@ -16,6 +17,13 @@ import './mockjs/app-mock';
  * 可以在子vue中通过 this.$url调用
  */
 url.registerInVue(Vue);
+
+/**https访问数据,为index.js文件
+ * 可以在子vue中通过 this.$url调用
+ */
+import https from  './https/index.js'
+https.registerInVue(Vue);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

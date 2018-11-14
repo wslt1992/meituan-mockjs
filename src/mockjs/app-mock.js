@@ -20,7 +20,8 @@ Mock.mock(url.indexClass2, {
 Mock.mock(url.listing, {
   "list|10": [{
     'id|+1': 0,
-    'img|1': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'],
+    // 'img|1': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'],
+    'img|1': ['../assets/imgs/shop.jpg','../assets/imgs/shop.jpg','../assets/imgs/shop.jpg','../assets/imgs/shop.jpg','../assets/imgs/shop.jpg','../assets/imgs/shop.jpg','../assets/imgs/shop.jpg','../assets/imgs/shop.jpg',],
     'shopname|1': [
       '正新鸡排',
       '撸天下音乐烧烤吧（坪洲店）',
