@@ -8,15 +8,20 @@
         </div>
         <div class="login-content">
             <h2 class="login-title">欢迎登录美团</h2>
-            <div class="phone-box">
+            <div class="phone-input">
                 <p>+86</p>
                 <i class="iconfont icon-arrowright"></i>
-                <input type="number" v-model="placeVal" @focus="placeFocus" @blur="placeBlur" :placeholder="placeTell">
+                <input type="tel" v-model="tellVal" @focus="placeFocus($event,'clearIcon')" @blur="placeBlur" @input="checkTell"  :data-placeholder="placeTell" :placeholder="placeTell">
                 <i v-show="clearIcon" @click="clearInput" class="iconfont icon-cha"></i>
             </div>
+            <div class="phone-input phone-pass" v-show="showPassInput">
+                <input :type="showPass ? 'text':'password'" @focus="placeFocus($event,'')" @blur="placeBlur" :data-placeholder="placePass" :placeholder="placePass">
+                <i class="iconfont" @click="showPassFn" :class="{'icon-biyanjing':!showPass,'icon-ai-eye':showPass}"></i>
+            </div>
             <p class="login-tips">未注册的手机号验证后自动创建美团账户</p>
-            <button class="login-btn" :class="{'login-btn-bg2':clearIcon,'login-btn-bg1':!clearIcon}">获取短信验证码</button>
-            <p class="login-pass">密码登录</p>
+            <button class="login-btn" :class="'login-btn-bg'+loginBtnBg">{{loginBtnTxt}}</button>
+            <p class="login-pass" v-show="!showPassInput" @click="showPassInputFn(1)">密码登录</p>
+            <p class="login-code" v-show="showPassInput"><span @click="showPassInputFn(2)">验证码登录</span><span>忘记密码</span></p>
         </div>
         <div class="login-footer">
             <i class="iconfont icon-weixin"></i>
@@ -34,22 +39,78 @@ export default {
     },
     data:function(){
         return {
-            placeTell:"请输入手机号",
-            placeVal:"",
-            clearIcon:false
+            placeTell:"请输入手机号", //手机号提示语
+            placePass:"请输入密码", //密码提示语
+            tellVal:"", // 手机号input的value值
+            clearIcon:false, //清除手机号内容 图标
+            showPass:false, //密码是否明文显示
+            loginBtnTxt:"获取短信验证码", //按钮文字
+            loginBtnBg:1, //按钮背景色
+            showPassInput:false //是否显示密码输入框
         }
     },
     methods:{
-        placeFocus:function(evt){
-            this.placeTell = "";
-            this.clearIcon = true;
+        /*
+         * 聚焦placeholder为空
+         */
+        placeFocus:function(evt,clearIcon){
+            let target = evt.target;
+            target.placeholder = "";
+            if(clearIcon!=''){
+                this.clearIcon = true;
+            }
         },
+        /*
+         * 清空input(手机号input)
+         */
         clearInput:function(){
-            this.placeVal = ""
+            this.tellVal = "";
+            this.loginBtnBg = 1; //清空input，按钮背景色为类型1
         },
-        placeBlur:function(){
-            this.placeTell = "请输入手机号";
-            this.clearIcon = false;
+        /*
+         * 失去焦点，placeholder赋值
+         */
+        placeBlur:function(evt,clearIcon){
+            let target = evt.target;
+            target.placeholder = target.dataset.placeholder;
+             if(clearIcon!=''){
+                this.clearIcon = false;
+            }
+        },
+        /*
+         * 改变密码是否显示明文状态
+         */
+        showPassFn:function(){
+            this.showPass = !this.showPass;
+        },
+         /*
+         * 改变按钮显示文字
+         */
+        showPassInputFn:function(type){
+            this.showPassInput = !this.showPassInput;
+            if(type==1){
+                this.loginBtnTxt = "登录";
+            }else if(type==2){
+                this.loginBtnTxt = "获取短信验证码";
+            }
+        },
+        /*
+         * 验证手机号限制11位
+         */
+        checkTell:function(){
+            let val = this.tellVal;
+            // 前3为后面加一个空格，后面每四位加一个空格，11位，只会出现两个空格
+            if(val.length==3||val.length==8){
+                // input type=tel，加空格才有效，如果是type=number，加空格无效
+                val = val+" ";
+            }
+
+            if(val.length>12){
+                val = val.substr(0,13);
+                 this.loginBtnBg = 2; //满足手机号验证后，按钮背景色类型为2
+            }
+
+            this.tellVal = val;
         }
     }
 }
@@ -67,16 +128,18 @@ input:focus{outline: none;border:none;}
 .icon-cha,.login-help p{color:#07c0b3;font-size:4.5vw;}
 
 /* 标题：欢迎登录美团*/
-.login-title{color:#333;font-size:7vw;text-align:left;margin-top:8vw;font-weight: normal;}
+.login-title{color:#333;font-size:7vw;text-align:left;margin-top:8vw;font-weight: normal;margin-bottom: 12vw;}
 
 /*  */
 .login-content{padding:0 7vw;}
-/* 手机号 */
-.phone-box{display: flex;flex-direction:row;justify-content: left;align-items: center;border-bottom:1px solid #ddd;padding:2.4vw 0;margin-top: 12vw;}
-.phone-box p{margin-right:1vw;color:#666;font-size:3.6vw;}
-.phone-box i{margin-right: 2.5vw;color:#888;font-size:3.2vw;}
-.phone-box input{height:8vw;width:58vw;border:none;font-size:5.2vw;}
-.phone-box input:focus{color:#07c0b3;-webkit-text-fill-color:transparent;text-shadow:0 0 0 #333;}
+/* 手机号 密码*/
+.phone-input{display: flex;flex-direction:row;justify-content: left;align-items: center;border-bottom:1px solid #ddd;padding:2.4vw 0;}
+.phone-input p{margin-right:1vw;color:#666;font-size:3.6vw;}
+.phone-input i{margin-right: 2.5vw;color:#888;font-size:3.2vw;}
+.phone-input input{height:8vw;width:58vw;border:none;font-size:5.2vw;}
+.phone-input input:focus{color:#07c0b3;-webkit-text-fill-color:transparent;text-shadow:0 0 0 #333;}
+.phone-input.phone-pass input{width:90%;}
+.phone-input.phone-pass i{font-size:4.2vw;color:#aaa;}
 /* 提示 */
 .login-tips{color:#999;font-size:3.6vw;margin-top: 2vw;text-align: left;}
 /* 获取短信验证码 */
@@ -84,7 +147,8 @@ input:focus{outline: none;border:none;}
 .login-btn-bg1{background-color:rgba(7, 192, 179,0.3);}
 .login-btn-bg2{background-color:rgba(7, 192, 179,1);}
 /* 密码登录 */
-.login-pass{color:#333;font-size: 3.5vw;text-align: left;margin-top: 5vw;}
+.login-pass,.login-code{color:#333;font-size: 3.5vw;text-align: left;margin-top: 5vw;}
+.login-code{display: flex;justify-content: space-between;}
 
 /* 登录方式  用户协议 */
 .login-footer{margin-top: 22.5vh;}
