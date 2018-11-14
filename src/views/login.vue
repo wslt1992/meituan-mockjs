@@ -151,7 +151,7 @@ input:focus{outline: none;border:none;}
 .login-code{display: flex;justify-content: space-between;}
 
 /* 登录方式  用户协议 */
-.login-footer{margin-top: 22.5vh;}
+.login-footer{margin-top: 13vh;}
 .login-footer i{width:17vw;height:17vw;border:1px solid #efefef;vertical-align: middle;display: inline-flex;align-items:center;justify-content: center;border-radius: 50%;margin:4.5vw 8.5vw;}
 .login-footer i.icon-weixin{font-size: 9vw;color:#54c33b;}
 .login-footer i.icon-QQ{font-size: 8vw;color:#0db9e6;}
