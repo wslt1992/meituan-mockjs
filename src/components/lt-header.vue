@@ -36,8 +36,13 @@
     position: relative;
     .mint-header{
         height: 16vw;
+    /deep/ .mintui.mintui-back{
+                font-size: 6vw;
+            }
     }
+    
 }
+
 .center{
         position: absolute;
         top:3vw;
@@ -46,5 +51,7 @@
         margin-left: -27vw;
     }
 }
+
+
 
 </style>
