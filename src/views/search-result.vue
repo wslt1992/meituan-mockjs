@@ -1,9 +1,21 @@
 <template>
-
     <div>
         <lt-header>
             <search-bar class="search-bar"></search-bar>
         </lt-header>
+
+        <!-- 选择器，选择菜分类、地区 、排序开始-->
+        <div class="seletor">
+            <bottom-menu>
+                <div class="seletor-bar">
+                    <span>全部分类</span>
+                    <span>全城</span>
+                    <span>智能排序</span>
+                </div>
+                <div slot='bottom'>下拉的列表</div>
+            </bottom-menu>
+        </div>
+        <!-- 选择器，选择菜分类、地区 、排序结束 -->
         <div class="content" 
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
@@ -40,6 +52,7 @@
         
         data:function(){
             return {
+                popupVisible:true,
                 loading:false,
                 items:[]
             }
@@ -64,6 +77,13 @@
 </script>
 
 <style lang='scss' scoped>
+    // 分类bar开始
+    .seletor-bar{
+        display: flex;
+        justify-content: space-around;
+    }
+    // 分类bar结束
+    // 列表开始
     .list-item{
         display: flex;
         flex-direction: row;
@@ -117,4 +137,5 @@
             
         }
     }
+    //列表结束
 </style>
