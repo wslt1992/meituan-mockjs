@@ -1,7 +1,10 @@
 // 首页
 <template>
     <div class="index-root"  id="mainContent">
-      <p>index首页</p>
+      <lt-header>
+        <span slot='left'>选择地区</span>
+        <search-bar></search-bar>
+      </lt-header>
       <!-- 轮播开始 -->
       <div class="mt-swipe">
         <mt-swipe :auto='2000'>
@@ -104,7 +107,7 @@ export default {
   data: function() {
     return {
       offsetTop:0,
-      items:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,]
+      items:[1,1,1,1,1,1,1,1,]
     };
   },
   methods:{

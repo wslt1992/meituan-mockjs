@@ -1,6 +1,9 @@
 <template>
 
     <div>
+        <lt-header>
+            <search-bar class="search-bar"></search-bar>
+        </lt-header>
         <div class="content" 
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
