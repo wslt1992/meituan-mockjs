@@ -60,7 +60,7 @@
 .zhezhao{
     position: absolute;
     height: 100vh;
-    width: 100vw;
+    width:115vw;
     // left:0;
     // right: 0;
     // top:0;
@@ -83,7 +83,7 @@
     }
     .pop-tag{
         position: absolute;
-        width:115vw;
+        width:100vw;
         background-color: #fff;
         font-size: 5vw;
     }

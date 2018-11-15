@@ -10,13 +10,21 @@
                 <div >
                     <span @click="switchBottom(0)">全部分类</span>
                 </div>
-                <div slot='bottom'><span>下拉的列表11111111111111111</span></div>
+                <div slot='bottom'>
+                    <div>类型1</div>
+                    <div>类型2</div>
+                    <div>类型3</div>
+                    </div>
             </bottom-menu>
             <bottom-menu class="seletor-bar" bottomleft="-36.3vw" :show="isBottomShow[1]">
                 <div>
                     <span @click="switchBottom(1)">全城</span>
                 </div>
-                <div slot='bottom' class="seletor-bar-bottom">下拉的列表222222222222222</div>
+                <div slot='bottom' class="seletor-bar-bottom">
+                    <div>深圳</div>
+                    <div>上海</div>
+                    <div>南京</div>
+                </div>
             </bottom-menu>
             <bottom-menu class="seletor-bar" bottomleft="-64.7vw" :show="isBottomShow[2]">
                 <div>
@@ -115,11 +123,6 @@
         // justify-content: space-around;
         .seletor-bar{
             flex-grow: 1;
-        }
-        .seletor-bar:nth-child(2){
-            .seletor-bar-bottom{
-                left:-33vw;
-            }
         }
     }
     
