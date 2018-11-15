@@ -33,7 +33,10 @@ var url = {
    * 调用后，在子组件vue中，可以使用this.$url调用
    * @param {*} Vue 
    */
-  registerInVue:function(Vue){
+  // registerInVue:function(Vue){
+  //   Vue.prototype.$url = url;
+  // },
+  install(Vue, options){
     Vue.prototype.$url = url;
   }
 }
