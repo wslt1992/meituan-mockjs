@@ -1,38 +1,98 @@
 <template>
     <div>
-        <lt-header>
+        <t-header>
             <search-bar class="search-bar"></search-bar>
-        </lt-header>
+        </t-header>
 
-        <!-- 选择器，选择菜分类、地区 、排序开始-->
-        <div class="seletor" >
-            <bottom-menu class="seletor-bar" :show="isBottomShow[0]">
-                <div >
-                    <span @click="switchBottom(0)">全部分类</span>
-                </div>
-                <div slot='bottom'>
-                    <div>类型1</div>
-                    <div>类型2</div>
-                    <div>类型3</div>
+        <div class="seletor">
+            <t-bottom-menu istopbottom='true'>
+                <div slot="top" class="seletor-bar">
+                    <p topclick>全部分类</p>
+                    <p topclick>全城</p>
+                    <p topclick>智能排序</p>
+                </div >
+                <div slot='bottom' class="bottom-menu-position">
+                    <div bottomshow>
+                        <t-right-menu >
+                            <div slot="left">
+                                <p leftclick>美食</p>
+                                <p leftclick>休闲娱乐</p>
+                                <p leftclick>生活服务</p>
+                                <p leftclick>宴会</p>
+                                <p leftclick>汽车服务</p>
+                                <p leftclick>结婚</p>
+                            </div>
+                            <div  slot='right'>
+                                <div rightshow>
+                                    <p >日本菜</p>
+                                    <p >饮品店</p>
+                                    <p >面包甜点</p>
+                                    <p >生日蛋糕</p>
+                                    <p >火锅</p>
+                                    <p >自助餐</p>
+                                    <p >日本料理</p>
+                                    <p >西餐</p>
+                                </div>
+                                <div rightshow>
+                                    <p >酒吧</p>
+                                </div>
+                                <div rightshow>
+                                    <p >照片冲洗</p>
+                                    <p >其他生活</p>
+                                </div>
+                                <div rightshow>
+                                    <p >特色餐厅</p>
+                                </div>
+                                <div rightshow>
+                                    <p >停车场</p>
+                                </div>
+                                <div rightshow>
+                                    <p >婚宴</p>
+                                </div>
+                            </div>
+                        </t-right-menu>
                     </div>
-            </bottom-menu>
-            <bottom-menu class="seletor-bar" bottomleft="-36.3vw" :show="isBottomShow[1]">
-                <div>
-                    <span @click="switchBottom(1)">全城</span>
+                    <div bottomshow>
+                        <t-right-menu >
+                            <div slot="left">
+                                <p leftclick>left1</p>
+                                <p leftclick>left2</p>
+                                <p leftclick>left3</p>
+                            </div>
+                            <div  slot='right'>
+                                <div rightshow>
+                                    <p >right21</p>
+                                    <p >right22</p>
+                                    <p >right23</p>
+                                    <p >right24</p>
+                                </div>
+                                <div rightshow>
+                                    <p >right21</p>
+                                    <p >right22</p>
+                                    <p >right23</p>
+                                    <p >right24</p>
+                                </div>
+                                <div rightshow>
+                                    <p >right31</p>
+                                    <p >right32</p>
+                                    <p >right33</p>
+                                    <p >right34</p>
+                                </div>
+                            </div>
+                        </t-right-menu>
+                    </div>
+                    <div bottomshow>
+                        <p >智能排序</p>
+                        <p >好评优先</p>
+                        <p >离我最近</p>
+                        <p >人均最低</p>
+                        <p >人气最高</p>
+                    </div>
                 </div>
-                <div slot='bottom' class="seletor-bar-bottom">
-                    <div>深圳</div>
-                    <div>上海</div>
-                    <div>南京</div>
-                </div>
-            </bottom-menu>
-            <bottom-menu class="seletor-bar" bottomleft="-64.7vw" :show="isBottomShow[2]">
-                <div>
-                    <span @click="switchBottom(2)">智能排序</span>
-                </div>
-                <div slot='bottom' class="seletor-bar-bottom">下拉的列表23333333333333333</div>
-            </bottom-menu>
+            </t-bottom-menu>
         </div>
+        <!-- 选择器，选择菜分类、地区 、排序开始-->
+        
         <!-- 选择器，选择菜分类、地区 、排序结束 -->
         <div class="content" 
         v-infinite-scroll="loadMore"
@@ -119,10 +179,24 @@
 <style lang='scss' scoped>
     // 分类bar开始
     .seletor{
-        display: flex;
         // justify-content: space-around;
         .seletor-bar{
-            flex-grow: 1;
+            display: flex;
+            >*{
+                flex-grow: 1;
+            }
+            .left-item{
+                
+            }
+            .right-item{
+
+            }
+        }
+        .bottom-menu-position{
+            width: 100%;
+            background-color: #fff;
+            position: absolute;
+            top:12vw;
         }
     }
     

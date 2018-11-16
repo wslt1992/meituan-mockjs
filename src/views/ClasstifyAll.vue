@@ -8,9 +8,9 @@
             <!-- </mt-header>
         </div> -->
         <!-- <search-bar class="search-bar"></search-bar> -->
-        <lt-header>
+        <t-header>
             <search-bar class="search-bar"></search-bar>
-        </lt-header>
+        </t-header>
         <div class="namelist-all">
             <div  v-for="item in namelistAll" :key="item.id">
                 <span>{{item.classtifyName}}</span>
