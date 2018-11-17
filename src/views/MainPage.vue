@@ -1,9 +1,7 @@
 <template>
   <div class="main-root">
     <div class="container">
-        <keep-alive>
             <router-view></router-view>
-        </keep-alive>
     </div>
     <div class="footer-tab">
         <mt-tabbar v-model="selected">
@@ -36,7 +34,7 @@
 import Vue from "vue";
 
 export default {
-  name: "main-root",
+  name: 'mainpage',
   data: function() {
     return {
       nameArray: ["首页", "附近", "发现", "订单", "我的"],

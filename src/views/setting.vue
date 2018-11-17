@@ -1,9 +1,11 @@
 <template>
     <div class="setting-container">
         <mt-header class="sett-header" fixed title="">
-            <router-link to="/" slot="left">
+            <!-- <router-link to="/" slot="left"> -->
+            <back-button slot="left">
                 <mt-button class="sett-back" icon="back">设置</mt-button>
-            </router-link>
+            </back-button>
+            <!-- </router-link> -->
         </mt-header>
         <div class="sett-list mt">
             <mt-cell title="个人信息" to="//my.vue" is-link></mt-cell>

@@ -30,7 +30,7 @@ export default new Router({
      */
     {
       path: nav.mainPage.selfpath,
-      name: 'MainPage',
+      name: 'mainpage',
       component: MainPage,
       children:[
         {
@@ -57,6 +57,9 @@ export default new Router({
       path: nav.classtifyAll,
       name: 'classtifyAll',
       component: ClasstifyAll,
+      meta: {
+        keepAlive: false // 需要被缓存
+      },
     },
     {
       path: nav.searchPath,
