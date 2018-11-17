@@ -11,7 +11,7 @@
                     <p topclick>全城</p>
                     <p topclick>智能排序</p>
                 </div >
-                <div slot='bottom' class="bottom-menu-position">
+                <div slot='bottom' class="bottom-menu-style">
                     <div bottomshow>
                         <t-right-menu >
                             <div slot="left">
@@ -192,8 +192,9 @@
 
             }
         }
-        .bottom-menu-position{
+        .bottom-menu-style{
             width: 100%;
+            height: 80vw;
             background-color: #fff;
             position: absolute;
             top:12vw;

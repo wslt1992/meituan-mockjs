@@ -1,5 +1,5 @@
 <template>
-    <div @click="$router.go(-1)">
+    <div @click="$router.back()">
         <slot></slot>
     </div>
 </template>
