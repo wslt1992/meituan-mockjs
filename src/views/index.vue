@@ -30,23 +30,24 @@
       <!-- 分类开始 -->
       <div class="classify">
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-meishi1"></i>
+          <!-- <img src="../assets/logo.png" alt=""> -->
           <p>美食</p>
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-dianying1"></i>
           电影/演出
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-jiudian1"></i>
           酒店住宿
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-kafeibei"></i>
           休闲娱乐
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-waimai"></i>
           外卖
         </div>
       </div>
@@ -54,43 +55,43 @@
       <!-- 分类全部开始 -->
       <div class="classify classifyAll">
         <div class="classify-item">
-        <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-peixun1"></i>
         <p>学习培训</p>
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-jiudian1"></i>
           <p>民宿/公寓</p>
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-lvyou"></i>
           <p>周边游/旅游</p>
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-meifa"></i>
           <p>丽人/美发</p>
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-sheying"></i>
           <p>结婚/摄影</p>
         </div>
         <div class="classify-item">
-        <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-market"></i>
         <p>闪购超市</p>
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-jingdian"></i>
           <p>景点/门票</p>
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-feijipiao"></i>
           <p>火车票/机票</p>
         </div>
         <div class="classify-item">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-zuliao"></i>
           <p>按摩/足疗</p>
         </div>
         <div class="classify-item" @click="navigatorTo('全部分类')">
-          <img src="../assets/logo.png" alt="">
+          <i class="icon iconfont icon-leimupinleifenleileibie"></i>
           <p>全部分类</p>
         </div>
       </div>
@@ -167,22 +168,66 @@ export default {
     .classify-item{
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    justify-content: center;
     align-items:center;
     box-sizing: border-box;
     // width: 20vw;
     width: vw(375*0.2);
     height: 20vw;
-    border:1px solid black;
-      img{
+    // border:1px solid black;
+      i{
+        line-height: 12vw;
+        font-size: 6vw;
+        border-radius: 50%;
         width: 12vw;
+        height: 12vw;
+        color:#fffe;
+        text-shadow: 1px 1px 2px #888a;
+        :before{
+          display: block;
+          
+        }
       }
+      
       p{
         margin: 0;
         padding: 0;
       }
     
     }
+    .classify-item:nth-child(1) i{
+        background-color: #7f4ce6;
+      }
+      .classify-item:nth-child(2) i{
+        background-color: #1c91e3;
+      }
+      .classify-item:nth-child(2) i{
+        background-color: #f5413d;
+      }
+      .classify-item:nth-child(3) i{
+        background-color: #6acf30;
+      }
+      .classify-item:nth-child(4) i{
+        background-color: #f73d87;
+      }
+      .classify-item:nth-child(5) i{
+        background-color: #f73d87;
+      }
+      .classify-item:nth-child(6) i{
+        background-color: #6acf30;
+      }
+      .classify-item:nth-child(7) i{
+        background-color: #6acf30;
+      }
+      .classify-item:nth-child(8) i{
+        background-color: #ffb400;
+      }
+      .classify-item:nth-child(9) i{
+        background-color: #00d3be;
+      }
+      .classify-item:nth-child(10) i{
+        background-color: #7f4ce6;
+      }
 }
 
 .classifyAll{
