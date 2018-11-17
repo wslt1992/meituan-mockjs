@@ -5,7 +5,7 @@
                 1
             </slot>
         </div>
-        <div >
+        <div v-show="currentIndex!==-1">
             <slot  class="bottom" name='bottom'>
                 2
             </slot>
@@ -34,26 +34,27 @@ import $ from 'jquery'
         data:function(){
             return {
                 show:false,
-                leftclicktagS:null,
-                rightShowS:null,
+                topclicktagS:null,
+                bottomShowS:null,
                 currentIndex:-1,
             }
         },
         mounted(){
-                let leftclicktagS =this.leftclicktagS= this.$el.querySelectorAll('[topclick]');
-                leftclicktagS.forEach((element,index) => {
+                let topclicktagS =this.topclicktagS= this.$el.querySelectorAll('[topclick]');
+                topclicktagS.forEach((element,index) => {
                     element.addEventListener('click', (event)=>{
+                        // console.log(index)
                         if(index===this.currentIndex){
                             this.hideRightALl()
                         }else{
                             this.currentIndex = index;
                             this.hideRightOther(index);
                         }
-                        
                         // console.log(index)
+                        
                     })})
-            let rightShowS = this.rightShowS=this.$el.querySelectorAll('[bottomshow]');
-                rightShowS.forEach((element,index) => {
+            let bottomShowS = this.bottomShowS=this.$el.querySelectorAll('[bottomshow]');
+                bottomShowS.forEach((element,index) => {
                     this.hideRightALl();
                 })
             
@@ -64,13 +65,13 @@ import $ from 'jquery'
             },
             
             hideRightALl(){
-                this.rightShowS.forEach(element => {
+                this.bottomShowS.forEach(element => {
                     $(element).hide();
                 });
                 this.currentIndex = -1;
             },
             hideRightOther(num){
-                this.rightShowS.forEach((element,index) => {
+                this.bottomShowS.forEach((element,index) => {
                     if(index===num){
                         $(element).show();
                     }else{

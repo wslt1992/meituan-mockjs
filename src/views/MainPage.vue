@@ -7,23 +7,23 @@
         <mt-tabbar v-model="selected">
             <mt-tab-item :id="nameArray[0]">
                 <img slot="icon" src="../assets/logo.png">
-                {{nameArray[0]}}
+                <span>{{nameArray[0]}}</span>
             </mt-tab-item>
             <mt-tab-item :id="nameArray[1]">
                 <img slot="icon" src="../assets/logo.png">
-                {{nameArray[1]}}
+                <span>{{nameArray[1]}}</span>
             </mt-tab-item>
             <mt-tab-item :id="nameArray[2]">
                 <img slot="icon" src="../assets/logo.png">
-                {{nameArray[2]}}
+                <span>{{nameArray[2]}}</span>
             </mt-tab-item>
             <mt-tab-item :id="nameArray[3]">
                 <img slot="icon" src="../assets/logo.png">
-                {{nameArray[3]}}
+                <span>{{nameArray[3]}}</span>
             </mt-tab-item>
             <mt-tab-item :id="nameArray[4]">
                 <img slot="icon" src="../assets/logo.png">
-                {{nameArray[4]}}
+                <span class="pan">{{nameArray[4]}}</span>
             </mt-tab-item>
         </mt-tabbar>
     </div>
@@ -65,7 +65,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 .main-root{
     display: flex;
     height: 100vh;
@@ -79,6 +79,10 @@ export default {
 }
 .footer-tab {
     height: 9vh;
+    
+    span{
+        font-size: 3.6vw;
+    }
   /* background-color: bisque; */
 }
 .mint-tabbar{
