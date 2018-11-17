@@ -1,9 +1,11 @@
 <template>
     <ul class="list-box"> 
-        <li v-for="item in lists" :style="{'width':listLen}">
-            <i  class="iconfont txt-transparent" :class="item.icon"></i>
-            <p>{{item.content}}</p>
-            <b v-if="item.tips">{{item.tips}}</b>
+        <li v-for="(item,index) in lists" :key="index" :style="{'width':listLen}">
+            <router-link :to="item.url">
+                <i  class="iconfont txt-transparent" :class="item.icon"></i>
+                <p>{{item.content}}</p>
+                <b v-if="item.tips">{{item.tips}}</b>
+            </router-link>
         </li>
     </ul>
 </template>
@@ -18,33 +20,39 @@ export default {
                     icon:'icon-star',
                     iconColor:'linear135-orange',
                     content:"我的钱包",
-                    tips:"提示"
+                    tips:"提示",
+                    url:""
                 },
                 {
                     icon:'icon-xiaoxi',
                     iconColor:'linear135-orange',
                     content:"红包/卡券",
-                    tips:""
+                    tips:"",
+                    url:""
                 }, {
                     icon:'icon-xiaoxi',
                     iconColor:'linear135-orange',
                     content:"余额",
-                    tips:""
+                    tips:"",
+                    url:""
                 }, {
                     icon:'icon-xiaoxi',
                     iconColor:'linear135-orange',
                     content:"美团信用卡",
-                    tips:""
+                    tips:"",
+                    url:""
                 }, {
                     icon:'icon-xiaoxi',
                     iconColor:'linear135-orange',
                     content:"理财",
-                    tips:""
+                    tips:"",
+                    url:""
                 }, {
                     icon:'icon-xiaoxi',
                     iconColor:'linear135-orange',
                     content:"手机充值",
-                    tips:""
+                    tips:"",
+                    url:""
                 }]
             }
         }
