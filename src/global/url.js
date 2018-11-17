@@ -26,7 +26,8 @@ var url = {
     searchPath:'/search',
     SearchResultPath:'/searchresult',
     loginPath:'/login',
-    settingPath:'/setting'
+    settingPath:'/setting',
+    myCollectionPath:'/my-collection'
   },
 
   /**

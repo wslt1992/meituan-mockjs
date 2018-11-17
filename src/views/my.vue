@@ -39,13 +39,16 @@ export default {
                 lists:[{
                     icon:'icon-star linear135-red red-shadow',
                     content:"收藏",
+                    url:"/my-collection"
                 },
                 {
                     icon:'icon-xiaoxi linear135-blue blue-shadow',
                     content:"评价",
+                    url:"/my-collection"
                 }, {
                     icon:'icon-ico_home_committed linear135-green green-shadow',
                     content:"最近浏览",
+                    url:"/my-collection"
                 }]
             },
             walletList:{ //美团钱包 列表信息
@@ -53,24 +56,30 @@ export default {
                 lists:[{
                     icon:'icon-star linear135-orange',
                     content:"我的钱包",
+                    url:"/my-collection"
                 },
                 {
                     icon:'icon-xiaoxi linear135-orange',
                     content:"红包/卡券",
-                    tips:"领卷"
+                    tips:"领卷",
+                    url:"/my-collection"
                 }, {
                     icon:'icon-qian linear135-orange',
                     content:"余额",
+                    url:"/my-collection"
                 }, {
                     icon:'icon-ico_home_committed linear135-orange',
                     content:"美团信用卡",
+                    url:"/my-collection"
                 }, {
                     icon:'icon-qiandai linear135-orange',
                     content:"理财",
+                    url:"/my-collection"
                 }, {
                     icon:'icon-meituan linear135-orange',
                     content:"手机充值",
-                    tips:"抽奖"
+                    tips:"抽奖",
+                    url:"/my-collection"
                 }]
             },
             serverList:{ //美团服务 列表信息
@@ -78,22 +87,28 @@ export default {
                 lists:[{
                     icon:'icon-star linear135-orange',
                     content:"会员中心",
+                    url:"/my-collection"
                 },
                 {
                     icon:'icon-xiaoxi linear135-orange',
                     content:"美团公益",
+                    url:"/my-collection"
                 }, {
                     icon:'icon-qian linear135-green',
                     content:"免流用美团",
+                    url:"/my-collection"
                 }, {
                     icon:'icon-ico_home_committed linear135-green',
                     content:"发票助手",
+                    url:"/my-collection"
                 }, {
                     icon:'icon-qiandai linear135-green',
                     content:"我要合作",
+                    url:"/my-collection"
                 }, {
                     icon:'icon-meituan linear135-green',
                     content:"关于美团",
+                    url:"/my-collection"
                 }]
             }
         }
