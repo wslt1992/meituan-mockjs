@@ -8,7 +8,7 @@
       </t-header>
       <!-- 轮播开始 -->
       <div class="mt-swipe">
-        <mt-swipe :auto='4000'>
+        <mt-swipe :auto='3000'>
           <mt-swipe-item>
             <img src="../assets/imgs/swiper1.jpg" alt="">
           </mt-swipe-item>
@@ -156,8 +156,8 @@ export default {
 .mt-swipe{
   height: 200px;
   img{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 60vw;
   }
 }
 .classify{
