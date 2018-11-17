@@ -6,23 +6,23 @@
     <div class="footer-tab">
         <mt-tabbar v-model="selected">
             <mt-tab-item :id="nameArray[0]">
-                <img slot="icon" src="../assets/logo.png">
+                <i class="icon iconfont icon-shouye"></i>
                 <span>{{nameArray[0]}}</span>
             </mt-tab-item>
             <mt-tab-item :id="nameArray[1]">
-                <img slot="icon" src="../assets/logo.png">
+                <i class="icon iconfont icon-icon-dingwei"></i>
                 <span>{{nameArray[1]}}</span>
             </mt-tab-item>
             <mt-tab-item :id="nameArray[2]">
-                <img slot="icon" src="../assets/logo.png">
+                <i class="icon iconfont icon-faxian1123"></i>
                 <span>{{nameArray[2]}}</span>
             </mt-tab-item>
             <mt-tab-item :id="nameArray[3]">
-                <img slot="icon" src="../assets/logo.png">
+                <i class="icon iconfont icon-icon-"></i>
                 <span>{{nameArray[3]}}</span>
             </mt-tab-item>
             <mt-tab-item :id="nameArray[4]">
-                <img slot="icon" src="../assets/logo.png">
+                <i class="icon iconfont icon-wo"></i>
                 <span class="pan">{{nameArray[4]}}</span>
             </mt-tab-item>
         </mt-tabbar>
@@ -79,7 +79,11 @@ export default {
 }
 .footer-tab {
     height: 9vh;
-    
+    i{
+        display: block;
+        font-size: 6vw;
+        margin-bottom: 2vw;
+    }
     span{
         font-size: 3.6vw;
     }
