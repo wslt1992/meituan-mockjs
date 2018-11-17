@@ -5,14 +5,32 @@
         </lt-header>
 
         <!-- 选择器，选择菜分类、地区 、排序开始-->
-        <div class="seletor">
-            <bottom-menu>
-                <div class="seletor-bar">
-                    <span>全部分类</span>
-                    <span>全城</span>
-                    <span>智能排序</span>
+        <div class="seletor" >
+            <bottom-menu class="seletor-bar" :show="isBottomShow[0]">
+                <div >
+                    <span @click="switchBottom(0)">全部分类</span>
                 </div>
-                <div slot='bottom'>下拉的列表</div>
+                <div slot='bottom'>
+                    <div>类型1</div>
+                    <div>类型2</div>
+                    <div>类型3</div>
+                    </div>
+            </bottom-menu>
+            <bottom-menu class="seletor-bar" bottomleft="-36.3vw" :show="isBottomShow[1]">
+                <div>
+                    <span @click="switchBottom(1)">全城</span>
+                </div>
+                <div slot='bottom' class="seletor-bar-bottom">
+                    <div>深圳</div>
+                    <div>上海</div>
+                    <div>南京</div>
+                </div>
+            </bottom-menu>
+            <bottom-menu class="seletor-bar" bottomleft="-64.7vw" :show="isBottomShow[2]">
+                <div>
+                    <span @click="switchBottom(2)">智能排序</span>
+                </div>
+                <div slot='bottom' class="seletor-bar-bottom">下拉的列表23333333333333333</div>
             </bottom-menu>
         </div>
         <!-- 选择器，选择菜分类、地区 、排序结束 -->
@@ -54,7 +72,8 @@
             return {
                 popupVisible:true,
                 loading:false,
-                items:[]
+                items:[],
+                isBottomShow:[false,false,false]
             }
         },
         methods:{
@@ -68,6 +87,27 @@
                 this.$https.listing.request().then((data)=>{
                     this.items.push(...data.list)
                 })
+            },
+            switchBottom(num){
+                switch (num){
+                    case 0:
+                    this.$set(this.isBottomShow,0,true)
+                    this.$set(this.isBottomShow,1,false)
+                    this.$set(this.isBottomShow,2,false)
+                        
+                    break;
+                    case 1:
+
+                    this.$set(this.isBottomShow,0,false)
+                    this.$set(this.isBottomShow,1,true)
+                    this.$set(this.isBottomShow,2,false)
+                    break;
+                    case 2:
+                        this.$set(this.isBottomShow,0,false)
+                        this.$set(this.isBottomShow,1,false)
+                        this.$set(this.isBottomShow,2,true)
+                    break;
+                }
             }
         },
         mounted:function(){
@@ -78,10 +118,14 @@
 
 <style lang='scss' scoped>
     // 分类bar开始
-    .seletor-bar{
+    .seletor{
         display: flex;
-        justify-content: space-around;
+        // justify-content: space-around;
+        .seletor-bar{
+            flex-grow: 1;
+        }
     }
+    
     // 分类bar结束
     // 列表开始
     .list-item{

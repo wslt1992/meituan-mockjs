@@ -16,13 +16,15 @@ import './mockjs/app-mock';
 /**
  * 可以在子vue中通过 this.$url调用
  */
-url.registerInVue(Vue);
+// url.registerInVue(Vue);
+Vue.use(url);
 
 /**https访问数据,为index.js文件
  * 可以在子vue中通过 this.$url调用
  */
 import https from  './https/index.js'
-https.registerInVue(Vue);
+Vue.use(https)
+// https.registerInVue(Vue);
 
 /* eslint-disable no-new */
 new Vue({
