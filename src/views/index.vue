@@ -8,18 +8,21 @@
       </t-header>
       <!-- 轮播开始 -->
       <div class="mt-swipe">
-        <mt-swipe :auto='2000'>
+        <mt-swipe :auto='4000'>
           <mt-swipe-item>
-            <img src="../assets/ds320_220.png" alt="">
+            <img src="../assets/imgs/swiper1.jpg" alt="">
           </mt-swipe-item>
           <mt-swipe-item>
-            <img src="../assets/ds50.png" alt="">
+            <img src="../assets/imgs/swiper2.jpg" alt="">
           </mt-swipe-item>
           <mt-swipe-item>
-            <img src="../assets/ds320_220.png" alt="">
+            <img src="../assets/imgs/swiper3.jpg" alt="">
           </mt-swipe-item>
           <mt-swipe-item>
-            <img src="../assets/ds50.png" alt="">
+            <img src="../assets/imgs/swiper4.jpg" alt="">
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="../assets/imgs/swiper5.jpg" alt="">
           </mt-swipe-item>
         </mt-swipe>
       </div>
@@ -152,6 +155,10 @@ export default {
 }
 .mt-swipe{
   height: 200px;
+  img{
+    width: 100%;
+    height: 100%;
+  }
 }
 .classify{
   display: flex;
