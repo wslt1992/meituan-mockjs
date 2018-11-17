@@ -1,9 +1,9 @@
 <template>
     <div class="login-box">
         <div class="login-help">
-            <back-button>
+            <t-back-button>
                 <i class="iconfont icon-cha"></i>
-            </back-button>
+            </t-back-button>
             <p>帮助</p>
         </div>
         <div class="login-content">
@@ -32,10 +32,8 @@
 </template>
 
 <script>
-import backButton from "../components/back-button";
 export default {
     components:{
-        "back-button":backButton
     },
     data:function(){
         return {

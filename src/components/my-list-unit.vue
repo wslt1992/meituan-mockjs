@@ -88,7 +88,7 @@ a{text-decoration:none;}
 /* 列表 */
 .list-box{display:flex;flex-direction:row;flex-wrap:wrap;position:relative;padding-top:4vw;}
 .list-box li{margin-bottom:5vw;position:relative;}
-.list-box li i{font-size:6.4vw;display:inline-block;color:#999;display:flex;justify-content: center;}
+.list-box li i{font-size:6.4vw;display:inline-block;color:#999;display:inline-flex;justify-content: center;min-width:6.5vw;min-height:6.5vw;;}
 .list-box li p{color:#333;font-size:3.2vw;margin-top:2vw;}
 .list-box li b{display:inline-block;padding:0.4vw 1.3vw;background-image:linear-gradient(90deg,#ff4548,#fe4b44);color:#ffffff;font-size:1.8vw;border-radius:3vw;text-align:center;position:absolute;left:55%;top:-1.4vw;}
 </style>

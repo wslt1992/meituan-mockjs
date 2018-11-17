@@ -1,45 +1,11 @@
 // 首页
 <template>
     <div class="index-root"  id="mainContent">
-      <right-menu>
-        <div slot="left">
-          <p leftclick>1</p>
-          <p leftclick>2</p>
-          <p leftclick>3</p>
-          <p leftclick>4</p>
-        </div >
-        <div  slot='right'>
-          <div rightshow>
-            <p >right1</p>
-            <p >right2</p>
-            <p >right3</p>
-            <p >right4</p>
-          </div>
-          <div rightshow>
-            <p >right21</p>
-            <p >right22</p>
-            <p >right23</p>
-            <p >right24</p>
-          </div>
-          <div rightshow>
-            <p >right31</p>
-            <p >right32</p>
-            <p >right33</p>
-            <p >right34</p>
-          </div>
-          <div rightshow>
-            <p >right41</p>
-            <p >right42</p>
-            <p >right43</p>
-            <p >right44</p>
-          </div>
-          
-        </div>
-      </right-menu>
-      <lt-header>
+      
+      <t-header>
         <span slot='left'>选择地区</span>
         <search-bar></search-bar>
-      </lt-header>
+      </t-header>
       <!-- 轮播开始 -->
       <div class="mt-swipe">
         <mt-swipe :auto='2000'>

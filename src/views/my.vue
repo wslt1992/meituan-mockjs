@@ -20,7 +20,7 @@
         <h3 class="login-title pd30">美团钱包</h3>
         <my-list-unit class="wallet-list pd30 line" :listMsg="walletList"></my-list-unit>
         <h3 class="login-title pd30">美团服务</h3>
-        <my-list-unit class="wallet-list pd30 line" :listMsg="serverList"></my-list-unit>
+        <my-list-unit class="wallet-list pd30" :listMsg="serverList"></my-list-unit>
     </div>
 </template>
 

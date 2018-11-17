@@ -1,12 +1,12 @@
 <template>
     <div>
-        <lt-header>
+        <t-header>
             <div class="search-input">
                 <i class="iconfont icon-sousuo"></i>
                 <input type="text" :placeholder="tips">
             </div>
             <span class="sousuo" slot='right' @click="toSearchRulter">搜索</span>
-        </lt-header>
+        </t-header>
         <div class="content">
             <div>
                 <div class="class-tag">热门搜索</div>
