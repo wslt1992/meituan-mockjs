@@ -2,9 +2,9 @@
     <div class="setting-container">
         <mt-header class="sett-header" fixed title="">
             <!-- <router-link to="/" slot="left"> -->
-            <back-button slot="left">
+            <t-back-button slot="left">
                 <mt-button class="sett-back" icon="back">设置</mt-button>
-            </back-button>
+            </t-back-button>
             <!-- </router-link> -->
         </mt-header>
         <div class="sett-list mt">

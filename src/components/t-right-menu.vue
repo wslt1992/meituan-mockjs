@@ -1,15 +1,11 @@
 <template>
-    <div class="right-menu-root">
-        <div class="left">
+    <div class="right-menu-root" :class="{'top-bottom':istopbottom}">
             <slot name='left' >
                 1
             </slot>
-        </div>
-        <div class="right">
             <slot name='right'>
                 2
             </slot>
-        </div>
     </div>
 </template>
 
@@ -19,9 +15,15 @@ import $ from 'jquery'
  * 左边被点击item需要添加‘[leftclick]’属性
  * 
  */
+
     export default {
         leftclickTag:'div',
         // leftclickTag:'[leftclick]',
+        props:{
+            istopbottom:{
+                default:false
+            }
+        },
         data:function(){
             return {
                 show:false,
@@ -36,10 +38,10 @@ import $ from 'jquery'
                         this.hideRightOther(index);
                         console.log(index)
                     })})
-            let rightShowS = this.rightShowS=this.$el.querySelectorAll('[rightshow]');
-                rightShowS.forEach((element,index) => {
-                    this.hideRightALl();
-                    })
+                let rightShowS = this.rightShowS=this.$el.querySelectorAll('[rightshow]');
+                    rightShowS.forEach((element,index) => {
+                        this.hideRightALl();
+                        })
             
         },
         methods:{
@@ -67,12 +69,18 @@ import $ from 'jquery'
 <style lang='scss' scoped>
 .right-menu-root{
     display: flex;
+    >*{
+        width: 100%;
+    }
     // flex-direction: column;
     .left{
-        width: 50%;
+        // width: 50%;
     }
     .right{
-        width: 50%;
+        // width: 50%;
     }
+}
+.top-bottom{
+    flex-direction: column;
 }
 </style>
