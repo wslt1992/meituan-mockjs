@@ -12,8 +12,8 @@
             <search-bar class="search-bar"></search-bar>
         </t-header>
         <div class="namelist-all">
-            <div  v-for="item in namelistAll" :key="item.id">
-                <span>{{item.classtifyName}}</span>
+            <div  v-for="(item,index) in namelistAll" :key="item.id">
+                <span><i class="icon iconfont" :class="iconClassName[index]"></i>{{item.classtifyName}}</span>
                 <classtify-item :nameArr='item.list'></classtify-item>
             </div>
         </div>
@@ -95,7 +95,8 @@ export default {
                     ]
                 }
                 
-            ]
+            ],
+            iconClassName:['icon-remen','icon-meishi1','icon-remen','icon-meishi1','icon-remen','icon-meishi1','icon-remen','icon-meishi1','icon-remen','icon-meishi1','icon-remen','icon-meishi1',]
             
         }
     },
@@ -123,8 +124,18 @@ export default {
             margin: 3vw 0;
             text-align: start;
             box-sizing: border-box;
+            i{
+                font-size: 5vw;
+                margin-right: 2vw;
+            }
         }
     }
+}
+.icon-remen{
+    color: #f5413d;
+}
+.icon-meishi1{
+    color: #7f4ce6;
 }
 </style>
 
