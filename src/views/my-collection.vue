@@ -23,7 +23,7 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 /* 顶部导航条 */
 .mint-header{background-color:#fff;height:13vw;border-bottom:1px solid #ddd;color:#555;font-size:4.4vw;font-weight:bold;}
 /deep/ .sett-header .mint-button-icon i{font-size: 6.5vw;}
