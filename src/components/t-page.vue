@@ -1,9 +1,9 @@
 <template>
     <div class="t-page-root">
-        <div name='header'>
+        <div class='header'>
             <slot name='header'></slot>
         </div>
-        <div name='container'>
+        <div class='container'>
             <slot name='container'></slot>
         </div>
         <div class="footer">
@@ -16,6 +16,9 @@
 
 <script>
     export default {
+        props:{
+            
+        },
         data() {
             return {
                 // key: value
@@ -28,15 +31,18 @@
 .t-page-root{
     display: flex;
     flex-direction: column;
+    height: 100%;
     .header{
         height: 20vw;
         width: 100%;
     }
     .container{
+        width: 100%;
         flex-grow: 1;
+        overflow-y: scroll;
     }
     .footer{
-        height: 20vw;
+        // height: 20vw;
         width: 100%;
     }
 
