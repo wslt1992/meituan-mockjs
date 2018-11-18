@@ -9,7 +9,9 @@
             </t-back-button>
         </mt-header>
         <tab-nav :navList="navList" v-model="activeNav" class="collection-nav"></tab-nav>
-        <star-level :score="stars"></star-level>
+        <div class="collection-list">
+            <good-item></good-item>
+        </div>
     </div>
 </template>
 <script>

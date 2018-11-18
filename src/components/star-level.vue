@@ -64,7 +64,7 @@ export default {
          * */
         halfStar:function(){
             let per = this.starFloat;
-            let str = `background-image:linear-gradient(90deg,#f36b1c ${per}%,#bbb ${per+1}%);`;
+            let str = `background-image:linear-gradient(90deg,#fb9d0e ${per}%,#cdcdcd ${per+1}%);`;
             return str;
         },
         grayStarFn:function(){
@@ -81,9 +81,9 @@ export default {
 *{margin:0;padding:0;box-sizing:border-box;}
 .stars{display: inline-flex;}
 i{display: inline-block;margin:0 0.5vw;}
-.light-star{color:#f36b1c;}
-.gray-star{color:#bbb;}
-.half-star{-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-image:linear-gradient(90deg,#f36b1c 50%,#bbb 51%);}
+.light-star{color:#fb9d0e;}
+.gray-star{color:#cdcdcd;}
+.half-star{-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-image:linear-gradient(90deg,#fb9d0e 50%,#cdcdcd 51%);}
 </style>
 
 
