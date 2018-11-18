@@ -19,7 +19,7 @@ export default {
     data:function(){
         return {
             stars:this.score,
-            maxStar:5,
+            maxStar:5, //星星最大数量
             grayStar:0,//灰色星星数量
             starInt:4, //评分整数部分，范围：1-5
             starFloat:50, //评分小数部分,范围：0-100,表示百分比
@@ -58,7 +58,6 @@ export default {
             // 4、赋值
             this.starFloat = numFloat;
             this.starInt = numInt;
-            console.log(this.starInt,this.starFloat);
         },
          /**
          * 部分高亮星星样式，利用背景渐变色实现，2中颜色百分比不同实现部分高亮部分灰色
@@ -74,7 +73,6 @@ export default {
                 i = 1;
             }
             this.grayStar = this.maxStar-this.starInt-i;
-            console.log(this.grayStar);
         }
     }
 }
