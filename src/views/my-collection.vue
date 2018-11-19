@@ -17,7 +17,7 @@
                 <p>您可以将喜欢的{{tabTitle}}收藏到这里</p>
             </div>
         </div>
-        <div v-for="(item,index2) in listMsg" :key="index2">{{item.title}}</div>
+        <!-- <div v-for="(item,index2) in listMsg" :key="index2">{{item.title}}</div> -->
     </div>
 </template>
 <script>
@@ -68,9 +68,6 @@ export default {
         this.listMsg = this.shopList;
     },
     watch:{
-        listMsg:{
-
-        },
         activeNav:function(newVal){
             let obj = newVal;
             this.tabTitle = obj.val;
