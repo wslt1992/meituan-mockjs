@@ -10,14 +10,18 @@
         </mt-header>
         <tab-nav :navList="navList" v-model="activeNav" class="collection-nav"></tab-nav>
         <div class="collection-list">
-            <good-item v-if="listMsg.length" v-for="(item,index) in listMsg" :key="index" :msg="item"></good-item>
+            <div v-if="listMsg.length!=0&&activeNav.index!='2'">
+                <good-item v-for="(item,index) in listMsg" :key="index" :msg="item"></good-item>
+            </div>
+            <div v-else-if="newsList.length!=0">
+                <news-item v-for="(item,index) in newsList" :key="index" :msg="item"></news-item>
+            </div>
             <div v-else>
                 <img src="" alt="">
                 <h2>暂无{{tabTitle}}收藏</h2>
                 <p>您可以将喜欢的{{tabTitle}}收藏到这里</p>
             </div>
         </div>
-        <!-- <div v-for="(item,index2) in listMsg" :key="index2">{{item.title}}</div> -->
     </div>
 </template>
 <script>
@@ -26,40 +30,48 @@ export default {
         return {
             stars:"3.6",//评分
             navList:['商家','商品','内容'],
-            activeNav:"0",
+            activeNav:"0", //组件返回的是对象，访问当前被点击对象学历号用activeNav.index
             shopList:[ //商家收藏
                 {
-                    title:"三鼎牛肉火锅城（共乐店）",
+                    title:"三鼎牛肉火锅城(共乐店)",
                     stars:"3.5",//评分
                     address:"地址 分类",
                     distance:"4.2", // 距离
-                    price:"55.0"
+                    averageConsume:"55.0"
                 },
                 {
                     title:"三鼎牛肉火锅城（共乐店）",
                     stars:"3.5",//评分
                     address:"地址 分类",
                     distance:"4.2", // 距离
-                    price:"55.0"
+                    averageConsume:"55.0"
                 },
                 {
                     title:"三鼎牛肉火锅城（共乐店）",
                     stars:"3.5",//评分
                     address:"地址 分类",
                     distance:"4.2", // 距离
-                    price:"55.0"
+                    averageConsume:"55.0"
                 }
             ],
             goodList:[//商品收藏
                 {
-                    title:"商品收藏",
-                    stars:"3.6",//评分
-                    address:"地址 分类",
-                    distance:"5", // 距离
-                    price:"55.0"
+                    title:"牛益广牛肉火锅",
+                    stars:"",//评分
+                    address:"",
+                    distance:"0.5", // 距离
+                    averageConsume:"",
+                    discountPrice:"18.8",
+                    originalPrice:31,
+                    details:"单人工作餐，包间免费，免预约"
                 }
             ], 
-            contentList:[], //内容收藏
+            newsList:[
+                // {
+                //     title:"为什么肯德基宁愿让顾客打包走，也不会赶走蹭坐的人？长见识了",
+                //     author:"娱乐乐翻天"
+                // }
+            ], //内容收藏
             listMsg:{},
             tabTitle:"商家"
         }
@@ -78,11 +90,10 @@ export default {
                 case "1":
                    this.listMsg = this.goodList;
                     break;
-                case "2":
-                    this.listMsg = this.contentList;
-                    break;
                 default:
             }
+            console.log(this.activeNav);
+        //    return obj.index;
         }
     }
 }
