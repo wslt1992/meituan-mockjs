@@ -57,6 +57,9 @@ export default {
             // 4、赋值
             this.starFloat = numFloat;
             this.starInt = numInt;
+
+            // 5、灰色星星数量
+            this.grayStarFn();
         },
          /**
          * 部分高亮星星样式，利用背景渐变色实现，2中颜色百分比不同实现部分高亮部分灰色
@@ -72,6 +75,14 @@ export default {
                 i = 1;
             }
             this.grayStar = this.maxStar-this.starInt-i;
+        }
+    },
+     /**
+     * 在父组件中评分值发生变化后，子组件刷新
+     * */
+    watch:{
+        score:function(newVal){
+            this.processSocre(newVal);
         }
     }
 }

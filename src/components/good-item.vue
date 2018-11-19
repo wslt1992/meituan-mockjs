@@ -11,7 +11,7 @@
             </div>
             <p>
                 <star-level class="item-score" :score='itemMsg.stars'></star-level>
-                人均:￥{{itemMsg.distance}}
+                人均:￥{{itemMsg.price}}
             </p>
             <p>{{itemMsg.address}}</p>
         </div>
@@ -35,6 +35,17 @@
         data:function(){
             return {
                 itemMsg:this.msg
+            }
+        },
+         /**
+         * 在父组件值发生变化后，子组件刷新
+         * */
+        watch:{
+            msg:function(){
+                // handler:function(){
+                    this.itemMsg = this.msg;
+                // },
+                // deep:true
             }
         }
     }
