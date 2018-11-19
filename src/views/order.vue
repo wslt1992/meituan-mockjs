@@ -273,7 +273,7 @@ export default {
             align-items: center;
             box-sizing: border-box;
             border-bottom: 0.3vw solid $gray;
-            padding-bottom: 0.4vw;
+            padding-bottom: 0.2vw;
         }
         div.active {
             border-bottom: 0.5vw solid $primary-color;
