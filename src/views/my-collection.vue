@@ -16,10 +16,13 @@
             <div v-else-if="newsList.length!=0">
                 <news-item v-for="(item,index) in newsList" :key="index" :msg="item"></news-item>
             </div>
-            <div v-else>
-                <img src="" alt="">
+            <div class="none-collection" v-else>
+                <img src="../assets/none_collection.png" alt="">
                 <h2>暂无{{tabTitle}}收藏</h2>
                 <p>您可以将喜欢的{{tabTitle}}收藏到这里</p>
+                <router-link class="view-btn" to="/">
+                    随便逛逛
+                </router-link>
             </div>
         </div>
     </div>
@@ -97,12 +100,21 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+a{text-decoration:none;}
+*{margin:0;padding:0;}
 /* 顶部导航条 */
-.mint-header{background-color:#fff;height:13vw;border-bottom:1px solid #ddd;color:#555;font-size:4.4vw;font-weight:bold;}
+.mint-header{background-color:#fff;height:13vw;border-bottom:1px solid #ddd;color:#555;font-size:4.4vw;font-weight:bold;padding:0 3vw;}
 /deep/ .sett-header .mint-button-icon i{font-size: 6.5vw;}
 
 /* 分类菜单 */
 .collection-nav{margin-top: 13vw;}
+/* 暂无收藏 */
+.none-collection{margin-top:22vw;}
+.none-collection img{width:40vw;}
+.none-collection h2{color:#333;font-size:4.6vw;margin-top: 2vw;}
+.none-collection p{font-size:4vw;margin-top: 0.2vw;color:#888;}
+/* 随便逛逛 按钮 */
+.view-btn{color:#25abb1;font-size:4vw;border:1px solid #25abb1;border-radius: 2px;box-shadow: 0 2px 3px rgba(0,0,0,0.2);background-color:#fff;margin-top:4vw;display:inline-block;padding:0 1.4vw;height:7.4vw;line-height: 8vw;}
 </style>
 
 
