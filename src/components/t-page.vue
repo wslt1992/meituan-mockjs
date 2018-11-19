@@ -3,8 +3,14 @@
         <div class='header'>
             <slot name='header'></slot>
         </div>
+        <div class='top-fix'>
+            <slot name='top-fix'></slot>
+        </div>
         <div class='container'>
             <slot name='container'></slot>
+        </div>
+        <div class='bottom-fix'>
+            <slot name='bottom-fix'></slot>
         </div>
         <div class="footer">
             <slot name='footer'></slot>

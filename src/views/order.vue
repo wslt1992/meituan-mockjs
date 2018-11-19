@@ -3,15 +3,20 @@
         <t-header-new :back='false' slot="header">
             <div slot="center" class="header" >订单</div>
         </t-header-new>
-        <div slot="container">
-            <t-tab checked-clazz='active' class="tab" v-model="selectedIndex">
+        <div slot="top-fix" class="top-fix">
+            <t-tab checked-clazz='active' class="tab" v-model="selectedIndex" >
                 <div>全部</div>
                 <div>待付款</div>
                 <div>待使用</div>
                 <div>待评价</div>
                 <div>退款/售后</div>
             </t-tab>
-            <order-item :items='items' ></order-item>
+        </div>
+        <div slot="container" class="container1">
+            <!-- <div class="container1"> -->
+            <order-item :items='items' class="list"></order-item>
+            <!-- </div> -->
+            
         </div>
     </t-page>
 </template>
@@ -214,6 +219,9 @@ export default {
       ]
     };
   },
+  mounted(){
+      this.switchTabContainer(0);
+  },
   methods:{
       /**
        * 切换tab内容
@@ -255,24 +263,31 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.container {
-  // tab开始
-  .tab {
-    div {
-      height: 10vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-      border-bottom: 0.3vw solid $gray;
-      padding-bottom: 0.4vw;
+.top-fix{
+     // tab开始
+    .tab {
+       div {
+            height: 12vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border-bottom: 0.3vw solid $gray;
+            padding-bottom: 0.2vw;
+        }
+        div.active {
+            border-bottom: 0.5vw solid $primary-color;
+            color: $primary-color;
+            padding-bottom: 0vw;
+        }
     }
-    div.active {
-      border-bottom: 0.5vw solid $primary-color;
-      color: $primary-color;
-      padding-bottom: 0vw;
-    }
-  }
-  // tab结束
+    // tab结束
 }
+.container1 {
+  position: relative;
+}
+.list{
+    overflow: scroll;
+}
+  
 </style>
