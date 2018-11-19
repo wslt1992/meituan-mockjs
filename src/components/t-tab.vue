@@ -34,6 +34,9 @@
             },
             chageEmit(newValue){
                 this.$emit('input',newValue)
+            },
+            initStartClass(val){
+                this.tabItemS[val].classList.add(this.checkedClass);
             }
         },
         mounted(){
@@ -46,7 +49,8 @@
                 })
             });
             this.checkedClass = this.$el.getAttribute(checkedClazz)
-            console.log('checkedClass111111111',this.checkedClass)
+
+            this.initStartClass(this.currentCheckedNum);
         },
         watch: {
             currentCheckedNum(newValue, oldValue) {
