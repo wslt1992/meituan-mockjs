@@ -34,7 +34,6 @@ export default {
          * 分离评分正数与小数
          * */
         processSocre:function(num){
-            console.log(Number(num));
             // 1、不是数值,评分改为默认值，并返回，是数值则进行后面的计算
             if(!Number(num)&&Number(num)!=0){
                 this.starInt = 4; //更新整数为默认值4
