@@ -10,7 +10,12 @@
         </mt-header>
         <tab-nav :navList="navList" v-model="activeNav" class="collection-nav"></tab-nav>
         <div class="collection-list">
-            <good-item></good-item>
+            <good-item v-if="listMsg.length" v-for="(item,index) in listMsg" :key="index" :msg="item"></good-item>
+            <div v-else>
+                <img src="" alt="">
+                <h2>暂无{{tabTitle}}收藏</h2>
+                <p>您可以将喜欢的{{tabTitle}}收藏到这里</p>
+            </div>
         </div>
     </div>
 </template>
@@ -19,8 +24,74 @@ export default {
     data:function(){
         return {
             stars:"3.6",//评分
-            navList:['全部','商品','内容'],
-            activeNav:"0"
+            navList:['商家','商品','内容'],
+            activeNav:"0",
+            shopList:[ //商家收藏
+                {
+                    title:"三鼎牛肉火锅城（共乐店）",
+                    stars:"3.5",//评分
+                    address:"地址 分类",
+                    distance:"4.2", // 距离
+                    price:"55.0"
+                },
+                {
+                    title:"三鼎牛肉火锅城（共乐店）",
+                    stars:"3.5",//评分
+                    address:"地址 分类",
+                    distance:"4.2", // 距离
+                    price:"55.0"
+                },
+                {
+                    title:"三鼎牛肉火锅城（共乐店）",
+                    stars:"3.5",//评分
+                    address:"地址 分类",
+                    distance:"4.2", // 距离
+                    price:"55.0"
+                }
+            ],
+            goodList:[//商品收藏
+                {
+                    title:"商品收藏",
+                    stars:"3.5",//评分
+                    address:"地址 分类",
+                    distance:"4.2", // 距离
+                    price:"55.0"
+                }
+            ], 
+            contentList:[], //内容收藏
+            listMsg:{},
+            tabTitle:"商家"
+        }
+    },
+    mounted:function(){
+        this.listMsg = this.shopList;
+        // this.changeListMsg(this.shopList);
+    },
+    methods:{
+        // changeListMsg:function(newObj){
+        //     this.listMsg = newObj;
+        // }
+    },
+    watch:{
+        listMsg:function(newVal){
+             this.listMsg = newVal;
+            //  this.changeListMsg(newVal);
+        },
+        activeNav:function(newVal){
+            let obj = newVal;
+            this.tabTitle = obj.val;
+            switch(obj.index){
+                case "0":
+                    this.listMsg = this.shopList;
+                    break;
+                case "1":
+                   this.listMsg = this.goodList;
+                    break;
+                case "2":
+                    this.listMsg = this.contentList;
+                    break;
+                default:
+            }
         }
     }
 }
