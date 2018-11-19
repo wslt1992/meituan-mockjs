@@ -92,8 +92,6 @@ export default {
                     break;
                 default:
             }
-            console.log(this.activeNav);
-        //    return obj.index;
         }
     }
 }
