@@ -33,7 +33,7 @@
     flex-direction: column;
     height: 100%;
     .header{
-        height: 20vw;
+        // height: 20vw;
         width: 100%;
     }
     .container{
