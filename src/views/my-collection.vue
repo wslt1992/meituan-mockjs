@@ -17,6 +17,7 @@
                 <p>您可以将喜欢的{{tabTitle}}收藏到这里</p>
             </div>
         </div>
+        <div v-for="(item,index2) in listMsg" :key="index2">{{item.title}}</div>
     </div>
 </template>
 <script>
@@ -52,9 +53,9 @@ export default {
             goodList:[//商品收藏
                 {
                     title:"商品收藏",
-                    stars:"3.5",//评分
+                    stars:"3.6",//评分
                     address:"地址 分类",
-                    distance:"4.2", // 距离
+                    distance:"5", // 距离
                     price:"55.0"
                 }
             ], 
@@ -63,19 +64,12 @@ export default {
             tabTitle:"商家"
         }
     },
-    mounted:function(){
+    created:function(){
         this.listMsg = this.shopList;
-        // this.changeListMsg(this.shopList);
-    },
-    methods:{
-        // changeListMsg:function(newObj){
-        //     this.listMsg = newObj;
-        // }
     },
     watch:{
-        listMsg:function(newVal){
-             this.listMsg = newVal;
-            //  this.changeListMsg(newVal);
+        listMsg:{
+
         },
         activeNav:function(newVal){
             let obj = newVal;
