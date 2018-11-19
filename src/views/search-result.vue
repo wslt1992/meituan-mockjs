@@ -149,7 +149,6 @@
             requestData(){
                 this.$https.listing.request().then((data)=>{
                     this.items.push(...data.list)
-                    console.log(this.items)
                 })
             },
             switchBottom(num){

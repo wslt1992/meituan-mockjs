@@ -41,11 +41,9 @@
         },
         mounted(){
             this.tabItemS = this.$el.querySelectorAll('.t-tab-root>*');
-            console.log(this.tabItemS)
             this.tabItemS.forEach((element,index) => {
                 element.addEventListener('click',()=>{
                     this.currentCheckedNum = index;
-                    console.log(this.currentCheckedNum,22222222222)
                 })
             });
             this.checkedClass = this.$el.getAttribute(checkedClazz)

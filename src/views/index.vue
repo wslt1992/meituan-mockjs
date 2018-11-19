@@ -126,7 +126,6 @@ export default {
     }
   },
   mounted() {
-    Toast('提示信息');
     axios.get(this.$url.listing).then(res => {
       console.log(res, this.$url.listing);
     });

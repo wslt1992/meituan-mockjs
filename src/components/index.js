@@ -18,7 +18,6 @@ requireComponent.keys().forEach(fileName => {
   //     fileName.replace(/^\.\/(.*)\.\w+$/, '$1') // 剥去文件名开头的 `'./` 和结尾的扩展名
   //   )
   // )
-      console.log(componentName)
   // 全局注册组件
   Vue.component(
     componentName,
