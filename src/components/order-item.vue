@@ -1,21 +1,27 @@
 <template>
-    <div>
-        <div v-for="(item,index) in items" :key="index" class="list-item">
-            <h6>{{item.id}}</h6>
-            <div class="item-left">
-                <!-- <img :src='item.img' alt=""> -->
-                <img src="../assets/imgs/shop.jpg" alt="">
-            </div>
-            <div class="item-right">
-                <div class="div-item">
-                    <span class="shopname">{{item.shopname}}</span>
-                    <span class="state">{{item.state}}</span>
+    <div class="order-item-root">
+        <template v-if="items.length > 0">
+            <div  v-for="(item,index) in items" :key="index" class="list-item">
+                <h6>{{item.id}}</h6>
+                <div class="item-left">
+                    <!-- <img :src='item.img' alt=""> -->
+                    <img src="../assets/imgs/shop.jpg" alt="">
                 </div>
-                <span class="time">下单时间：{{item.time}}</span>
-                <div class="div-item">
-                    <span class="price">￥{{item.price}}</span>
+                <div class="item-right">
+                    <div class="div-item">
+                        <span class="shopname">{{item.shopname}}</span>
+                        <span class="state">{{item.state}}</span>
+                    </div>
+                    <span class="time">下单时间：{{item.time}}</span>
+                    <div class="div-item">
+                        <span class="price">￥{{item.price}}</span>
+                    </div>
                 </div>
             </div>
+        </template>
+        <div v-else class="none-data">
+            <img src="../assets/none_collection.png" alt="">
+            <span>暂无内容</span>
         </div>
     </div>    
 </template>
@@ -31,11 +37,20 @@ export default {
     data () {
         return {
         }
-    }
+    },
+    methods: {
+        paduan() {
+            console.log(items.length>0,'items.length>-1')
+            return items.length > 0
+        }
+    },
 }
 </script>
 
 <style lang='scss' scoped>
+.order-item-root{
+    height: 100%;
+}
 .list-item{
         display: flex;
         flex-direction: row;
@@ -61,7 +76,6 @@ export default {
             .shopname{
                 font-size: 4.5vw;
                 font-weight: 600;
-                color: #222;
             }
             .time{
                 // font-size: 3.6vw;
@@ -81,5 +95,15 @@ export default {
             }
             
         }
+}
+.none-data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    img{
+        width: 40vw;
+    }
 }
 </style>

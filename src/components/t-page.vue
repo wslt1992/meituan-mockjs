@@ -39,16 +39,16 @@
     flex-direction: column;
     height: 100%;
     .header{
-        // height: 20vw;
         width: 100%;
+        color: #fff;
     }
     .container{
         width: 100%;
         flex-grow: 1;
         overflow-y: scroll;
+        height: 100%;
     }
     .footer{
-        // height: 20vw;
         width: 100%;
     }
 

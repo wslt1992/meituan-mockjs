@@ -1,11 +1,11 @@
 <template>
-    <t-page>
+    <t-page class="t-page-root">
         <t-header-new :back='false' slot="header">
             <div slot="center" class="header" >订单</div>
         </t-header-new>
         <div slot="top-fix" class="top-fix">
             <t-tab checked-clazz='active' class="tab" v-model="selectedIndex" >
-                <div>全部</div>
+                <div>全&emsp;部</div>
                 <div>待付款</div>
                 <div>待使用</div>
                 <div>待评价</div>
@@ -210,12 +210,12 @@ export default {
        * 售后
        */
       itemsNoAfterSales:[
-        {
-          shopname: "正新鸡排",
-          state: "售后",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
+        // {
+        //   shopname: "正新鸡排",
+        //   state: "售后",
+        //   price: 234,
+        //   time: "2018-03-24 18:34"
+        // },
       ]
     };
   },
@@ -256,6 +256,9 @@ export default {
 
 <style lang='scss' scoped>
 @import "../style/color.scss";
+.t-page-root{
+    color: $font-color;
+}
 .header {
   font-size: 5vw;
   height: 10vw;
@@ -267,7 +270,8 @@ export default {
      // tab开始
     .tab {
        div {
-            height: 12vw;
+           font-size: 4vw;
+            height: 13vw;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -284,7 +288,7 @@ export default {
     // tab结束
 }
 .container1 {
-  position: relative;
+    height: 100%;
 }
 .list{
     overflow: scroll;
