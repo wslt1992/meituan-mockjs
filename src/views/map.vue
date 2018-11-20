@@ -20,6 +20,16 @@
             jsapi.charset = 'utf-8';
             jsapi.src = url;
             document.head.appendChild(jsapi);
+
+
+            var map = new AMap.Map('container',{
+                zoom:12,
+                center:[116.39,39.9]
+            });
+            AMap.plugin('AMap.ToolBar',function(){//异步加载插件
+                var toolbar = new AMap.ToolBar();
+                map.addControl(toolbar);
+            });
         }
     }
 </script>
