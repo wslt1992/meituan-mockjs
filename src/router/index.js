@@ -12,10 +12,11 @@ import ClasstifyAll from '@/views/ClasstifyAll'
 import Search from '@/views/search'
 import SearchResult from '@/views/search-result'
 import url from '../global/url'
-import Login from '@/views/login'
-import Setting from '@/views/setting'
-import MyCollection from '@/views/my-collection'
-import LoginLerifyCode from '@/views/login-verify-code'
+import Login from '@/views/login' //登录
+import Setting from '@/views/setting' //个人设置
+import MyCollection from '@/views/my-collection' //我的收藏
+import LoginLerifyCode from '@/views/login-verify-code' //输入验证码
+import RecentView from '@/views/recent-view' //最近浏览
 Vue.use(Mint)
 Vue.use(Router)
 
@@ -85,7 +86,7 @@ export default new Router({
       component:SearchResult,
     },
     /**
-     * setting页面
+     * setting 个人设置页面
      */
     {
       path:nav.settingPath,
@@ -93,7 +94,7 @@ export default new Router({
       component:Setting,
     },
      /**
-     * my-collection页面
+     * my-collection 我的收藏页面
      */
     {
       path:nav.myCollectionPath,
@@ -101,12 +102,21 @@ export default new Router({
       component:MyCollection,
     },
      /**
-     * login-verify-code页面
+     * login-verify-code 验证码页面
      */
     {
       path:nav.loginLerifyCodePath,
       name:"login-verify-code",
       component:LoginLerifyCode,
     },
+    /**
+     * recent-view 最近浏览页面
+     */
+    {
+      path:nav.recentViewPath,
+      name:"recent-view",
+      component:RecentView,
+      
+    }
   ]
 })

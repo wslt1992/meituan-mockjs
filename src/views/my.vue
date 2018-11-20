@@ -49,7 +49,7 @@ export default {
                 }, {
                     icon:'icon-ico_home_committed linear135-green green-shadow',
                     content:"最近浏览",
-                    url:"/my-collection"
+                    url:"/recent-view"
                 }]
             },
             walletList:{ //美团钱包 列表信息
