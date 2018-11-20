@@ -16,9 +16,9 @@ import Login from '@/views/login'
 import Setting from '@/views/setting'
 import MyCollection from '@/views/my-collection'
 import map from '@/views/map'
-import Login from '@/views/login' //登录
-import Setting from '@/views/setting' //个人设置
-import MyCollection from '@/views/my-collection' //我的收藏
+import Login from '@/views/login' 
+import Setting from '@/views/setting'
+import MyCollection from '@/views/my-collection' 
 import LoginLerifyCode from '@/views/login-verify-code' //输入验证码
 import RecentView from '@/views/recent-view' //最近浏览
 Vue.use(Mint)
