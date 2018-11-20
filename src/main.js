@@ -12,6 +12,7 @@ import './components/index.js'
 
 /**模拟数据 */
 import './mockjs/app-mock';
+import './mockjs/my-mock'; //我的页面数据
 
 /**
  * 可以在子vue中通过 this.$url调用

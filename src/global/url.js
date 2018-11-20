@@ -5,6 +5,7 @@ var url = {
   indexClass2: '/data/indexClass2',
 
   listing: '/data/listing',
+  users:'/data/users', //用户信息
 
   /**
    * 导航路径

@@ -36,6 +36,11 @@ var https={
         //   // 逻辑...
         // }
         Vue.prototype.$https = https
+      },
+      users:{
+          request(){
+              return axios.get(url.users).then((res)=>res.data);
+          }
       }
 }
 

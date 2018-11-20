@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     components:{
     },
@@ -46,6 +47,18 @@ export default {
             loginBtnBg:1, //按钮背景色
             showPassInput:false //是否显示密码输入框
         }
+    },
+    mounted:function(){
+        // 获取用户数据
+        axios.get(this.$url.users).then((res)=>{
+            console.log(res,"用户信息");
+        }).catch((res)=>{
+            if(res instanceof Error){
+                console.log(res.message);
+            }else{
+                console.log(res.data);
+            }
+        });
     },
     methods:{
         /*
@@ -95,7 +108,8 @@ export default {
         /*
          * 验证手机号限制11位
          */
-        checkTell:function(){
+        checkTell:function(evt){
+            console.log(evt.target);
             let val = this.tellVal;
             // 前3为后面加一个空格，后面每四位加一个空格，11位，只会出现两个空格
             if(val.length==3||val.length==8){
