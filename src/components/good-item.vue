@@ -1,7 +1,7 @@
 <template>
     <div class="item">
         <div class="item-l">
-            <img class="item-img" src="../assets/imgs/shop.jpg" alt="">
+            <img class="item-img" src="../assets/imgs/shop1.jpg" alt="">
         </div>
         <div class="item-r">
             <div class="item-r-title">

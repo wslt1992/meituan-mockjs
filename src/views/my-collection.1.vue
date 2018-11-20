@@ -28,56 +28,59 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
 export default {
     data:function(){
         return {
             stars:"3.6",//评分
             navList:['商家','商品','内容'],
             activeNav:"0", //组件返回的是对象，访问当前被点击对象学历号用activeNav.index
-            shopList:[], //商家收藏
-            goodList:[], //商品收藏 
+            shopList:[ //商家收藏
+                {
+                    title:"三鼎牛肉火锅城(共乐店)",
+                    stars:"3.5",//评分
+                    address:"地址 分类",
+                    distance:"4.2", // 距离
+                    averageConsume:"55.0"
+                },
+                {
+                    title:"三鼎牛肉火锅城（共乐店）",
+                    stars:"3.5",//评分
+                    address:"地址 分类",
+                    distance:"4.2", // 距离
+                    averageConsume:"55.0"
+                },
+                {
+                    title:"三鼎牛肉火锅城（共乐店）",
+                    stars:"3.5",//评分
+                    address:"地址 分类",
+                    distance:"4.2", // 距离
+                    averageConsume:"55.0"
+                }
+            ],
+            goodList:[//商品收藏
+                {
+                    title:"牛益广牛肉火锅",
+                    stars:"",//评分
+                    address:"",
+                    distance:"0.5", // 距离
+                    averageConsume:"",
+                    discountPrice:"18.8",
+                    originalPrice:31,
+                    details:"单人工作餐，包间免费，免预约"
+                }
+            ], 
             newsList:[
                 // {
                 //     title:"为什么肯德基宁愿让顾客打包走，也不会赶走蹭坐的人？长见识了",
                 //     author:"娱乐乐翻天"
                 // }
             ], //内容收藏
-            listMsg:[],
+            listMsg:{},
             tabTitle:"商家"
         }
     },
     created:function(){
-        // 1、收藏商家
-         axios.get(this.$url.shops).then((res)=>{
-            let data = res.data;
-            this.shopList = data.shops;
-            // 首次进入页面显示的是商家收藏列表
-            this.listMsg = this.shopList;
-        }).catch((res)=>{
-            if(res instanceof Error){
-                console.log(res.message);
-            }else{
-                console.log(res.data);
-            }
-        });
-
-        // 2、收藏商品
-        this.collectionGoods();
-    },
-    methods:{
-        collectionGoods:function(){
-            axios.get(this.$url.goods).then((res)=>{
-                let data = res.data;
-                this.goodList = data.goods;
-            }).catch((res)=>{
-                if(res instanceof Error){
-                    console.log(res.message);
-                }else{
-                    console.log(res.data);
-                }
-            });
-        }
+        this.listMsg = this.shopList;
     },
     watch:{
         activeNav:function(newVal){

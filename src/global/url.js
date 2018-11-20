@@ -6,6 +6,8 @@ var url = {
 
   listing: '/data/listing',
   users:'/data/users', //用户信息
+  shops:'/data/shops', //收藏商家列表
+  goods:'/data/goods', //收藏商品列表
 
   /**
    * 导航路径
@@ -31,6 +33,12 @@ var url = {
     loginPath:'/login',
     settingPath:'/setting',
     myCollectionPath:'/my-collection',
+    loginPath:'/login', //登录
+    settingPath:'/setting', //个人设置
+    myCollectionPath:'/my-collection', //收藏
+    loginLerifyCodePath:"/login-verify-code", //输入验证码
+    recentViewPath:"/recent-view", //最近浏览
+
   },
 
   /**

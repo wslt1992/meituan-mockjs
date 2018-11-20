@@ -11,7 +11,7 @@
             <div class="phone-input">
                 <p>+86</p>
                 <i class="iconfont icon-arrowright"></i>
-                <input type="tel" v-model="tellVal" @focus="placeFocus($event,'clearIcon')" @blur="placeBlur" @input="checkTell"  :data-placeholder="placeTell" :placeholder="placeTell">
+                <input type="tel" v-model="tellVal" @keydown="getKeyCode" @focus="placeFocus($event,'clearIcon')" @blur="placeBlur" @input="checkTell"  :data-placeholder="placeTell" :placeholder="placeTell">
                 <i v-show="clearIcon" @click="clearInput" class="iconfont icon-cha"></i>
             </div>
             <div class="phone-input phone-pass" v-show="showPassInput">
@@ -19,8 +19,13 @@
                 <i class="iconfont" @click="showPassFn" :class="{'icon-biyanjing':!showPass,'icon-ai-eye':showPass}"></i>
             </div>
             <p class="login-tips">未注册的手机号验证后自动创建美团账户</p>
-            <button class="login-btn" :class="'login-btn-bg'+loginBtnBg" @click="login">{{loginBtnTxt}}</button>
+            <!-- 登录按钮 -->
+            <router-link :to="loginUrl">
+                <button class="login-btn" :class="'login-btn-bg'+loginBtnBg" @click="login">{{loginBtnTxt}}</button>
+            </router-link>
+
             <p class="login-pass" v-show="!showPassInput" @click="showPassInputFn(1)">密码登录</p>
+            
             <p class="login-code" v-show="showPassInput"><span @click="showPassInputFn(2)">验证码登录</span><span>忘记密码</span></p>
         </div>
         <div class="login-footer">
@@ -45,13 +50,15 @@ export default {
             showPass:false, //密码是否明文显示
             loginBtnTxt:"获取短信验证码", //按钮文字
             loginBtnBg:1, //按钮背景色
-            showPassInput:false //是否显示密码输入框
+            tellCode:"", //键盘事件，获取按键code，当code=8时，是按的backspace键
+            showPassInput:false, //是否显示密码输入框
+            loginUrl:'/login-verify-code'
         }
     },
     mounted:function(){
         // 获取用户数据
         axios.get(this.$url.users).then((res)=>{
-            console.log(res,"用户信息");
+            // console.log(res,"用户信息");
         }).catch((res)=>{
             if(res instanceof Error){
                 console.log(res.message);
@@ -61,6 +68,12 @@ export default {
         });
     },
     methods:{
+        /*
+         * 获取验证码
+         */
+        getVerifyCode:()=>{
+
+        },
         /*
          * 聚焦placeholder为空
          */
@@ -109,25 +122,43 @@ export default {
          * 验证手机号限制11位
          */
         checkTell:function(evt){
-            console.log(evt.target);
-            let val = this.tellVal;
+
+            let val = evt.target.value;
+
+            // 1、格式化手机号显示合格
             // 前3为后面加一个空格，后面每四位加一个空格，11位，只会出现两个空格
-            if(val.length==3||val.length==8){
+            // 如果是按的backspace键，就不进行以下操作
+            if(this.tellCode!=8&&(val.length==3||val.length==8)){
                 // input type=tel，加空格才有效，如果是type=number，加空格无效
                 val = val+" ";
             }
 
+            // 2、切换登录按钮背景
             if(val.length>12){
                 val = val.substr(0,13);
                  this.loginBtnBg = 2; //满足手机号验证后，按钮背景色类型为2
             }
-
             this.tellVal = val;
         },
-        /** */
-        login(){
+        /**
+         * 获取键盘对应的code码
+         *
+         */
+        getKeyCode:function(evt){
+           this.tellCode = evt.keyCode;
+        },
+        /** 
+         * 点击登录按钮
+        */
+        login(evt){
+            let btnTxt = evt.target.innerText;
+            if(btnTxt=="获取验证码"){
+
+            }else if(btnTxt=="登录"){
+
+            }
+
              let username =this.$store.state.user.username;//获取状态
-             console.log(username,'username')
              //改变状态
              this.$store.commit('user/changeLoginState','登录成功')
         }
