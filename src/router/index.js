@@ -12,6 +12,10 @@ import ClasstifyAll from '@/views/ClasstifyAll'
 import Search from '@/views/search'
 import SearchResult from '@/views/search-result'
 import url from '../global/url'
+import Login from '@/views/login'
+import Setting from '@/views/setting'
+import MyCollection from '@/views/my-collection'
+import map from '@/views/map'
 import Login from '@/views/login' //登录
 import Setting from '@/views/setting' //个人设置
 import MyCollection from '@/views/my-collection' //我的收藏
@@ -40,6 +44,14 @@ export default new Router({
           path: nav.mainPage.children.indexPath,
           name: 'index',
           component: Index
+        },
+         /**
+         * 附近页面,map
+         */
+        {
+          path:nav.mainPage.children.mapFullPath,
+          name:"map",
+          component:map,
         },
         {
           path: nav.mainPage.children.myPath,
@@ -101,6 +113,7 @@ export default new Router({
       name:"my-collection",
       component:MyCollection,
     },
+    
      /**
      * login-verify-code 验证码页面
      */

@@ -18,6 +18,8 @@ var url = {
       children:{
         indexPath: 'index',
         indexFullPath:'/mainpage/index',
+        mapPath:'/map',
+        mapFullPath:'/mainpage/map',
         orderPath: 'order',
         orderFullPath:'/mainpage/order',
         myPath: 'my',
@@ -28,6 +30,9 @@ var url = {
     classtifyAll:'/classtifyall',
     searchPath:'/search',
     SearchResultPath:'/searchresult',
+    loginPath:'/login',
+    settingPath:'/setting',
+    myCollectionPath:'/my-collection',
     loginPath:'/login', //登录
     settingPath:'/setting', //个人设置
     myCollectionPath:'/my-collection', //收藏
