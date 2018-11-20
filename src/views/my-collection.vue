@@ -16,14 +16,7 @@
             <div v-else-if="newsList.length!=0">
                 <news-item v-for="(item,index) in newsList" :key="index" :msg="item"></news-item>
             </div>
-            <div class="none-collection" v-else>
-                <img src="../assets/none_collection.png" alt="">
-                <h2>暂无{{tabTitle}}收藏</h2>
-                <p>您可以将喜欢的{{tabTitle}}收藏到这里</p>
-                <router-link class="view-btn" to="/">
-                    随便逛逛
-                </router-link>
-            </div>
+            <none-content v-else :title="contitle" :tips="contips"></none-content>
         </div>
     </div>
 </template>
@@ -44,7 +37,8 @@ export default {
                 // }
             ], //内容收藏
             listMsg:[],
-            tabTitle:"商家"
+            contitle:"",
+            contips:""
         }
     },
     created:function(){
@@ -67,9 +61,35 @@ export default {
     },
     methods:{
         collectionGoods:function(){
+            let goods = [];
             axios.get(this.$url.goods).then((res)=>{
                 let data = res.data;
-                this.goodList = data.goods;
+                goods = data.goods;
+
+                // let pormise = new Promise();
+                // let arr = [];
+                // promise.then((res)=>{
+                //     return new Promise((success,fail)=>{
+                //         consle.log(goods);
+                //     });
+                // }).then((res)=>{
+                //     return new Promise((success,fail)=>{
+                //         arr = goods.map(function(item,inex){
+                //             item.stars = "";
+                //             return item;
+                //         });
+                //         console.log(arr);
+                //     });
+                // }).catch((err)=>{
+                //     console.log(err);
+                // });
+                
+                // 加入评分 
+                this.goodList = goods.map(function(item,inex){
+                    item.stars = "";
+                    return item;
+                });
+                
             }).catch((res)=>{
                 if(res instanceof Error){
                     console.log(res.message);
@@ -82,7 +102,8 @@ export default {
     watch:{
         activeNav:function(newVal){
             let obj = newVal;
-            this.tabTitle = obj.val;
+            this.contitle = "暂无"+obj.val+"收藏";
+            this.contips = "您可以将喜欢的"+obj.val+"收藏到这里";
             switch(obj.index){
                 case "0":
                     this.listMsg = this.shopList;
@@ -104,7 +125,8 @@ a{text-decoration:none;}
 /deep/ .sett-header .mint-button-icon i{font-size: 6.5vw;}
 
 /* 分类菜单 */
-.collection-nav{margin-top: 13vw;}
+.collection-nav{top: 13vw;position:fixed;right:0;left:0;}
+.collection-list{margin-top: 25vw;}
 /* 暂无收藏 */
 .none-collection{margin-top:22vw;}
 .none-collection img{width:40vw;}

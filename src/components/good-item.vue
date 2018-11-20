@@ -9,7 +9,7 @@
                  <span v-if="itemMsg.stars">￥</span>
                  <b>&lt;{{itemMsg.distance}}km</b>
             </div>
-            <p v-if="itemMsg.stars">
+            <p v-if="itemMsg.stars!=''">
                 <star-level class="item-score" :score='itemMsg.stars'></star-level>
                 人均:￥{{itemMsg.averageConsume}}
             </p>

@@ -36,17 +36,17 @@ Mock.mock(url.users,{
     ]
 })
 
-// 收藏商家
+// 收藏商家，最近浏览
 Mock.mock(url.shops,{
-	"shops|4":[
+	"shops|3-6":[
 		{
 			"title|1":Random.ctitle(3,20),
-			"stars|0-5.0-1":1,
+            "stars|0-5.0-1":1,
 			"address|1":[
-                "湖北省 黄石",
-                "广东省 深圳市",
-                "湖北省 恩施市",
-                "四川省 郫县 古城镇"
+                "江汉 串串香",
+                "光谷 麻辣烫",
+                "杨家湾 烧烤",
+                "雄楚大道 牛肉火锅"
             ],
 			"distance|0-20.0-1":1,
 			"averageConsume|0-1000.0-2":1
