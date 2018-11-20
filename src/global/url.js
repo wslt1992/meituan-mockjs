@@ -6,7 +6,8 @@ var url = {
 
   listing: '/data/listing',
   users:'/data/users', //用户信息
-  shops:'/data/shops', //收藏商品列表
+  shops:'/data/shops', //收藏商家列表
+  goods:'/data/goods', //收藏商品列表
 
   /**
    * 导航路径

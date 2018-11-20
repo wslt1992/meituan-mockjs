@@ -36,15 +36,33 @@ Mock.mock(url.users,{
     ]
 })
 
-// 搜藏商家
+// 收藏商家
 Mock.mock(url.shops,{
 	"shops|4":[
 		{
 			"title|1":Random.ctitle(3,20),
 			"stars|0-5.0-1":1,
-			"address|1":Random.csentence(),
+			"address|1":[
+                "湖北省 黄石",
+                "广东省 深圳市",
+                "湖北省 恩施市",
+                "四川省 郫县 古城镇"
+            ],
 			"distance|0-20.0-1":1,
 			"averageConsume|0-1000.0-2":1
 		}	
 	]
 })
+
+// 收藏商品
+Mock.mock(url.goods,{
+    "goods|3":[
+        {
+            "title|1":Random.ctitle(4,20),
+            "distance|0-50.0-1":1,
+            "discountPrice|0-200.0-2":1,
+            "originalPrice|200-400.0-2":1,
+            "details|1":Random.csentence(5,30)
+        }
+    ]
+});

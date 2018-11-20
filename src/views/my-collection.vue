@@ -36,18 +36,7 @@ export default {
             navList:['商家','商品','内容'],
             activeNav:"0", //组件返回的是对象，访问当前被点击对象学历号用activeNav.index
             shopList:[], //商家收藏
-            goodList:[//商品收藏
-                // {
-                //     title:"牛益广牛肉火锅",
-                //     stars:"",//评分
-                //     address:"",
-                //     distance:"0.5", // 距离
-                //     averageConsume:"",
-                //     discountPrice:"18.8",
-                //     originalPrice:31,
-                //     details:"单人工作餐，包间免费，免预约"
-                // }
-            ], 
+            goodList:[], //商品收藏 
             newsList:[
                 // {
                 //     title:"为什么肯德基宁愿让顾客打包走，也不会赶走蹭坐的人？长见识了",
@@ -59,7 +48,7 @@ export default {
         }
     },
     created:function(){
-        // 商家收藏
+        // 1、收藏商家
          axios.get(this.$url.shops).then((res)=>{
             let data = res.data;
             this.shopList = data.shops;
@@ -73,13 +62,24 @@ export default {
             }
         });
 
-        
+        // 2、收藏商品
+        this.collectionGoods();
+    },
+    methods:{
+        collectionGoods:function(){
+            axios.get(this.$url.goods).then((res)=>{
+                let data = res.data;
+                this.goodList = data.goods;
+            }).catch((res)=>{
+                if(res instanceof Error){
+                    console.log(res.message);
+                }else{
+                    console.log(res.data);
+                }
+            });
+        }
     },
     watch:{
-        // listMsg:function(newVal){
-        //     console.log(this.listMsg,newVal);
-        //     this.listMsg = newVal;
-        // },
         activeNav:function(newVal){
             let obj = newVal;
             this.tabTitle = obj.val;
