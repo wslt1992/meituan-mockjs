@@ -15,6 +15,7 @@ import url from '../global/url'
 import Login from '@/views/login'
 import Setting from '@/views/setting'
 import MyCollection from '@/views/my-collection'
+import map from '@/views/map'
 Vue.use(Mint)
 Vue.use(Router)
 
@@ -38,6 +39,14 @@ export default new Router({
           path: nav.mainPage.children.indexPath,
           name: 'index',
           component: Index
+        },
+         /**
+         * 附近页面,map
+         */
+        {
+          path:nav.mainPage.children.mapFullPath,
+          name:"map",
+          component:map,
         },
         {
           path: nav.mainPage.children.myPath,
@@ -99,5 +108,6 @@ export default new Router({
       name:"my-collection",
       component:MyCollection,
     },
+    
   ]
 })

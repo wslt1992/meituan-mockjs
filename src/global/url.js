@@ -16,6 +16,8 @@ var url = {
       children:{
         indexPath: 'index',
         indexFullPath:'/mainpage/index',
+        mapPath:'/map',
+        mapFullPath:'/mainpage/map',
         orderPath: 'order',
         orderFullPath:'/mainpage/order',
         myPath: 'my',
@@ -28,7 +30,7 @@ var url = {
     SearchResultPath:'/searchresult',
     loginPath:'/login',
     settingPath:'/setting',
-    myCollectionPath:'/my-collection'
+    myCollectionPath:'/my-collection',
   },
 
   /**

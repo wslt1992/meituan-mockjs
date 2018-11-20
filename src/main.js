@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 import url from './global/url'
+import global from './global/global.js'
 import './style/style.css'
 import './assets/iconfont/iconfont.css'
 Vue.config.productionTip = false
@@ -21,6 +22,8 @@ import './mockjs/my-mock'; //我的页面数据
 // url.registerInVue(Vue);
 Vue.use(url);
 
+// 注册全局变量
+Vue.use(global);
 /**https访问数据,为index.js文件
  * 可以在子vue中通过 this.$url调用
  */
@@ -30,6 +33,7 @@ Vue.use(https)
 
 /* eslint-disable no-new */
 import store from './store/index'
+
 new Vue({
   el: '#app',
   router,
@@ -37,3 +41,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
