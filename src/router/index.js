@@ -15,6 +15,7 @@ import url from '../global/url'
 import Login from '@/views/login'
 import Setting from '@/views/setting'
 import MyCollection from '@/views/my-collection'
+import LoginLerifyCode from '@/views/login-verify-code'
 Vue.use(Mint)
 Vue.use(Router)
 
@@ -98,6 +99,14 @@ export default new Router({
       path:nav.myCollectionPath,
       name:"my-collection",
       component:MyCollection,
+    },
+     /**
+     * login-verify-code页面
+     */
+    {
+      path:nav.loginLerifyCodePath,
+      name:"login-verify-code",
+      component:LoginLerifyCode,
     },
   ]
 })
