@@ -12,9 +12,6 @@ import ClasstifyAll from '@/views/ClasstifyAll'
 import Search from '@/views/search'
 import SearchResult from '@/views/search-result'
 import url from '../global/url'
-import Login from '@/views/login'
-import Setting from '@/views/setting'
-import MyCollection from '@/views/my-collection'
 import map from '@/views/map'
 import Login from '@/views/login' //登录
 import Setting from '@/views/setting' //个人设置
