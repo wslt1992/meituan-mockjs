@@ -31,6 +31,7 @@ export default {
 <style lang="scss" scoped>
 a{text-decoration:none;}
 *{margin:0;padding:0;}
+input:focus{border:none;outline: none;}
 /* 顶部导航条 */
 .verify-container{text-align:left;padding:0 11vw;margin-top: 25vw;}
 .mint-header{background-color:#fff;height:13vw;color:#555;font-size:4.4vw;font-weight:bold;padding:0 3vw;}
