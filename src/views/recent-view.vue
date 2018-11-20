@@ -9,20 +9,35 @@
             </t-back-button>
         </mt-header>
         <div class="view-list">
-            <!-- <good-item v-for="(item,index) in listMsg" :key="index" :msg="item"></good-item> -->
-            <none-content title="最近还没有浏览" tips="" btntxt="去逛逛吧~~"></none-content>
+            <div v-if="viewList.length!=0">
+                <good-item v-for="(item,index) in viewList" :key="index" :msg="item"></good-item>
+            </div>
+            <div v-else>
+                <none-content title="最近还没有浏览" tips="" btntxt="去逛逛吧~~"></none-content>
+            </div>
         </div>
     </div>
 </template>
 <script>
+import axios from "axios"
 export default {
     data:function(){
         return {
             viewList:[]
         }
     },
-    mounted:function(){
-        
+    created:function(){
+        axios.get(this.$url.shops).then((res)=>{
+            let data = res.data;
+            this.viewList = data.shops;
+            console.log(data);
+        }).catch((res)=>{
+            if(res instanceof Error){
+                console.log(res.message);
+            }else{
+                console.log(res.data);
+            }
+        });
     }
 }
 </script>
@@ -32,6 +47,7 @@ a{text-decoration:none;}
 /* 顶部导航条 */
 .mint-header{background-color:#fff;height:13vw;border-bottom:1px solid #ddd;color:#555;font-size:4.4vw;font-weight:bold;padding:0 3vw;}
 /deep/ .sett-header .mint-button-icon i{font-size: 6.5vw;}
+.view-list{margin-top:13vw;}
 </style>
 
 

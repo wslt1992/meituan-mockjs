@@ -61,9 +61,35 @@ export default {
     },
     methods:{
         collectionGoods:function(){
+            let goods = [];
             axios.get(this.$url.goods).then((res)=>{
                 let data = res.data;
-                this.goodList = data.goods;
+                goods = data.goods;
+
+                // let pormise = new Promise();
+                // let arr = [];
+                // promise.then((res)=>{
+                //     return new Promise((success,fail)=>{
+                //         consle.log(goods);
+                //     });
+                // }).then((res)=>{
+                //     return new Promise((success,fail)=>{
+                //         arr = goods.map(function(item,inex){
+                //             item.stars = "";
+                //             return item;
+                //         });
+                //         console.log(arr);
+                //     });
+                // }).catch((err)=>{
+                //     console.log(err);
+                // });
+                
+                // 加入评分 
+                this.goodList = goods.map(function(item,inex){
+                    item.stars = "";
+                    return item;
+                });
+                
             }).catch((res)=>{
                 if(res instanceof Error){
                     console.log(res.message);
@@ -99,7 +125,8 @@ a{text-decoration:none;}
 /deep/ .sett-header .mint-button-icon i{font-size: 6.5vw;}
 
 /* 分类菜单 */
-.collection-nav{margin-top: 13vw;}
+.collection-nav{top: 13vw;position:fixed;right:0;left:0;}
+.collection-list{margin-top: 25vw;}
 /* 暂无收藏 */
 .none-collection{margin-top:22vw;}
 .none-collection img{width:40vw;}
