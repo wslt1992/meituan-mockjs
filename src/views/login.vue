@@ -19,7 +19,7 @@
                 <i class="iconfont" @click="showPassFn" :class="{'icon-biyanjing':!showPass,'icon-ai-eye':showPass}"></i>
             </div>
             <p class="login-tips">未注册的手机号验证后自动创建美团账户</p>
-            <button class="login-btn" :class="'login-btn-bg'+loginBtnBg">{{loginBtnTxt}}</button>
+            <button class="login-btn" :class="'login-btn-bg'+loginBtnBg" @click="login">{{loginBtnTxt}}</button>
             <p class="login-pass" v-show="!showPassInput" @click="showPassInputFn(1)">密码登录</p>
             <p class="login-code" v-show="showPassInput"><span @click="showPassInputFn(2)">验证码登录</span><span>忘记密码</span></p>
         </div>
@@ -123,6 +123,13 @@ export default {
             }
 
             this.tellVal = val;
+        },
+        /** */
+        login(){
+             let username =this.$store.state.user.username;//获取状态
+             console.log(username,'username')
+             //改变状态
+             this.$store.commit('user/changeLoginState','登录成功')
         }
     }
 }
