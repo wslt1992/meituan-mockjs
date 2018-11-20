@@ -16,14 +16,7 @@
             <div v-else-if="newsList.length!=0">
                 <news-item v-for="(item,index) in newsList" :key="index" :msg="item"></news-item>
             </div>
-            <div class="none-collection" v-else>
-                <img src="../assets/none_collection.png" alt="">
-                <h2>暂无{{tabTitle}}收藏</h2>
-                <p>您可以将喜欢的{{tabTitle}}收藏到这里</p>
-                <router-link class="view-btn" to="/">
-                    随便逛逛
-                </router-link>
-            </div>
+            <none-content v-else :title="contitle" :tips="contips"></none-content>
         </div>
     </div>
 </template>
@@ -44,7 +37,8 @@ export default {
                 // }
             ], //内容收藏
             listMsg:[],
-            tabTitle:"商家"
+            contitle:"",
+            contips:""
         }
     },
     created:function(){
@@ -82,7 +76,8 @@ export default {
     watch:{
         activeNav:function(newVal){
             let obj = newVal;
-            this.tabTitle = obj.val;
+            this.contitle = "暂无"+obj.val+"收藏";
+            this.contips = "您可以将喜欢的"+obj.val+"收藏到这里";
             switch(obj.index){
                 case "0":
                     this.listMsg = this.shopList;
