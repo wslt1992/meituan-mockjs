@@ -35,3 +35,16 @@ Mock.mock(url.users,{
         }
     ]
 })
+
+// 搜藏商家
+Mock.mock(url.shops,{
+	"shops|4":[
+		{
+			"title|1":Random.ctitle(3,20),
+			"stars|0-5.0-1":1,
+			"address|1":Random.csentence(),
+			"distance|0-20.0-1":1,
+			"averageConsume|0-1000.0-2":1
+		}	
+	]
+})
