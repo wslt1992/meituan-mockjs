@@ -85,3 +85,38 @@ Mock.mock(RegExp(url.login + ".*"), function(options) {
     }
     
   })
+/**
+ * order订单
+ */
+Mock.mock(RegExp(url.order + ".*"), function(options) {
+  console.log(options);
+  let params = JSON.parse(options.body)
+  // console.log('usename-password',params.username,params.password)
+  let classtify = '';
+  switch(params.state){
+    case 0:
+    classtify = ['已完成','未付款','未使用','未评论','售后']
+    break;
+    case 1:
+    classtify = ['未付款']
+    break;
+    case 2:
+    classtify = ['未使用']
+    break;
+    case 3:
+    classtify = ['未评论']
+    break;
+    case 4:
+    classtify = ['售后']
+    break;
+  }
+    return Mock.mock({
+      "data|17":[{
+        "shopname|1": ["正新鸡排","有趣烤鱼","美宜佳","华润万家","重庆火锅","四川辣酱"],
+        "state|1": classtify,
+        "price|1-1000": 234,
+        "time": "2018-03-24 18:34"
+      }]
+        
+    }) 
+})

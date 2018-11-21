@@ -25,204 +25,47 @@
 export default {
   data() {
     return {
-      selectedIndex: 0,
+      selectedIndex: -1,
       items:[],
-      itemsAll: [
-        {
-          shopname: "正新鸡排",
-          state: "已经完成",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "已经完成",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "已经完成",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "已经完成",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "已经完成",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "已经完成",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-      ],
+      itemsAll: [],
       /**
        * 未付款
        */
       itemsNoPayments:[
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未付款",
-          price: 234,
-          time: "2018-03-24 18:34"
-        }
       ],
       /**
        * 未使用
        */
-      itemsNoEat:[
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-        {
-          shopname: "正新鸡排",
-          state: "未使用",
-          price: 234,
-          time: "2018-03-24 18:34"
-        }
-      ],
+      itemsNoEat:[],
       /**
        * 未评论
        */
-      itemsNoComment:[
-        {
-          shopname: "正新鸡排",
-          state: "未评论",
-          price: 234,
-          time: "2018-03-24 18:34"
-        },
-      ],
+      itemsNoComment:[],
       /**
        * 售后
        */
-      itemsNoAfterSales:[
-        // {
-        //   shopname: "正新鸡排",
-        //   state: "售后",
-        //   price: 234,
-        //   time: "2018-03-24 18:34"
-        // },
-      ]
+      itemsNoAfterSales:[]
     };
   },
   mounted(){
-      this.switchTabContainer(0);
+      this.selectedIndex = 0;
+      //  请求全部数据
   },
   methods:{
+    /**
+     * 带上items,去同步问题。
+     * 如果使用this.items可能在then返回数据时，this.items已经发生了变化，所以需要固定items值
+     */
+      requestData(stateNum,items){
+        this.$https.order.request(stateNum).then((res)=>{
+          items.push(...res.data)
+        })
+      },
+      firstRequestData(stateNum){
+        if(this.items.length===0){
+          this.requestData(stateNum,this.items);
+        }
+      },
       /**
        * 切换tab内容
        */
@@ -249,6 +92,7 @@ export default {
   watch: {
       selectedIndex(newValue, oldValue) {
           this.switchTabContainer(newValue);
+          this.firstRequestData(newValue)
       }
   },
 };
