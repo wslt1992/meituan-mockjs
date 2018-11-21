@@ -94,10 +94,24 @@
         </div>
       </div>
       <!-- 分类全部结束 -->
-      <div v-for="{item,index} in items" :key="index">
+      <!-- 狠优惠 有格调 电影 红包 start -->
+      <div class="index-ad">
+        <ad-item :title="'狠优惠'" :content="'重庆江湖烤全羊'" :tips="'中式烧烤'" :btntxt="'0.1折抢购 >'" class="index-ad-item"></ad-item>
+        <ad-item :title="'有格调'" :content="'御品spa桑拿会所'" :tips="'休闲娱乐'" :showBtn="false" class="index-ad-item"></ad-item>
+        <ad-item :title="'周末去哪儿'" :content="'小包房包夜'" :tips="'电影'" :showBtn="false" class="index-ad-item single-item"></ad-item>
+      </div>
+      <!-- 狠优惠 有格调 电影 红包 end -->
+      <!-- 猜你喜欢 start -->
+      <div class="index-recommend">
+        <h2>— 猜你喜欢 —</h2>
+        <good-item v-for="(item,index) in recommendList" :key="index" :msg="item"></good-item>
+        <good-item v-for="(item,index) in recommendList" :key="index" :msg="item"></good-item>
+      </div>
+      <!-- 猜你喜欢 end -->
+      <!-- <div v-for="{item,index} in items" :key="index">
         <img src="../assets/ds320_220.png" alt="">
         <img src="../assets/ds50.png" alt="">
-      </div>
+      </div> -->
     </div>
 </template>
 
@@ -128,10 +142,31 @@ export default {
           className: 'slot3',
           textAlign: 'left'
         }
-      ]
+      ],
+      recommendList:[] // 猜你喜欢，同收藏商品
     };
   },
   methods:{
+    // 猜你喜欢，同收藏商品
+    collectionGoods:function(){
+          let goods = [];
+          axios.get(this.$url.goods).then((res)=>{
+              let data = res.data;
+              goods = data.goods;
+              // 加入评分 
+              this.recommendList = goods.map(function(item,inex){
+                  item.stars = "";
+                  return item;
+              });
+              
+          }).catch((res)=>{
+              if(res instanceof Error){
+                  console.log(res.message);
+              }else{
+                  console.log(res.data);
+              }
+          });
+      },
     navigatorTo(flag){
       switch(flag){
         case '全部分类':
@@ -148,6 +183,8 @@ export default {
     axios.get(this.$url.listing).then(res => {
       console.log(res, this.$url.listing);
     });
+    // 猜你喜欢，同收藏商品
+    this.collectionGoods();
   },
   activated() {
 　　// keep-alive组件 页面进入的时候设置滚动高度
@@ -265,15 +302,28 @@ export default {
   /* 分类主菜单 */
 .classify{background-color:#fff;padding:2vw 0;}
 .classify .classify-item i{color:rgba(255,255,255,0.93);font-size:6.6vw;}
-.classify-item:first-of-type i{background-image:linear-gradient(135deg,#fc9797,#f73835)}
-.classify-item:nth-of-type(2) i{background-image:linear-gradient(135deg,#aafd7a,#50b615)}
-.classify-item:nth-of-type(3) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e)}
-.classify-item:nth-of-type(4) i{background-image:linear-gradient(135deg,#ff94b4,#e4215b)}
-.classify-item:nth-of-type(5) i{background-image:linear-gradient(135deg,#f0fc89,#9faa08)}
-.classify-item:nth-of-type(6) i{background-image:linear-gradient(135deg,#eb98fc,#b714e9)}
-.classify-item:nth-of-type(7) i{background-image:linear-gradient(135deg,#ffd9a1,#db7908)}
-.classify-item:nth-of-type(8) i{background-image:linear-gradient(135deg,#9ddefc,#0693ca)}
-.classify-item:nth-of-type(9) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e)}
-.classify-item:nth-of-type(10) i{background-image:linear-gradient(135deg,#fcd7b8,#805310)}
+.classify-item:first-of-type i{background-image:linear-gradient(135deg,#fc9797,#f73835);filter:drop-shadow(1px 1px 2px rgba(247, 56, 53,0.3))}
+.classify-item:nth-of-type(2) i{background-image:linear-gradient(135deg,#aafd7a,#50b615);filter:drop-shadow(1px 1px 2px rgba(80, 182, 21,0.3))}
+.classify-item:nth-of-type(3) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e);filter:drop-shadow(1px 1px 2px rgba(10, 168, 142,0.3))}
+.classify-item:nth-of-type(4) i{background-image:linear-gradient(135deg,#ff94b4,#e4215b);filter:drop-shadow(1px 1px 2px rgba(228, 33, 91,0.3))}
+.classify-item:nth-of-type(5) i{background-image:linear-gradient(135deg,#f0fc89,#9faa08);filter:drop-shadow(1px 1px 2px rgba(159, 170, 8,0.3))}
+.classify-item:nth-of-type(6) i{background-image:linear-gradient(135deg,#eb98fc,#b714e9);filter:drop-shadow(1px 1px 2px rgba(183, 20, 233,0.3))}
+.classify-item:nth-of-type(7) i{background-image:linear-gradient(135deg,#ffd9a1,#db7908);filter:drop-shadow(1px 1px 2px rgba(219, 121, 8,0.3))}
+.classify-item:nth-of-type(8) i{background-image:linear-gradient(135deg,#9ddefc,#0693ca);filter:drop-shadow(1px 1px 2px rgba(6, 147, 202,0.3))}
+.classify-item:nth-of-type(9) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e);filter:drop-shadow(1px 1px 2px rgba(10, 168, 142,0.3))}
+.classify-item:nth-of-type(10) i{background-image:linear-gradient(135deg,#fcd7b8,#805310);filter:drop-shadow(1px 1px 2px rgba(128, 83, 16,0.3))}
+  /* 狠优惠 有格调 电影 红包 */
+.index-ad{background-color:#fff;margin-top: 10px;padding:2vw 2vw;display:flex;flex-wrap:wrap;position: relative;justify-content: center;}
+.index-ad-item{width:48%;margin: 0.5vw;}
+.index-ad-item.single-item{width:100%;border-right:0.5vw solid transparent;border-left:0.5vw solid #fff;box-sizing:content-box;margin:0.5vw 1vw;}
+/deep/.index-ad-item:first-of-type{background-image:linear-gradient(150deg,rgba(252, 214, 214, 0.2),#fcb4b4);}
+/deep/.index-ad-item:first-of-type h2::after{background-image:linear-gradient(90deg,rgba(250, 74, 74,0.6),#fa4a4a);}
+/deep/.index-ad-item:nth-of-type(2){background-image:linear-gradient(150deg,rgba(230, 192, 144,0.2),#e6c090);}
+/deep/.index-ad-item:nth-of-type(2) h2::after{background-image:linear-gradient(90deg,rgba(194, 142, 69,0.6),#c28e45);}
+/deep/.index-ad-item:nth-of-type(3){background-image:linear-gradient(150deg,rgba(104, 193, 253,0.2),#68adfd);}
+/deep/.index-ad-item:nth-of-type(3) h2::after{background-image:linear-gradient(90deg,rgba(64, 164, 231, 0.6),#3098dd);}
+
+.index-recommend{margin-top: 10px;background-color:#fff;padding:2vw;}
+.index-recommend h2{font-size: 3.5vw;color:#aaa;font-weight: normal;border-bottom: 1px solid #eee;margin:0;padding:3vw 0;}
 /* 木头----end*/
 </style>
