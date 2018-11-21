@@ -5,6 +5,7 @@ const user = {
     namespaced: true,
     state: {
         token:'',
+        userId:'',
         username:'长风破浪',
         /**
          * 登录状态
@@ -17,8 +18,12 @@ const user = {
           }
       },
     mutations: {
-        changeLoginState(state,newLoginState){
-            state.loginState =newLoginState;
+        changeLoginState(state,data){
+            console.log(data,'data')
+            state.loginState =data.state;
+            let user = data.user;
+            state.userId = user.userId;
+            state.username = user.username;
         }
     },
     actions: {  }

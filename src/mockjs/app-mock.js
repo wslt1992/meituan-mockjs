@@ -61,3 +61,27 @@ Mock.mock(url.listing, {
   }]
 })
 
+
+/**
+ * login登录
+ */
+Mock.mock(RegExp(url.login + ".*"), function(options) {
+    console.log(options);
+    let params = JSON.parse(options.body)
+    console.log('usename-password',params.username,params.password)
+    if(params.password==='123456'){
+      return Mock.mock({
+          state:200,
+          "user": {
+            'username': '@cname',
+            'userId|+1': 888888
+          }
+        
+      });
+    }else{
+      return Mock.mock({
+        state:400,
+      });
+    }
+    
+  })

@@ -6,6 +6,12 @@ var https={
             return axios.get(url.listing).then((res)=>res.data)
         }
     },
+    login:{
+        request(username,password){
+            // return axios.get(url.login).then((res)=>res.data)
+            return axios.post(url.login,{username,password}).then((res)=>res.data)
+        }
+    },
     // registerInVue(Vue){
     //     Vue.prototype.$https = https
     // },
