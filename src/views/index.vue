@@ -101,10 +101,17 @@
         <ad-item :title="'周末去哪儿'" :content="'小包房包夜'" :tips="'电影'" :showBtn="false" class="index-ad-item single-item"></ad-item>
       </div>
       <!-- 狠优惠 有格调 电影 红包 end -->
-      <div v-for="{item,index} in items" :key="index">
+      <!-- 猜你喜欢 start -->
+      <div class="index-recommend">
+        <h2>— 猜你喜欢 —</h2>
+        <good-item v-for="(item,index) in recommendList" :key="index" :msg="item"></good-item>
+        <good-item v-for="(item,index) in recommendList" :key="index" :msg="item"></good-item>
+      </div>
+      <!-- 猜你喜欢 end -->
+      <!-- <div v-for="{item,index} in items" :key="index">
         <img src="../assets/ds320_220.png" alt="">
         <img src="../assets/ds50.png" alt="">
-      </div>
+      </div> -->
     </div>
 </template>
 
@@ -136,9 +143,30 @@ export default {
           textAlign: 'left'
         }
       ],
+      recommendList:[] // 猜你喜欢，同收藏商品
     };
   },
   methods:{
+    // 猜你喜欢，同收藏商品
+    collectionGoods:function(){
+          let goods = [];
+          axios.get(this.$url.goods).then((res)=>{
+              let data = res.data;
+              goods = data.goods;
+              // 加入评分 
+              this.recommendList = goods.map(function(item,inex){
+                  item.stars = "";
+                  return item;
+              });
+              
+          }).catch((res)=>{
+              if(res instanceof Error){
+                  console.log(res.message);
+              }else{
+                  console.log(res.data);
+              }
+          });
+      },
     navigatorTo(flag){
       switch(flag){
         case '全部分类':
@@ -155,6 +183,8 @@ export default {
     axios.get(this.$url.listing).then(res => {
       console.log(res, this.$url.listing);
     });
+    // 猜你喜欢，同收藏商品
+    this.collectionGoods();
   },
   activated() {
 　　// keep-alive组件 页面进入的时候设置滚动高度
@@ -292,5 +322,8 @@ export default {
 /deep/.index-ad-item:nth-of-type(2) h2::after{background-image:linear-gradient(90deg,rgba(194, 142, 69,0.6),#c28e45);}
 /deep/.index-ad-item:nth-of-type(3){background-image:linear-gradient(150deg,rgba(104, 193, 253,0.2),#68adfd);}
 /deep/.index-ad-item:nth-of-type(3) h2::after{background-image:linear-gradient(90deg,rgba(64, 164, 231, 0.6),#3098dd);}
+
+.index-recommend{margin-top: 10px;background-color:#fff;padding:2vw;}
+.index-recommend h2{font-size: 3.5vw;color:#aaa;font-weight: normal;border-bottom: 1px solid #eee;margin:0;padding:3vw 0;}
 /* 木头----end*/
 </style>
