@@ -235,5 +235,4 @@
 </script>
 
 <style lang='scss' scoped>
-    @import '../style/theme-style.scss';
 </style>
