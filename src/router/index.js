@@ -22,7 +22,7 @@ import RecentView from '@/views/recent-view' //最近浏览
 Vue.use(Router)
 
 let nav = url.navigator;
-import store from '../store/index'
+import guard from './guard.js'
 export default new Router({
   routes: [
     {
@@ -107,6 +107,7 @@ export default new Router({
       path:nav.settingPath,
       name:"setting",
       component:Setting,
+      beforeEnter: guard.userGuard
     },
      /**
      * my-collection 我的收藏页面
@@ -116,15 +117,7 @@ export default new Router({
       name:"my-collection",
       component:MyCollection,
       //路由守卫
-      beforeEnter: (to, from, next) => {
-
-        console.log(to,from,store.getters['user/loginState'])
-        if(store.getters['user/loginState']){
-          next();
-        }else{
-          next({ path: '/login' })
-        }
-      }
+      beforeEnter: guard.userGuard
     },
     
      /**
@@ -142,7 +135,7 @@ export default new Router({
       path:nav.recentViewPath,
       name:"recent-view",
       component:RecentView,
-      
+      beforeEnter: guard.userGuard
     },
     
     
