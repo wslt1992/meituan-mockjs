@@ -1,46 +1,57 @@
 <template>
-    <div>
-        发现
-        <mt-navbar v-model="selected">
-        <mt-tab-item id="1">选项一</mt-tab-item>
-        <mt-tab-item id="2">选项二</mt-tab-item>
-        <mt-tab-item id="3">选项三</mt-tab-item>
-        <mt-tab-item id="4">选项一</mt-tab-item>
-        <mt-tab-item id="5">选项二</mt-tab-item>
-        
-        
-        </mt-navbar>
+    <t-page class="t-page-root">
+        <t-header-new :back='false' slot="header">
+            <div slot="center" class="t-header-default" >发现</div>
+        </t-header-new>
 
-        <!-- tab-container -->
-        <mt-tab-container v-model="selected">
-        <mt-tab-container-item id="1">
-            <mt-cell v-for="n in 10" :title="'内容 ' + n" :key='n' />
-        </mt-tab-container-item>
-        <mt-tab-container-item id="2">
-            <mt-cell v-for="n in 4" :title="'测试 ' + n" :key='n'  />
-        </mt-tab-container-item>
-        <mt-tab-container-item id="3">
-            <mt-cell v-for="n in 6" :title="'选项 ' + n" :key='n' />
-        </mt-tab-container-item>
-        </mt-tab-container>
-    </div>
+        <!-- tab开始 -->
+        <div slot="top-fix" class="top-fix">
+            <t-tab checked-clazz='active' class="t-tab-default" v-model="selectedIndex" >
+                <div>精选</div>
+                <div>爱美食</div>
+                <div>关注</div>
+                <div>出去浪</div>
+                <div>健康生活</div>
+            </t-tab>
+        </div>
+        <!-- tab结束 -->
+
+        <div slot="container" >
+            <discovery-item v-for="(item,index) in items[selectedIndex]" :key="index"></discovery-item>
+        </div>
+    </t-page>
+    <!-- tab-container -->
 </template>
 
 <script>
     export default {
         data() {
             return {
-                selected: 1
+                selectedIndex: 0,
+                items:[],
             };
         },
             methods: {
                 handleClick(tab, event) {
                     console.log(tab, event);
                 }
+        },
+        mounted(){
+            // this.items.set(0,[1,2,3,4,5,6,7,8])
+            // this.items.set(1,[1,2,3,4,5,6])
+            // this.items.set(2,[1,2,3,4,5,6])
+            // this.items.set(3,[1,2,3,4,5,6])
+            // this.items.set(4,[1])
+
+            this.$set(this.items,0,[1,2,3,4,5,6,7,8])
+            this.$set(this.items,1,[1,2,3])
+            this.$set(this.items,2,[1,2,3,4])
+            this.$set(this.items,3,[1,2,])
+            this.$set(this.items,4,[1,2,99999])
         }
     }
 </script>
 
 <style lang='scss' scoped>
-
+    @import '../style/theme-style.scss';
 </style>
