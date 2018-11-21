@@ -1,5 +1,9 @@
 import Mock from 'mockjs';
 import url from '../global/url'
+//设置延迟
+Mock.setup({
+  timeout: '200-3000'
+})
 let Random = Mock.Random;
 Mock.mock(url.index, {
   'name|3': 'fei', //这个定义数据的模板形式下面会介绍

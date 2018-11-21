@@ -141,10 +141,7 @@
         },
         methods:{
             loadMore(){
-                setTimeout(() => {
                     this.requestData();
-                }, 4000*Math.random());
-                
             },
             requestData(){
                 this.$https.listing.request().then((data)=>{
