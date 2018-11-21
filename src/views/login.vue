@@ -15,7 +15,7 @@
                 <i v-show="clearIcon" @click="clearInput" class="iconfont icon-cha"></i>
             </div>
             <div class="phone-input phone-pass" v-show="showPassInput">
-                <input :type="showPass ? 'text':'password'" @focus="placeFocus($event,'')" @blur="placeBlur" :data-placeholder="placePass" :placeholder="placePass">
+                <input :type="showPass ? 'text':'password'" @focus="placeFocus($event,'')" @blur="placeBlur" :data-placeholder="placePass" :placeholder="placePass" v-model='passwordVal'>
                 <i class="iconfont" @click="showPassFn" :class="{'icon-biyanjing':!showPass,'icon-ai-eye':showPass}"></i>
             </div>
             <p class="login-tips">未注册的手机号验证后自动创建美团账户</p>
@@ -38,6 +38,7 @@
 
 <script>
 import axios from 'axios';
+import {Toast} from 'mint-ui'
 export default {
     components:{
     },
@@ -46,6 +47,7 @@ export default {
             placeTell:"请输入手机号", //手机号提示语
             placePass:"请输入密码", //密码提示语
             tellVal:"", // 手机号input的value值
+            passwordVal:'',//密码input的值
             clearIcon:false, //清除手机号内容 图标
             showPass:false, //密码是否明文显示
             loginBtnTxt:"获取短信验证码", //按钮文字
@@ -157,10 +159,21 @@ export default {
             }else if(btnTxt=="登录"){
 
             }
-
+            this.$https.login.request(this.tellVal,this.passwordVal).then((res)=>{
+                // console.log('login',res)
+             //改变登录状态
+                if(res.state===200){
+                    this.$store.commit('user/changeLoginState',res)
+                }else{
+                    Toast({
+                        message: '登录失败',
+                        position: 'bottom',
+                        duration: 5000
+                    });
+                }
+            })
              let username =this.$store.state.user.username;//获取状态
-             //改变状态
-             this.$store.commit('user/changeLoginState','登录成功')
+             
         }
     }
 }

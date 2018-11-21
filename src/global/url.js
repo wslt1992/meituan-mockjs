@@ -1,4 +1,7 @@
 var url = {
+  /**
+   * 数据访问路径
+   */
   index: '/data/index',
   indexSwiper: '/data/indexSwiper',
   indexClass1: '/data/indexClass1',
@@ -8,7 +11,10 @@ var url = {
   users:'/data/users', //用户信息
   shops:'/data/shops', //收藏商家列表
   goods:'/data/goods', //收藏商品列表
-
+  login:'/data/login', //收藏商品列表
+  /**
+   * 数据访问路径---结束
+   */
   /**
    * 导航路径
    */
@@ -39,7 +45,9 @@ var url = {
     recentViewPath:"/recent-view", //最近浏览
 
   },
-
+  /**
+     * 导航路径 ---结束
+     */
   /**
    * 调用后，在子组件vue中，可以使用this.$url调用
    * @param {*} Vue 
