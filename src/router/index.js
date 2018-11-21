@@ -22,6 +22,7 @@ import RecentView from '@/views/recent-view' //最近浏览
 Vue.use(Router)
 
 let nav = url.navigator;
+import store from '../store/index'
 export default new Router({
   routes: [
     {
@@ -114,6 +115,16 @@ export default new Router({
       path:nav.myCollectionPath,
       name:"my-collection",
       component:MyCollection,
+      //路由守卫
+      beforeEnter: (to, from, next) => {
+
+        console.log(to,from,store.getters['user/loginState'])
+        if(store.getters['user/loginState']){
+          next();
+        }else{
+          next({ path: '/login' })
+        }
+      }
     },
     
      /**

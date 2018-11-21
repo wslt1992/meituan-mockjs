@@ -10,11 +10,11 @@ const user = {
         /**
          * 登录状态
          */
-        loginState:false
+        loginState:400
       },
       getters: {
         loginState: state => {
-              return state.loginState;
+              return state.loginState===200?true:false;
           }
       },
     mutations: {
