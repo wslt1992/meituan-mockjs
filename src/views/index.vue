@@ -264,7 +264,7 @@ export default {
 /deep/ .mint-swipe-indicator.is-active{opacity: 0.6;}
   /* 分类主菜单 */
 .classify{background-color:#fff;padding:2vw 0;}
-.classify-item i{color:rgba(255,255,255,0.93);}
+.classify .classify-item i{color:rgba(255,255,255,0.93);font-size:6.6vw;}
 .classify-item:first-of-type i{background-image:linear-gradient(135deg,#fc9797,#f73835)}
 .classify-item:nth-of-type(2) i{background-image:linear-gradient(135deg,#aafd7a,#50b615)}
 .classify-item:nth-of-type(3) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e)}
