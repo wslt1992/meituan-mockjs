@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <t-header>
+    <div class="search-container">
+        <t-header class="search-header">
             <div class="search-input">
                 <i class="iconfont icon-sousuo"></i>
                 <input type="text" :placeholder="tips">
@@ -12,7 +12,7 @@
                 <div class="class-tag">热门搜索</div>
                 <div class="class-tag-content">
                     <span class="class-tag-item" v-for="item in hotArr" :key="item.id">
-                        {{ item }}
+                        {{ item.length>10 ? (item.substr(0,10)+"..."):item }}
                     </span>
                 </div>
             </div>
@@ -97,4 +97,15 @@
     }
     
 }
+/* txl-------------start */
+/deep/.lt-header-root .header .mint-header{background-color:#fff;color:#333;height:13vw;}
+/deep/ .search-header .search-input{line-height: 8vw;background-color:#f5f5f5;height:8vw;padding-left: 2vw;}
+/deep/ .search-header .search-input input{background-color:transparent;}
+/deep/ .search-header .search-input i{font-size: 3.8vw;font-weight: bold;}
+/deep/.lt-header-root .center{top:2.5vw;}
+.search-container{background-color: #fff;}
+.content{padding:3vw;}
+.class-tag{color:#999;font-size: 3.6vw;margin:2vw 0;}
+.content .class-tag-content .class-tag-item{background-color:#f5f5f5;padding:1.5vw 2.5vw;color:#000;margin:1.1vw;font-size: 3.4vw;}
+/* txl-------------end */
 </style>
