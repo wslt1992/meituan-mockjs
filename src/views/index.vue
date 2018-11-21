@@ -265,15 +265,15 @@ export default {
   /* 分类主菜单 */
 .classify{background-color:#fff;padding:2vw 0;}
 .classify-item i{color:rgba(255,255,255,0.93);}
-.classify-item:first-of-type i{background-image:linear-gradient(135deg,#fc9797,#f5413d)}
-.classify-item:nth-of-type(2) i{background-image:linear-gradient(135deg,#aafd7a,#53b918)}
-.classify-item:nth-of-type(3) i{background-image:linear-gradient(135deg,#43fdde,#0cc0a2)}
-.classify-item:nth-of-type(4) i{background-image:linear-gradient(135deg,#fc92b2,#fa9ab7)}
-// .classify-item:nth-of-type(5) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
-// .classify-item:nth-of-type(6) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
-// .classify-item:nth-of-type(7) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
-// .classify-item:nth-of-type(8) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
-// .classify-item:nth-of-type(9) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
-// .classify-item:nth-of-type(10) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
+.classify-item:first-of-type i{background-image:linear-gradient(135deg,#fc9797,#f73835)}
+.classify-item:nth-of-type(2) i{background-image:linear-gradient(135deg,#aafd7a,#50b615)}
+.classify-item:nth-of-type(3) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e)}
+.classify-item:nth-of-type(4) i{background-image:linear-gradient(135deg,#ff94b4,#e4215b)}
+.classify-item:nth-of-type(5) i{background-image:linear-gradient(135deg,#f0fc89,#9faa08)}
+.classify-item:nth-of-type(6) i{background-image:linear-gradient(135deg,#eb98fc,#b714e9)}
+.classify-item:nth-of-type(7) i{background-image:linear-gradient(135deg,#ffd9a1,#db7908)}
+.classify-item:nth-of-type(8) i{background-image:linear-gradient(135deg,#9ddefc,#0693ca)}
+.classify-item:nth-of-type(9) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e)}
+.classify-item:nth-of-type(10) i{background-image:linear-gradient(135deg,#fcd7b8,#805310)}
 /* 木头----end*/
 </style>
