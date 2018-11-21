@@ -53,6 +53,7 @@ export default {
             this.$router.push(children.mapFullPath);
             break;
             case this.nameArray[2]:
+            this.$router.push(children.discoveryFullPath);
             break;
             case this.nameArray[3]:
             this.$router.push(children.orderFullPath);

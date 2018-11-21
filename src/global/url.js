@@ -22,6 +22,8 @@ var url = {
         mapFullPath:'/mainpage/map',
         orderPath: 'order',
         orderFullPath:'/mainpage/order',
+        discoveryPath: 'discovery',
+        discoveryFullPath:'/mainpage/discovery',
         myPath: 'my',
         myFullPath:'/mainpage/my',
       }

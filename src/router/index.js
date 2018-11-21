@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Mint from 'mint-ui'
-import 'mint-ui/lib/style.css'
+
 
 import HelloWorld from '@/components/HelloWorld'
 import Index from '@/views/index'
 import MainPage from '@/views/MainPage'
 import My from '@/views/my'
 import Order from '@/views/order'
+import discovery from '@/views/discovery'
 import ClasstifyAll from '@/views/ClasstifyAll'
 import Search from '@/views/search'
 import SearchResult from '@/views/search-result'
@@ -18,7 +18,7 @@ import Setting from '@/views/setting' //个人设置
 import MyCollection from '@/views/my-collection' //我的收藏
 import LoginLerifyCode from '@/views/login-verify-code' //输入验证码
 import RecentView from '@/views/recent-view' //最近浏览
-Vue.use(Mint)
+
 Vue.use(Router)
 
 let nav = url.navigator;
@@ -59,6 +59,11 @@ export default new Router({
           path: nav.mainPage.children.orderPath,
           name: 'order',
           component: Order
+        },
+        {
+          path:nav.mainPage.children.discoveryFullPath,
+          name:"discovery",
+          component:discovery,
         }
       ]
     },
@@ -127,6 +132,8 @@ export default new Router({
       name:"recent-view",
       component:RecentView,
       
-    }
+    },
+    
+    
   ]
 })
