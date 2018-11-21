@@ -1,16 +1,14 @@
 <template>
     <div class="discovery-item-root" @click="show">
         <div class="title">
-            大东烧烤店大东烧烤店大东烧烤店大东烧烤店大东烧烤店大东烧烤店
+            {{item.title}}
         </div>
         <div class="imgs">
-            <img src="../assets/imgs/shop.jpg" alt="">
-            <img src="../assets/imgs/shop.jpg" alt="">
-            <img src="../assets/imgs/shop.jpg" alt="">
+            <img v-for="img in item.imgs" :key="img.id" src="../assets/imgs/shop.jpg"/>
         </div>
         <div class="tips">
-            <span>米粒粒日记</span>
-            <span>91.5万人看过</span>
+            <span>{{item.author}}</span>
+            <span>{{item.viewCount}}人看过</span>
         </div>
     </div>
 </template>
@@ -51,7 +49,19 @@
     .imgs{
         display: flex;
         justify-content: space-around;
-        img {
+        img:first-child:nth-last-child(1) {
+            width: 100%;
+            height: 40vw;
+        }
+        img:first-child:nth-last-child(1) ~ img{
+            width: 100%;
+            height: 40vw;
+        }
+        img:first-child:nth-last-child(3) {
+            width: 30vw;
+            height: 20vw;
+        }
+        img:first-child:nth-last-child(3) ~ img{
             width: 30vw;
             height: 20vw;
         }
