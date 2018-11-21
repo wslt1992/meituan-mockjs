@@ -65,25 +65,6 @@ export default {
             axios.get(this.$url.goods).then((res)=>{
                 let data = res.data;
                 goods = data.goods;
-
-                // let pormise = new Promise();
-                // let arr = [];
-                // promise.then((res)=>{
-                //     return new Promise((success,fail)=>{
-                //         consle.log(goods);
-                //     });
-                // }).then((res)=>{
-                //     return new Promise((success,fail)=>{
-                //         arr = goods.map(function(item,inex){
-                //             item.stars = "";
-                //             return item;
-                //         });
-                //         console.log(arr);
-                //     });
-                // }).catch((err)=>{
-                //     console.log(err);
-                // });
-                
                 // 加入评分 
                 this.goodList = goods.map(function(item,inex){
                     item.stars = "";
