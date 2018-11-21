@@ -1,8 +1,7 @@
 // 首页
 <template>
     <div class="index-root"  id="mainContent">
-      
-      <t-header>
+      <t-header class="index-header">
         <span slot='left'>选择地区</span>
         <search-bar></search-bar>
       </t-header>
@@ -28,10 +27,9 @@
       </div>
       <!-- 轮播结束 -->
       <!-- 分类开始 -->
-      <div class="classify">
+      <!-- <div class="classify">
         <div class="classify-item">
           <i class="icon iconfont icon-meishi1"></i>
-          <!-- <img src="../assets/logo.png" alt=""> -->
           <p>美食</p>
         </div>
         <div class="classify-item">
@@ -50,7 +48,7 @@
           <i class="icon iconfont icon-waimai"></i>
           外卖
         </div>
-      </div>
+      </div> -->
       <!-- 分类结束 -->
       <!-- 分类全部开始 -->
       <div class="classify classifyAll">
@@ -112,7 +110,25 @@ export default {
   data: function() {
     return {
       offsetTop:0,
-      items:[1,1,1,1,1,1,1,1,]
+      items:[1,1,1,1,1,1,1,1,],
+      slots:[
+        {
+          flex:1,
+          values:['2015-01','2015-02','2015-04','2015-05'],
+          className:"slot1",
+          textAlign:"right",
+          defaultIndex:2
+        }, {
+          divider: true,
+          content: '-',
+          className: 'slot2'
+        }, {
+          flex: 1,
+          values: ['2015-01', '2015-02', '2015-03', '2015-04', '2015-05', '2015-06'],
+          className: 'slot3',
+          textAlign: 'left'
+        }
+      ]
     };
   },
   methods:{
@@ -123,6 +139,9 @@ export default {
           break;
 
       }
+    },
+    onValuesChange:(picker,values)=>{
+        console.log(values)
     }
   },
   mounted() {
@@ -232,4 +251,29 @@ export default {
 .classifyAll{
     font-size: 3vw;
 }
+
+/* 木头----start*/
+  /* header */
+/deep/.index-header .mint-header{background-color:#fff;color:#333;position:fixed;top:0;right:0;left:0;z-index:9999}
+/deep/ .index-header .root{background-color:#f5f5f5;font-size:4vw;line-height: 10.7vw;}
+/deep/ .lt-header-root .center{position: fixed!important;z-index:10000;top:0;}
+/deep/ .index-header .root i.icon-sousuo{font-size:3.6vw;font-weight: bold;}
+/deep/ .mt-swipe{margin-top: 16vw;height:44vw;}
+  /* 轮播 */
+/deep/ .mint-swipe img{max-width:100%;height:100%;}
+/deep/ .mint-swipe-indicator.is-active{opacity: 0.6;}
+  /* 分类主菜单 */
+.classify{background-color:#fff;padding:2vw 0;}
+.classify-item i{color:rgba(255,255,255,0.93);}
+.classify-item:first-of-type i{background-image:linear-gradient(135deg,#fc9797,#f5413d)}
+.classify-item:nth-of-type(2) i{background-image:linear-gradient(135deg,#aafd7a,#53b918)}
+.classify-item:nth-of-type(3) i{background-image:linear-gradient(135deg,#43fdde,#0cc0a2)}
+.classify-item:nth-of-type(4) i{background-image:linear-gradient(135deg,#fc92b2,#fa9ab7)}
+// .classify-item:nth-of-type(5) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
+// .classify-item:nth-of-type(6) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
+// .classify-item:nth-of-type(7) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
+// .classify-item:nth-of-type(8) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
+// .classify-item:nth-of-type(9) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
+// .classify-item:nth-of-type(10) i{background-image:linear-gradient(135deg,#f5413d,#f5413d)}
+/* 木头----end*/
 </style>
