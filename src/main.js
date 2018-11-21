@@ -31,6 +31,21 @@ import https from  './https/index.js'
 Vue.use(https)
 // https.registerInVue(Vue);
 
+/**
+ * 引入element-mint饿了么框架
+ * 
+ */
+import Mint from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(Mint)
+/**
+ * 引入element饿了么框架
+ * 
+ */
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 /* eslint-disable no-new */
 import store from './store/index'
 
