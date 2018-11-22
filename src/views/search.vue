@@ -103,7 +103,7 @@
 /deep/ .search-header .search-input input{background-color:transparent;}
 /deep/ .search-header .search-input i{font-size: 3.8vw;font-weight: bold;}
 /deep/.lt-header-root .center{top:2.5vw;}
-.search-container{background-color: #fff;}
+.search-container{background-color: #fff;height:100vh;}
 .content{padding:3vw;}
 .class-tag{color:#999;font-size: 3.6vw;margin:2vw 0;}
 .content .class-tag-content .class-tag-item{background-color:#f5f5f5;padding:1.5vw 2.5vw;color:#000;margin:1.1vw;font-size: 3.4vw;}
