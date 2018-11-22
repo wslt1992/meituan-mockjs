@@ -12,6 +12,7 @@ var url = {
   shops:'/data/shops', //收藏商家列表
   goods:'/data/goods', //收藏商品列表
   login:'/data/login', //收藏商品列表
+  order:'/data/order', //收藏商品列表
   /**
    * 数据访问路径---结束
    */

@@ -12,6 +12,13 @@ var https={
             return axios.post(url.login,{username,password}).then((res)=>res.data)
         }
     },
+    order:{
+        request(state){
+            // return axios.get(url.login).then((res)=>res.data)
+            return axios.post(url.order,{state}).then((res)=>res.data)
+        }
+    },
+    
     // registerInVue(Vue){
     //     Vue.prototype.$https = https
     // },

@@ -1,26 +1,27 @@
-// tab的默认样式
 @import './color.scss';
-    .t-tab-default{
-        div {
-            font-size: 4vw;
-             height: 13vw;
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             box-sizing: border-box;
-             border-bottom: 0.3vw solid $gray;
-             padding-bottom: 0.2vw;
-         }
-         div.active {
-             border-bottom: 0.5vw solid $primary-color;
-             color: $primary-color;
-             padding-bottom: 0vw;
-         }
+// tab的默认样式
+.t-tab-default{
+    div {
+        font-size: 4vw;
+            height: 13vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border-bottom: 0.3vw solid $gray;
+            padding-bottom: 0.2vw;
+        }
+        div.active {
+            border-bottom: 0.5vw solid $primary-color;
+            color: $primary-color;
+            padding-bottom: 0vw;
+        }
+}
+// header默认样式
+.t-header-default {
+    font-size: 5vw;
+    height: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
-    .t-header-default {
-        font-size: 5vw;
-        height: 10vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }

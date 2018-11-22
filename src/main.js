@@ -7,6 +7,7 @@ import router from './router'
 import url from './global/url'
 import global from './global/global.js'
 import './style/style.css'
+import './style/theme-style.scss';
 import './assets/iconfont/iconfont.css'
 Vue.config.productionTip = false
 /**自动注册components中的组件,为index.js文件 */
