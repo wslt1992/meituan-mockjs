@@ -38,7 +38,7 @@ export default {
          this.processViewList();
     },
     methods:{
-        loadMore:()=>{
+        loadMore:function(){ 
             this.processViewList();
         },
         processViewList:function(){
