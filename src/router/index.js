@@ -24,6 +24,7 @@ Vue.use(Router)
 let nav = url.navigator;
 import guard from './guard.js'
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/',

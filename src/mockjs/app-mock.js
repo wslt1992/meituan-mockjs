@@ -115,7 +115,10 @@ Mock.mock(RegExp(url.order + ".*"), function(options) {
         "shopname|1": ["正新鸡排","有趣烤鱼","美宜佳","华润万家","重庆火锅","四川辣酱"],
         "state|1": classtify,
         "price|1-1000": 234,
-        "time": "2018-03-24 18:34"
+        // "time": "2018-03-24 18:34"
+        "time|1": function(){
+          return Random.datetime()
+        }
       }]
         
     }) 

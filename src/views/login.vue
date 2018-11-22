@@ -20,9 +20,9 @@
             </div>
             <p class="login-tips">未注册的手机号验证后自动创建美团账户</p>
             <!-- 登录按钮 -->
-            <router-link :to="loginUrl">
+            <!-- <router-link :to="loginUrl"> -->
                 <button class="login-btn" :class="'login-btn-bg'+loginBtnBg" @click="login">{{loginBtnTxt}}</button>
-            </router-link>
+            <!-- </router-link> -->
 
             <p class="login-pass" v-show="!showPassInput" @click="showPassInputFn(1)">密码登录</p>
             
@@ -154,25 +154,34 @@ export default {
         */
         login(evt){
             let btnTxt = evt.target.innerText;
-            if(btnTxt=="获取验证码"){
-
+            if(btnTxt=="获取短信验证码"){
+                // 现在是验证码获取页，需要跳转到验证码输入也
+                this.$router.push(this.loginUrl);
+                console.log(111111111111111111111111)
             }else if(btnTxt=="登录"){
-
-            }
-            this.$https.login.request(this.tellVal,this.passwordVal).then((res)=>{
-                // console.log('login',res)
-             //改变登录状态
-                if(res.state===200){
-                    this.$store.commit('user/changeLoginState',res)
-                }else{
-                    Toast({
-                        message: '登录失败',
-                        position: 'bottom',
-                        duration: 5000
-                    });
+                // 用户名、密码登录页
+                this.$https.login.request(this.tellVal,this.passwordVal).then((res)=>{
+                    // console.log('login',res)
+                //改变登录状态
+                    if(res.state===200){
+                        this.$store.commit('user/changeLoginState',res)
+                        Toast({
+                            message: '登录成功',
+                            position: 'bottom',
+                            duration: 3000
+                        });
+                        this.$router.back();
+                    }else{
+                        Toast({
+                            message: '登录失败',
+                            position: 'bottom',
+                            duration: 3000
+                        });
+                    }
+                })
+                    let username =this.$store.state.user.username;//获取状态
                 }
-            })
-             let username =this.$store.state.user.username;//获取状态
+            
              
         }
     }
