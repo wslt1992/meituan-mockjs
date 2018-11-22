@@ -1,5 +1,9 @@
 <template>
     <div class="discount-container">
+        <div 
+            v-infinite-scroll="loadMore"
+            infinite-scroll-disabled="loading"
+            infnite-scroll-distance="50">
         <div class="test" :class="{'header-bg':headerBg}">
             <t-back-button class="discount-back"  slot="left">
                 <mt-button class="sett-back" icon="back"></mt-button>
@@ -10,10 +14,7 @@
         </div>
         <tab-nav class="discount-nav" :navList="navList"></tab-nav>
         <div class="discount-list">
-            <div 
-            v-infinite-scroll="loadMore"
-            infinite-scroll-disabled="loading"
-            infnite-scroll-distance="50">
+            
                 <discount-item v-for="(item,index) in discountList" :key="index" :itemMsg="item" class="dis-item"></discount-item>
                 <mt-spinner type="triple-bounce"></mt-spinner>
             </div>
