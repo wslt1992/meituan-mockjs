@@ -9,12 +9,12 @@
             <div class="item-right">
                 <span class="shopname">{{item.shopname}}</span>
                 <div class="div-item">
-                    <span class="price">￥{{item.price}}</span>
+                    <span class="price"><b>￥</b>{{item.price}}</span>
                     <span class="distance">{{item.distance}}km</span>
                 </div>
                 <div class="div-item">
                     <span class="tips">{{item.tips}}</span>
-                    <span class="sold">销量:{{item.sold}}</span>
+                    <span class="sold"><b>销量:</b>{{item.sold}}</span>
                 </div>
                 <span class="address">地址:{{item.tips}}</span>
             </div>
@@ -40,7 +40,7 @@
 </script>
 
 <style lang='scss' scoped>
-
+*{margin:0;padding:0;box-sizing:border-box;}
 // 列表开始
     .list-item{
         display: flex;
@@ -50,20 +50,21 @@
         margin: 2vw 0;
         .item-left{
             img {
-                width: 25vw;
-                height: 25vw;
+                width: 20vw;//txl-modify
+                height: 20vw;//txl-modify
             }
         }
         .item-right{
             flex-grow: 1;
-
+            margin-left:2vw;//txl-add
             display: flex;
             flex-direction: column;
             >*{
                 margin: 0.6vw 0;
             }
             .shopname{
-                font-size: 5.5vw;
+                margin:0;padding:0;
+                font-size: 4.4vw;//txl-modify
                 font-weight: bold;
                 color: #222;
             }
@@ -71,10 +72,16 @@
                 display: flex;
                 justify-content: space-between;
                 .price{
-                    color: #666;
+                    color: #fc9443; //txl-modify
+                    font-size:5.4vw;//txl-add
+                    font-weight: bold;//txl-add
+                    b{
+                        font-size: 4vw;
+                    }
                 }
                 .distance{
                     color: #aaa;
+                    font-size:3.6vw;//txl-add
                 }
                 .tips{
                     width: 40vw;
@@ -82,19 +89,25 @@
                     overflow: hidden;    
                     text-overflow:ellipsis;    
                     white-space: nowrap;
+                    font-size:3.8vw;//txl-add
                 }
                 .sold{
-                    color: aquamarine;
+                     color: #25abb1;//txl-modify
+                     font-size: 3.6vw;//txl-add
+                    b{color:#aaa;font-weight: normal}//txl-add
                 }
                 
             }
             .address{
                 font-size: 3.6vw;
+                color:#666;
             }
             
             
         }
     }
     //列表结束
-
+/* txl -------start */
+.list-item{background-color:#fff;padding:3vw;}
+/* txl--------end */
 </style>
