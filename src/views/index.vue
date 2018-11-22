@@ -104,14 +104,15 @@
       <!-- 猜你喜欢 start -->
       <div class="index-recommend">
         <h2>— 猜你喜欢 —</h2>
-        <good-item v-for="(item,index) in recommendList" :key="index" :msg="item"></good-item>
-        <good-item v-for="(item,index) in recommendList" :key="index" :msg="item"></good-item>
+        <div
+        v-infinite-scroll="loadMore" 
+        infinite-scroll-disabled="loading"
+        infinite-scroll-distance="50">
+          <good-item v-for="(item,index) in recommendList" :key="index" :msg="item"></good-item>
+          <mt-spinner type="triple-bounce"></mt-spinner>
+        </div>
       </div>
       <!-- 猜你喜欢 end -->
-      <!-- <div v-for="{item,index} in items" :key="index">
-        <img src="../assets/ds320_220.png" alt="">
-        <img src="../assets/ds50.png" alt="">
-      </div> -->
     </div>
 </template>
 
@@ -147,6 +148,9 @@ export default {
     };
   },
   methods:{
+    loadMore:function(){
+      this.collectionGoods();
+    },
     // 猜你喜欢，同收藏商品
     collectionGoods:function(){
           let goods = [];
@@ -154,10 +158,11 @@ export default {
               let data = res.data;
               goods = data.goods;
               // 加入评分 
-              this.recommendList = goods.map(function(item,inex){
+              let arr = goods.map(function(item,inex){
                   item.stars = "";
                   return item;
               });
+              this.recommendList.push(...arr);
               
           }).catch((res)=>{
               if(res instanceof Error){
@@ -322,7 +327,7 @@ export default {
 /deep/.index-ad-item:nth-of-type(2) h2::after{background-image:linear-gradient(90deg,rgba(194, 142, 69,0.6),#c28e45);}
 /deep/.index-ad-item:nth-of-type(3){background-image:linear-gradient(150deg,rgba(104, 193, 253,0.2),#68adfd);}
 /deep/.index-ad-item:nth-of-type(3) h2::after{background-image:linear-gradient(90deg,rgba(64, 164, 231, 0.6),#3098dd);}
-
+/* 猜你喜欢 */
 .index-recommend{margin-top: 10px;background-color:#fff;padding:2vw;}
 .index-recommend h2{font-size: 3.5vw;color:#aaa;font-weight: normal;border-bottom: 1px solid #eee;margin:0;padding:3vw 0;}
 /* 木头----end*/
