@@ -1,7 +1,9 @@
 <template>
   <div class="main-root">
     <div class="container">
+        <keep-alive include="order">
             <router-view></router-view>
+        </keep-alive>
     </div>
     <div class="footer-tab">
         <mt-tabbar v-model="selected">

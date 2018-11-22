@@ -23,6 +23,7 @@
 
 <script>
 export default {
+  name: 'order',
   data() {
     return {
       selectedIndex: -1,
