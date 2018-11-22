@@ -69,7 +69,7 @@ Mock.mock(url.goods,{
 
 // 狠优惠
 Mock.mock(url.discounts,{
-    "discounts|4-6":[
+    "discounts|3-5":[
         {
             "title|1":Random.ctitle(),
             "tips|1":Random.ctitle(),

@@ -1,7 +1,7 @@
 <template>
     <div class="item">
         <div class="item-img">
-            <img src="../assets/imgs/shop.jpg" alt="">
+            <img src="../assets/imgs/food1.jpg" alt="">
         </div>
         <div class="item-msg">
             <div class="item-msg-up">
@@ -56,9 +56,9 @@ export default {
 .item-img img{width:22vw;height:22vw;}
 .item-msg{margin-left:2vw;flex:1;}
 .item-msg-up h2{color:#333;font-size: 4.8vw;margin-top: -4px;}
-.item-tips{font-size: 3.6vw;color:#666;}
+.item-tips{font-size: 3.2vw;color:#888;}
 .item-msg-dw .item-tips,.item-price{display: flex;justify-content: space-between;align-items: center;}
-.discount-price{color:#fa4a4a;font-weight: bold;font-size:5vw;}
+.discount-price{color:#fa4a4a;font-weight: bold;font-size:4.6vw;}
 .discount-price b{font-size:3vw;}
 .original-price{color:#aaa;text-decoration:line-through;font-size: 3vw;}
 .discount-icon{font-style:normal;font-size: 2.8vw;color:#fa4a4a;background-color:#fde7e7;padding:3px 6px 1px 9px;background-image:linear-gradient(135deg,#fff 50%,transparent 0),linear-gradient(45deg,#fff 50%,transparent 0);background-size:8.5px 8.5px;background-repeat:no-repeat;background-position:left top,bottom left;border-radius: 2px;}
