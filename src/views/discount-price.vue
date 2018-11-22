@@ -1,10 +1,10 @@
 <template>
     <div class="discount-container">
-        <!-- <div class="test" :class="{'header-bg':headerBg}"> -->
+        <div class="test" :class="{'header-bg':headerBg}">
             <t-back-button class="discount-back"  slot="left">
                 <mt-button class="sett-back" icon="back"></mt-button>
             </t-back-button>
-        <!-- </div> -->
+        </div>
         <div class="banner-img">
             <img class="banner-img" src="../assets/imgs/banner1.jpg" alt="">
         </div>
@@ -50,10 +50,11 @@ export default {
             // }
             // console.log(top);
             let scrollTop = evt.target.scrollTop || evt.srcElement.scrollTop;
-            if(scrollTop>310){
-                this.menuFixed = true;
-            }else if(scrollTop<320){
-                this.menuFixed = false;
+            console.log(scrollTop);
+            if(scrollTop>290){
+                this.headerBg = true;
+            }else if(scrollTop<290){
+                this.headerBg = false;
             }
         },
         loadMore:function(){
