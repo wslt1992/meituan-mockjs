@@ -14,7 +14,7 @@
         <div class="namelist-all">
             <div  v-for="(item,index) in namelistAll" :key="item.id">
                 <span><i class="icon iconfont" :class="iconClassName[index]"></i>{{item.classtifyName}}</span>
-                <classtify-item :nameArr='item.list'></classtify-item>
+                <classtify-item class="classtify-all-item" :nameArr='item.list'></classtify-item>
             </div>
         </div>
     </div>
@@ -116,6 +116,7 @@ export default {
     .namelist-all{
         flex-grow: 1;
         overflow-y: scroll;
+        padding:0 3vw;//txl-add
         span{
             font-size: 5vw;
             display: inline-block;
@@ -137,5 +138,13 @@ export default {
 .icon-meishi1{
     color: #7f4ce6;
 }
+/* txl-------------start */
+/deep/.lt-header-root .header .mint-header{background-color:#fff;color:#333;height:13vw;}
+/deep/ .search-bar .root{background-color:#f5f5f5;font-size:3.6vw;line-height: 8.7vw;height:8vw;}
+/deep/ .lt-header-root .center{position: fixed!important;z-index:10000;top:2.6vw;}
+/deep/ .search-bar .root i.icon-sousuo{font-size:3.6vw;font-weight: bold;}
+/deep/.lt-header-root .center{top:2.5vw;}
+/deep/.classtify-all-item.classtify-item p{font-size:3.6vw;border:none;width:23.2vw;margin:0 1px 1px 0;;}
+/* txl-------------end */
 </style>
 
