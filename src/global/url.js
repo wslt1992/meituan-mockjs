@@ -44,6 +44,7 @@ var url = {
     myCollectionPath:'/my-collection', //收藏
     loginLerifyCodePath:"/login-verify-code", //输入验证码
     recentViewPath:"/recent-view", //最近浏览
+    discountPricePath:'/discount-price' //狠优惠
 
   },
   /**

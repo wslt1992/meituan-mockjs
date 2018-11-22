@@ -18,6 +18,7 @@ import Setting from '@/views/setting' //个人设置
 import MyCollection from '@/views/my-collection' //我的收藏
 import LoginLerifyCode from '@/views/login-verify-code' //输入验证码
 import RecentView from '@/views/recent-view' //最近浏览
+import DiscountPrice from '@/views/discount-price' //狠优惠
 
 Vue.use(Router)
 
@@ -137,7 +138,14 @@ export default new Router({
       component:RecentView,
       beforeEnter: guard.userGuard
     },
-    
+    /**
+     * discount-price 狠优惠页面
+     */
+    {
+      path:nav.discountPricePath,
+      name:"discount-price",
+      component:DiscountPrice
+    },
     
   ]
 })
