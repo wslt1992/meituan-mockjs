@@ -47,6 +47,12 @@ export default {
         return{
             msg:this.itemMsg
         }
+    },
+    watch:{
+        itemMsg:function(){
+            this.msg = this.itemMsg;
+            console.log("组件",this.msg);
+        }
     }
 }
 </script>

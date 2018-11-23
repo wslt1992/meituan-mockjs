@@ -11,14 +11,14 @@
                     return ['标签一','标签二','标签三'];
                 }
             },
-            value:{
+            acitveIndex:{
                 default:0
             }
         },
         data:function(){
             return {
                 lists:this.navList,
-                active:this.value
+                active:this.acitveIndex
             };
         },
         methods:{
