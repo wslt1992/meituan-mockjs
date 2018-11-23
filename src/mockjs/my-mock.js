@@ -77,7 +77,19 @@ Mock.mock(url.discounts,{
             "disPrice|0-50.0-1":1,
             "origPrice|50-100.0-1":1,
             "num|0-200.0-1":1,
-            "discount|0-9.0-1":1
+            "discount|1-9.0-1":1
+        }
+    ]
+});
+
+// 有格调
+Mock.mock(url.leisures,{
+    "leisures|3-5":[
+        {
+            "title|1":Random.ctitle(),
+            "tips|1":Random.ctitle(),
+            "address|1":["光谷 步行街","光谷","雄楚大道","江汉","江汉 汉正街"],
+            "price|0-500.0-1":1
         }
     ]
 });
