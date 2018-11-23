@@ -1,13 +1,12 @@
 <template>
     <div class="scenery-container">
         <div v-infinite-scroll="loadMore"  infinite-scroll-disabled="loading"   infnite-scroll-distance="50">
-            <div class="scenery-header">
-                <t-back-button class="scenery-back"  slot="left">
-                    <mt-button class="sett-back" icon="back"></mt-button>
-                    <p>有格调</p>
-                </t-back-button>
-                <tab-nav class="scenery-nav" v-model="activeNav" :acitveIndex="acitveIndex" :navList="navList"></tab-nav>
-            </div>
+            <t-back-button class="scenery-back"  slot="left">
+                <mt-button class="sett-back" icon="back"></mt-button>
+                <p>周末去哪儿</p>
+            </t-back-button>
+                
+            <tab-nav class="scenery-nav" v-model="activeNav" :acitveIndex="acitveIndex" :navList="navList"></tab-nav>
             <div class="scenery-content">
                 
                 <div class="scenery-list">
@@ -64,18 +63,17 @@ export default {
 <style scoped lang="scss">
 *{margin:0;padding:0;}
 /deep/.scenery-nav{background:transparent;}
-/deep/.scenery-nav li{color:#c28e45;;position:relative;}
-/deep/.scenery-nav li.active{color:#fcbd65;border-bottom:none;font-size:4.5vw;}
-/deep/.scenery-nav li.active::after{content:"";display: inline-block;position: absolute;bottom:2px;left:20%;right:20%;height:2px;border-radius: 2px;background-color:#fcbd65;}
+/deep/.scenery-nav li{color:#666;;position:relative;}
+/deep/.scenery-nav li.active{color:#333;border-bottom:none;font-size:4.5vw;}
+/deep/.scenery-nav li.active::after{content:"";display: inline-block;position: absolute;bottom:2px;left:20%;right:20%;height:2px;border-radius: 2px;background-color:#333;}
 /* 返回按钮 */
-.leisure-back{display:flex;}
-.leisure-back p{flex:1;text-align: center;padding-right:6vw;font-weight: bold;font-size:6vw;color:#fab452;text-shadow:1px 1px 0 #7c4e0c,2px 2px 0 #6e450a,3px 3px 0 #643d07;}
-.leisure-header{position: fixed;top:0;right:0;left:0;text-align: left;padding:0 3vw;background-color:#1f1f1f;z-index:999999;}
-/deep/.sett-back{background-color:transparent;padding-right:4vw;border:none;color:#c28e45;box-shadow: none;}
-/deep/.mint-button i{font-size:7vw;color:rgba(253, 200, 127,0.5)}
+.scenery-back{display:flex;}
+.scenery-back p{flex:1;text-align: center;padding-right:6vw;font-weight: bold;font-size:6vw;color:#fff;text-shadow:1px 1px 0 #2980c7,2px 2px 0 #2980c7,3px 3px 0 #383838;}
+/deep/.sett-back{background-color:transparent;padding-right:4vw;border:none;color:#fff;box-shadow: none;}
+/deep/.mint-button i{font-size:7vw;color:#fff}
 /deep/.mint-button:not(.is-disabled):active::after{opacity: 0;}
 
-.scenery-container{height:100vh;overflow-y:scroll;background-image:linear-gradient(180deg,#1f1f1f 35vw,transparent 65vw);}
+.scenery-container{height:100vh;overflow-y:scroll;text-align: left;background-image:linear-gradient(180deg,rgba(35, 168, 245, 0.6) 30vw,transparent 60vw),url(../assets/imgs/scenery_bg.png);background-repeat: no-repeat;background-size:100% 100%,100% auto;}
 </style>
 
 
