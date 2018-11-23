@@ -4,20 +4,16 @@
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
         infnite-scroll-distance="50">
-        <div class="discount-header" :class="{'header-bg':bgAndPos}">
+        <div class="discount-header">
             <t-back-button class="discount-back"  slot="left">
                 <mt-button class="sett-back" icon="back"></mt-button>
-                <p>狠优惠</p>
+                <p>有格调</p>
             </t-back-button>
         </div>
-        <div class="banner-img">
-            <img class="banner-img" src="../assets/imgs/banner1.jpg" alt="">
-        </div>
-        <tab-nav class="discount-nav" :class="{'navlist-fixed':bgAndPos}" v-model="activeNav" :acitveIndex="acitveIndex" :navList="navList"></tab-nav>
+        <tab-nav class="discount-nav" v-model="activeNav" :acitveIndex="acitveIndex" :navList="navList"></tab-nav>
         <div class="discount-list">
-                <discount-item v-for="(item,index) in discountList" :key="index" :itemMsg="item" class="dis-item"></discount-item>
-                <mt-spinner type="triple-bounce"></mt-spinner>
-            </div>
+            <mt-spinner type="triple-bounce"></mt-spinner>
+        </div>
         </div>
     </div>
 </template>
@@ -26,26 +22,12 @@ import axios from 'axios'
 export default {
     data:function(){
         return {
-            navList:["全部","美食","酒店","旅游","电影","休闲"],
-            discountList:[],
-            bgAndPos:false, //header背景和nav定位切换条件
+            navList:["精选","聚餐","丽人","电影演出","旅游"],
             activeNav:"", //导航当前被点击对象
             acitveIndex:0 //导航当前高亮对象索引
         }
     },
-    mounted:function(){
-        let target = document.querySelector(".discount-container");
-        target.addEventListener("scroll",this.pageScroll);
-    },
     methods:{
-        pageScroll:function(evt){
-            let scrollTop = evt.target.scrollTop || evt.srcElement.scrollTop;
-            if(scrollTop>220){
-                this.bgAndPos = true;
-            }else if(scrollTop<220){
-                this.bgAndPos = false;
-            }
-        },
         loadMore:function(){
             this.proccessDislist();
         },
@@ -53,7 +35,6 @@ export default {
             let _this = this;
             axios.get(this.$url.discounts).then((res)=>{
                 let data = res.data;
-                _this.discountList.push(...data.discounts);
             }).catch((res)=>{
                 if(res instanceof Error){
                     console.log(res.message);
@@ -70,7 +51,7 @@ export default {
         activeNav:function(newval,oldval){
             if(this.acitveIndex!=newval.index){
                 this.acitveIndex = newval.index; //保存当前被选菜单
-                this.discountList = [];
+                // this.discountList = [];
                 this.proccessDislist();
             }
         }

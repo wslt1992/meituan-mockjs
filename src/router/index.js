@@ -13,12 +13,13 @@ import Search from '@/views/search'
 import SearchResult from '@/views/search-result'
 import url from '../global/url'
 import map from '@/views/map'
-import Login from '@/views/login' //登录
-import Setting from '@/views/setting' //个人设置
-import MyCollection from '@/views/my-collection' //我的收藏
-import LoginLerifyCode from '@/views/login-verify-code' //输入验证码
-import RecentView from '@/views/recent-view' //最近浏览
-import DiscountPrice from '@/views/discount-price' //狠优惠
+import Login from '@/views/login' //我的>登录
+import Setting from '@/views/setting' //我的>个人设置
+import MyCollection from '@/views/my-collection' //我的>我的收藏
+import LoginLerifyCode from '@/views/login-verify-code' //我的>登录>输入验证码
+import RecentView from '@/views/recent-view' //我的>最近浏览
+import DiscountPrice from '@/views/discount-price' //首页>狠优惠
+import Leisure from '@/views/leisure' //首页>有格调
 
 Vue.use(Router)
 
@@ -147,6 +148,14 @@ export default new Router({
       name:"discount-price",
       component:DiscountPrice
     },
-    
+    /**
+     * leisure 有格调页面
+     */
+    {
+      
+      path:nav.leisurePath,
+      name:"leisure",
+      component:Leisure
+    }
   ]
 })
