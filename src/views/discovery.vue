@@ -6,13 +6,18 @@
 
         <!-- tab开始 -->
         <div slot="top-fix" class="top-fix">
-            <t-tab checked-clazz='active' class="t-tab-default" v-model="selectedIndex" >
+            <t-swiper class="t-swiper-default" v-model="selectedIndex">
                 <div>精选</div>
                 <div>爱美食</div>
                 <div>关注</div>
                 <div>出去浪</div>
                 <div>健康生活</div>
-            </t-tab>
+                <div>精选</div>
+                <div>爱美食</div>
+                <div>关注</div>
+                <div>出去浪</div>
+                <div>健康生活</div>
+            </t-swiper>
         </div>
         <!-- tab结束 -->
 

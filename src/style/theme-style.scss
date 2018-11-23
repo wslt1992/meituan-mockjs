@@ -17,6 +17,30 @@
             padding-bottom: 0vw;
         }
 }
+
+.t-swiper-default{
+    font-size: 0;
+    >div.scroll{
+        >*{
+            display: inline-flex;
+            font-size: 4vw;
+            height: 13vw;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            width: 20vw;
+            border-bottom: 0.3vw solid $gray;
+            padding-bottom: 0.2vw;
+        }
+        .t-swiper-item-checked{
+            border-bottom: 0.5vw solid $primary-color;
+            color: $primary-color;
+            padding-bottom: 0vw;
+        }
+    }
+    
+}
+
 // header默认样式
 .t-header-default {
     font-size: 5vw;
@@ -24,4 +48,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    }
+}
