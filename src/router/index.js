@@ -20,6 +20,7 @@ import LoginLerifyCode from '@/views/login-verify-code' //我的>登录>输入�
 import RecentView from '@/views/recent-view' //我的>最近浏览
 import DiscountPrice from '@/views/discount-price' //首页>狠优惠
 import Leisure from '@/views/leisure' //首页>有格调
+import Scenery from '@/views/scenery' //去哪儿
 
 Vue.use(Router)
 
@@ -156,6 +157,15 @@ export default new Router({
       path:nav.leisurePath,
       name:"leisure",
       component:Leisure
+    },
+     /**
+     * scenery 有格调页面
+     */
+    {
+      
+      path:nav.sceneryPath,
+      name:"scenery",
+      component:Scenery
     }
   ]
 })

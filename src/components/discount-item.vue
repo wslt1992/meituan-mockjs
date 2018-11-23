@@ -49,9 +49,8 @@ export default {
         }
     },
     watch:{
-        itemMsg:function(){
-            this.msg = this.itemMsg;
-            console.log("组件",this.msg);
+        itemMsg:function(newVal){
+            this.msg = newVal;
         }
     }
 }

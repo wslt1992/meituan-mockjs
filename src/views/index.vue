@@ -98,7 +98,7 @@
       <div class="index-ad">
         <ad-item :title="'狠优惠'" :content="'重庆江湖烤全羊'" :tips="'中式烧烤'" :type="'烧烤'" :btntxt="'0.1折抢购 >'" class="index-ad-item" :topath="'/discount-price'"></ad-item>
         <ad-item :title="'有格调'" :content="'御品spa桑拿会所'" :tips="'休闲娱乐'" :type="'休闲娱乐'" :showBtn="false" class="index-ad-item" :topath="'/leisure'"></ad-item>
-        <ad-item :title="'周末去哪儿'" :content="'小包房包夜'" :tips="'电影'" :type="'亲子'" :showBtn="false" class="index-ad-item single-item"></ad-item>
+        <ad-item :title="'周末去哪儿'" :content="'小包房包夜'" :tips="'电影'" :type="'亲子'" :showBtn="false" class="index-ad-item single-item" :topath="'/scenery'"></ad-item>
       </div>
       <!-- 狠优惠 有格调 电影 红包 end -->
       <!-- 猜你喜欢 start -->

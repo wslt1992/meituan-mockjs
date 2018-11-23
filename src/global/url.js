@@ -14,6 +14,7 @@ var url = {
   login:'/data/login', //收藏商品列表
   order:'/data/order', //收藏商品列表
   discounts:'/data/discounts', //狠优惠列表
+  leisures:'/data/leisures', //有格调列表
   /**
    * 数据访问路径---结束
    */
@@ -47,6 +48,7 @@ var url = {
     recentViewPath:"/recent-view", //最近浏览
     discountPricePath:'/discount-price', //狠优惠
     leisurePath:'/leisure', //有格调
+    sceneryPath:'/scenery', //去哪儿
 
   },
   /**
