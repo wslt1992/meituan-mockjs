@@ -50,6 +50,7 @@ Vue.use(ElementUI);
 /* eslint-disable no-new */
 import store from './store/index'
 
+// require('./h5+/h5+.js');
 new Vue({
   el: '#app',
   router,

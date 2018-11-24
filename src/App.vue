@@ -13,6 +13,23 @@ export default {
   name: 'App',
   components:{
     'main-page':MainPage
+  },
+  methods: {
+    /**
+     * 监听文件
+     */
+    initKeyEventback() {
+      let _this = this;
+      document.addEventListener("plusready", function () {
+        plus.key.addEventListener("backbutton", function () {
+            // alert("BackButton Key pressed!");
+            _this.$router.back();
+          });
+        });
+    }
+  },
+  mounted(){
+    this.initKeyEventback()
   }
 }
 </script>
