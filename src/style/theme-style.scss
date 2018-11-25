@@ -1,18 +1,18 @@
 @import './color.scss';
 // tab的默认样式
 .t-tab-default{
-    div {
+    >div {
         font-size: 4vw;
             height: 13vw;
             display: flex;
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
-            border-bottom: 0.3vw solid $gray;
-            padding-bottom: 0.2vw;
+            border-bottom: 1px solid $color-aaa;
+            padding-bottom: 1px;
         }
-        div.active {
-            border-bottom: 0.5vw solid $primary-color;
+     >div.t-tab-item-checked {
+            border-bottom: 2px solid $primary-color;
             color: $primary-color;
             padding-bottom: 0vw;
         }
@@ -29,13 +29,13 @@
             align-items: center;
             box-sizing: border-box;
             width: 20vw;
-            border-bottom: 0.3vw solid $gray;
-            padding-bottom: 0.2vw;
+            border-bottom: 1px solid $color-aaa;
+            padding-bottom: 1px;
         }
         .t-swiper-item-checked{
-            border-bottom: 0.5vw solid $primary-color;
+            border-bottom: 2px solid $primary-color;
             color: $primary-color;
-            padding-bottom: 0vw;
+            padding-bottom: 0px;
         }
     }
     
