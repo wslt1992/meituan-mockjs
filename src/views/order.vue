@@ -4,7 +4,7 @@
             <div slot="center" class="header" >订单</div>
         </t-header-new>
         <div slot="top-fix" class="top-fix">
-            <t-tab checked-clazz='active' class="tab" v-model="selectedIndex" >
+            <t-tab class="t-tab-default" v-model="selectedIndex" >
                 <div>全&emsp;部</div>
                 <div>待付款</div>
                 <div>待使用</div>
@@ -102,7 +102,7 @@ export default {
 <style lang='scss' scoped>
 @import "../style/color.scss";
 .t-page-root{
-    color: $font-color;
+    color: color-555;
 }
 .header {
   font-size: 5vw;
@@ -113,23 +113,23 @@ export default {
 }
 .top-fix{
      // tab开始
-    .tab {
-       div {
-           font-size: 4vw;
-            height: 13vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-            border-bottom: 0.3vw solid $gray;
-            padding-bottom: 0.2vw;
-        }
-        div.active {
-            border-bottom: 0.5vw solid $primary-color;
-            color: $primary-color;
-            padding-bottom: 0vw;
-        }
-    }
+    // .tab {
+    //    div {
+    //        font-size: 4vw;
+    //         height: 13vw;
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         box-sizing: border-box;
+    //         border-bottom: 0.3vw solid $gray;
+    //         margin-bottom: 0.2vw;
+    //     }
+    //     div.active {
+    //         border-bottom: 0.5vw solid $primary-color;
+    //         color: $primary-color;
+    //         padding-bottom: 0vw;
+    //     }
+    // }
     // tab结束
 }
 .container1 {

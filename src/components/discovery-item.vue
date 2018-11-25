@@ -34,10 +34,10 @@
 .discovery-item-root{
     display: flex;
     flex-direction: column;
-    color:$font-color;
+    color:$color-555;
     align-items: stretch;
     text-align: start;
-    border-bottom: 1px solid $font-third-color;
+    border-bottom: 1px solid $color-eee;
     margin: 0 2vw;
     >*{
         margin: 1.2vw 0;
@@ -68,7 +68,7 @@
     }
     
     .tips{
-        color:$font-secondary-color;
+        color:$color-aaa;
         font-size: 3vw;
     }
 }

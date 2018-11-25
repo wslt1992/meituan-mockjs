@@ -13,8 +13,13 @@
     color: red;
     }
  */
-    const checkedClazz='checked-clazz'
     export default {
+        props: {
+            checkedClass: {
+                type: String,
+                default: 't-tab-item-checked'
+            },
+        },
         data() {
             return {
                 //全部的item
@@ -22,9 +27,8 @@
                 currentCheckedNum:0,
                 /**
                  * 被选中后的样式名，样式需在父定义
-                 * 通过 属性方式传入例如：<t-tab checked-clazz='active'>
+                 * 通过 属性方式传入例如：<t-tab checked-clazz='t-tab-item-checked'>
                  */
-                checkedClass:''
             }
         },
         methods: {
@@ -46,8 +50,6 @@
                     this.currentCheckedNum = index;
                 })
             });
-            this.checkedClass = this.$el.getAttribute(checkedClazz)
-
             this.initStartClass(this.currentCheckedNum);
         },
         watch: {
