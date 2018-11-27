@@ -20,12 +20,12 @@ export default {
      */
     initKeyEventback() {
       let _this = this;
-      document.addEventListener("plusready", function () {
-        plus.key.addEventListener("backbutton", function () {
-            // alert("BackButton Key pressed!");
-            _this.$router.back();
-          });
-        });
+      // document.addEventListener("plusready", function () {
+      //   plus.key.addEventListener("backbutton", function () {
+      //       // alert("BackButton Key pressed!");
+      //       _this.$router.back();
+      //     });
+      //   });
     }
   },
   mounted(){
