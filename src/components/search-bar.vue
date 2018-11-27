@@ -27,6 +27,7 @@
 <style lang='scss' scoped>
 .root{
     // border: 1px solid #ddd;
+    display: inline-block;
     font-size: 4vw;
     text-align: center;
     color: #999;

@@ -1,8 +1,8 @@
 <template>
         <t-page>
-        <t-header slot="header">
-            <search-bar class="search-bar"></search-bar>
-        </t-header>
+        <t-header-new slot="header">
+            <search-bar slot="center" class="search-bar"></search-bar>
+        </t-header-new>
 
         <div class="seletor" slot="top-fix">
             <t-bottom-menu istopbottom='true' >
@@ -187,6 +187,9 @@ import {Toast} from 'mint-ui'
 </script>
 
 <style lang='scss' scoped>
+.search-bar{
+    // height: 20vw;
+}
     // 分类bar开始
     .seletor{
         // justify-content: space-around;
