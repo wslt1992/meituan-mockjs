@@ -2,7 +2,7 @@ import Mock from 'mockjs';
 import url from '../global/url'
 //设置延迟
 Mock.setup({
-  timeout: '200-3000'
+  timeout: '200-1000'
 })
 let Random = Mock.Random;
 Mock.mock(url.index, {
@@ -89,7 +89,7 @@ Mock.mock(RegExp(url.login + ".*"), function(options) {
  * order订单
  */
 Mock.mock(RegExp(url.order + ".*"), function(options) {
-  console.log(options);
+  // console.log(options);
   let params = JSON.parse(options.body)
   // console.log('usename-password',params.username,params.password)
   let classtify = '';

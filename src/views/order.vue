@@ -12,10 +12,37 @@
                 <div>退款/售后</div>
             </t-tab>
         </div>
+        
+            <search-list-item :items='items'> 
+
+            </search-list-item>
+            <!-- <div v-for="(item,index) in items" :key="index" class="list-item">
+                <h6>{{item.id}}</h6>
+                <div class="item-left"> -->
+                    <!-- <img :src='item.img' alt=""> -->
+                    <!-- <img src="../assets/imgs/shop.jpg" alt="">
+                </div>
+                <div class="item-right">
+                    <span class="shopname">{{item.shopname}}</span>
+                    <div class="div-item">
+                        <span class="price">￥{{item.price}}</span>
+                        <span class="distance">{{item.distance}}km</span>
+                    </div>
+                    <div class="div-item">
+                        <span class="tips">{{item.tips}}</span>
+                        <span class="sold">销量:{{item.sold}}</span>
+                    </div>
+                    <span class="address">地址:{{item.tips}}</span>
+                </div>
+            </div> -->
+        
         <div slot="container" class="container1">
-            <!-- <div class="container1"> -->
-            <order-item :items='items' class="list"></order-item>
-            <!-- </div> -->
+            <div v-infinite-scroll="loadMore"
+                infinite-scroll-disabled="loading"
+                infinite-scroll-distance="50">
+                    <order-item :items='items' class="list"></order-item>
+                    <mt-spinner type="triple-bounce"></mt-spinner>
+            </div>
             
         </div>
     </t-page>
@@ -66,6 +93,9 @@ export default {
         if(this.items.length===0){
           this.requestData(stateNum,this.items);
         }
+      },
+      loadMore(){
+          this.requestData(this.selectedIndex,this.items);
       },
       /**
        * 切换tab内容
