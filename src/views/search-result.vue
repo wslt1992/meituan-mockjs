@@ -48,7 +48,7 @@
                                 </div>
                                 <div rightshow>
                                     <p @click='paixuSubItem'>婚宴</p>
-                                </div>@click='paixuSubItem'
+                                </div>
                             </div>
                         </t-right-menu>
                     </div>
