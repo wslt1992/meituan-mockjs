@@ -197,6 +197,7 @@ import {Toast} from 'mint-ui'
         .seletor-bar{
             display: flex;
             border-bottom: 1px solid #eee;
+            p::after{content:"";display:inline-block;width:0;height:0;border:4px solid transparent;border-top-color:#aaa;margin-bottom:-2px;margin-left: 3px;}
             >*{
                 flex-grow: 1;
             }

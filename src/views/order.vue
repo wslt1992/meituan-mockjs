@@ -1,7 +1,7 @@
 <template>
     <t-page class="t-page-root">
-        <t-header-new :back='false' slot="header">
-            <div slot="center" class="header" >订单</div>
+        <t-header-new :back='false' slot="header" class="t-header-default">
+            <div slot="center">订单</div>
         </t-header-new>
         <div slot="top-fix" class="top-fix">
             <t-tab class="t-tab-default" v-model="selectedIndex" >
@@ -134,13 +134,14 @@ export default {
 .t-page-root{
     color: color-555;
 }
-.header {
-  font-size: 5vw;
-  height: 10vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// .header {
+//   font-size: 5vw;
+//   height: 10vw;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: #25abb1;
+// }
 .top-fix{
      // tab开始
     // .tab {

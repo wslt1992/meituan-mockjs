@@ -31,11 +31,11 @@
     font-size: 4vw;
     text-align: center;
     color: #999;
-    background-color: #fff;
     width: 70vw;
     height: 10vw;
     line-height: 10vw;
     border-radius: 6vw;
+    background-color:#f5f5f5;
     a{
         color: #999;
         text-decoration: none;

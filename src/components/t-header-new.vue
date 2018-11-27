@@ -2,7 +2,7 @@
     <div class="t-header">
         <div class="left">
             <slot name="left">
-                <t-back-button v-if="back"><i class="icon iconfont icon-arrowleft"></i></t-back-button>
+                <t-back-button v-if="back"><i class="icon iconfont icon-back"></i></t-back-button>
             </slot>
         </div>
         <div class="center">
@@ -33,11 +33,12 @@ export default {
   justify-content: space-between;
   padding-top: 2vw;
   padding-bottom: 2vw;
-  background-color: #28bb9b;
+  color: #333;
   .left{
       display: flex;
         align-items: center;
     i{
+        padding-left: 1vw;
         font-size: 6vw;
     }
   } 

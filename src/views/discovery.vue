@@ -1,7 +1,7 @@
 <template>
     <t-page class="t-page-root">
-        <t-header-new :back='false' slot="header">
-            <div slot="center" class="t-header-default" >发现</div>
+        <t-header-new :back='false' slot="header" class="t-header-default">
+            <div slot="center"  >发现</div>
         </t-header-new>
 
         <!-- tab开始 -->
