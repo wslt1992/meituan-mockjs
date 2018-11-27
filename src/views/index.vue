@@ -309,7 +309,7 @@ div.index-header{
 /* 木头----start*/
   /* header */
 /deep/.index-header .mint-header{background-color:#fff;color:#333;position:fixed;top:0;right:0;left:0;z-index:9999}
-// /deep/ .index-header .root{background-color:#f5f5f5;font-size:4vw;line-height: 10.7vw;}//TODO
+// /deep/ .index-header .root{background-color:#f5f5f5;font-size:4vw;line-height: 10.7vw;}
 /deep/ .lt-header-root .center{position: fixed!important;z-index:10000;top:0;}
 /deep/ .index-header .root i.icon-sousuo{font-size:3.6vw;font-weight: bold;}
 // /deep/ .mt-swipe{margin-top: 16vw;height:44vw;}

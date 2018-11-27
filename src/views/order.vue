@@ -1,7 +1,7 @@
 <template>
     <t-page class="t-page-root">
         <t-header-new :back='false' slot="header" class="t-header-default">
-            <div slot="center">订单</div>
+            <div slot="center" class="order-color">订单</div>
         </t-header-new>
         <div slot="top-fix" class="top-fix">
             <t-tab class="t-tab-default" v-model="selectedIndex" >
@@ -169,5 +169,7 @@ export default {
 .list{
     overflow: scroll;
 }
-  
+  .order-color{
+      color: #eee;
+  }
 </style>
