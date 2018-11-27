@@ -1,10 +1,10 @@
 <template>
-    <div>
-        <t-header>
+        <t-page>
+        <t-header slot="header">
             <search-bar class="search-bar"></search-bar>
         </t-header>
 
-        <div class="seletor">
+        <div class="seletor" slot="top-fix">
             <t-bottom-menu istopbottom='true' >
                 <div slot="top" class="seletor-bar">
                     <p topclick>全部分类</p>
@@ -94,7 +94,7 @@
         <!-- 选择器，选择菜分类、地区 、排序开始-->
         
         <!-- 选择器，选择菜分类、地区 、排序结束 -->
-        <div class="content" 
+        <div class="content" slot="container"
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="50">
@@ -122,7 +122,7 @@
             </div> -->
             <mt-spinner type="triple-bounce"></mt-spinner>
         </div>
-    </div>
+        </t-page>
 </template>
 
 <script>
@@ -190,8 +190,10 @@ import {Toast} from 'mint-ui'
     // 分类bar开始
     .seletor{
         // justify-content: space-around;
+        font-size:3.6vw;
         .seletor-bar{
             display: flex;
+            border-bottom: 1px solid #eee;
             >*{
                 flex-grow: 1;
             }
@@ -208,20 +210,22 @@ import {Toast} from 'mint-ui'
             background-color: #fff;
             position: absolute;
             top:12vw;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
     }
     
     // 分类bar结束
 /* txl-------------start */
-/deep/.lt-header-root .mint-header{background-color:#fff;color:#333;position:fixed;top:0;right:0;left:0;z-index:9999;height:13vw!important;}
-/deep/ .search-bar .root{background-color:#f5f5f5;font-size:3.6vw;line-height: 8.7vw;height:8vw;}
-/deep/ .lt-header-root .center{position: fixed!important;z-index:10000;top:2.6vw;}
-/deep/ .search-bar .root i.icon-sousuo{font-size:3.6vw;font-weight: bold;}
-.seletor{top:16vw;position:fixed;top:13vw;right:0;left:0;background-color:#fff;height:10vw;}
-.seletor{font-size:3.6vw;}
-/deep/.seletor .seletor-bar p{line-height: 3.4vw;}
-/deep/.seletor .seletor-bar p::after{content:"";display:inline-block;width:0;height:0;border:4px solid transparent;border-top-color:#aaa;margin-bottom:-2px;margin-left: 3px;}
-/deep/.seletor .bottom-menu-style{top:9.9vw;text-align:left;padding-left:8vw;}
-.content{margin-top:26vw;}
+// /deep/.lt-header-root .mint-header{background-color:#fff;color:#333;position:fixed;top:0;right:0;left:0;z-index:9999;height:13vw!important;}
+// /deep/ .search-bar .root{background-color:#f5f5f5;font-size:3.6vw;line-height: 8.7vw;height:8vw;}
+// /deep/ .lt-header-root .center{position: fixed!important;z-index:10000;top:2.6vw;}
+// /deep/ .search-bar .root i.icon-sousuo{font-size:3.6vw;font-weight: bold;}
+// .seletor{top:16vw;position:fixed;top:13vw;right:0;left:0;background-color:#fff;height:10vw;}
+// .seletor{font-size:3.6vw;}
+// /deep/.seletor .seletor-bar p{line-height: 3.4vw;}
+// /deep/.seletor .seletor-bar p::after{content:"";display:inline-block;width:0;height:0;border:4px solid transparent;border-top-color:#aaa;margin-bottom:-2px;margin-left: 3px;}
+// /deep/.seletor .bottom-menu-style{top:9.9vw;text-align:left;padding-left:8vw;}
+// .content{margin-top:26vw;}
 /* txl-------------end */  
 </style>
