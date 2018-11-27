@@ -1,6 +1,6 @@
 <template>
     <div class="classtify-item">
-        <p v-for="(item,index) in nameArr" :key="index">
+        <p @click="$global.toSearch" v-for="(item,index) in nameArr" :key="index">
             {{ item }}
         </p>
     </div>

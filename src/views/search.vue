@@ -11,7 +11,7 @@
             <div>
                 <div class="class-tag">热门搜索</div>
                 <div class="class-tag-content">
-                    <span class="class-tag-item" v-for="item in hotArr" :key="item.id">
+                    <span class="class-tag-item" @click="$global.toSearch" v-for="item in hotArr" :key="item.id">
                         {{ item.length>10 ? (item.substr(0,10)+"..."):item }}
                     </span>
                 </div>

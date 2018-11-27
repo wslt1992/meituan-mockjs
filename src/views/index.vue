@@ -1,10 +1,13 @@
 // 首页
 <template>
-    <div class="index-root"  id="mainContent">
-      <t-header class="index-header">
+    <t-page class="index-root"  id="mainContent">
+      <t-header-new slot="header" class="index-header">
         <span slot='left'>选择地区</span>
-        <search-bar></search-bar>
-      </t-header>
+        <search-bar slot='center'></search-bar>
+      </t-header-new>
+      <div slot="container">
+
+      
       <!-- 轮播开始 -->
       <div class="mt-swipe">
         <mt-swipe :auto='3000'>
@@ -52,39 +55,39 @@
       <!-- 分类结束 -->
       <!-- 分类全部开始 -->
       <div class="classify classifyAll">
-        <div class="classify-item">
+        <div @click="$global.toSearch" class="classify-item">
           <i class="icon iconfont icon-peixun1"></i>
         <p>学习培训</p>
         </div>
-        <div class="classify-item">
+        <div @click="$global.toSearch" class="classify-item">
           <i class="icon iconfont icon-jiudian1"></i>
           <p>民宿/公寓</p>
         </div>
-        <div class="classify-item">
+        <div @click="$global.toSearch" class="classify-item">
           <i class="icon iconfont icon-lvyou"></i>
           <p>周边游/旅游</p>
         </div>
-        <div class="classify-item">
+        <div @click="$global.toSearch" class="classify-item">
           <i class="icon iconfont icon-meifa"></i>
           <p>丽人/美发</p>
         </div>
-        <div class="classify-item">
+        <div @click="$global.toSearch" class="classify-item">
           <i class="icon iconfont icon-sheying"></i>
           <p>结婚/摄影</p>
         </div>
-        <div class="classify-item">
+        <div @click="$global.toSearch" class="classify-item">
           <i class="icon iconfont icon-market"></i>
         <p>闪购超市</p>
         </div>
-        <div class="classify-item">
+        <div @click="$global.toSearch" class="classify-item">
           <i class="icon iconfont icon-jingdian"></i>
           <p>景点/门票</p>
         </div>
-        <div class="classify-item">
+        <div @click="$global.toSearch" class="classify-item">
           <i class="icon iconfont icon-feijipiao"></i>
           <p>火车票/机票</p>
         </div>
-        <div class="classify-item">
+        <div @click="$global.toSearch" class="classify-item">
           <i class="icon iconfont icon-zuliao"></i>
           <p>按摩/足疗</p>
         </div>
@@ -113,7 +116,8 @@
         </div>
       </div>
       <!-- 猜你喜欢 end -->
-    </div>
+      </div>
+    </t-page>
 </template>
 
 <script>
@@ -209,6 +213,14 @@ export default {
   height: 100%;
   overflow-y: scroll;
 }
+div.index-header{
+  color: #555;
+  font-size: 14px;
+  background-color: #fff;
+  span{
+    padding-left: 3vw;
+  }
+}
 .mint-swipe-item{
   img{
     
@@ -300,7 +312,7 @@ export default {
 /deep/ .index-header .root{background-color:#f5f5f5;font-size:4vw;line-height: 10.7vw;}
 /deep/ .lt-header-root .center{position: fixed!important;z-index:10000;top:0;}
 /deep/ .index-header .root i.icon-sousuo{font-size:3.6vw;font-weight: bold;}
-/deep/ .mt-swipe{margin-top: 16vw;height:44vw;}
+// /deep/ .mt-swipe{margin-top: 16vw;height:44vw;}
   /* 轮播 */
 /deep/ .mint-swipe img{max-width:100%;height:100%;}
 /deep/ .mint-swipe-indicator.is-active{opacity: 0.6;}
