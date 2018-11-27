@@ -48,7 +48,7 @@
              * 跳转到搜索结果页
              */
             toSearchResult:function(keyword){
-                if(keyword===''){
+                if(keyword===''||newValue===undefined||newValue===null){
                     keyword = this.tips;
                 }
                 this.$global.toSearchResult(keyword)
