@@ -3,15 +3,15 @@
         <t-header class="search-header">
             <div class="search-input">
                 <i class="iconfont icon-sousuo"></i>
-                <input type="text" :placeholder="tips">
+                <input v-model="sosoInput" type="text" :placeholder="tips">
             </div>
-            <span class="sousuo" slot='right' @click="toSearchRulter">搜索</span>
+            <span class="sousuo" slot='right' @click="toSearchResult(sosoInput)">搜索</span>
         </t-header>
         <div class="content">
             <div>
                 <div class="class-tag">热门搜索</div>
                 <div class="class-tag-content">
-                    <span class="class-tag-item" @click="$global.toSearch" v-for="item in hotArr" :key="item.id">
+                    <span class="class-tag-item" @click="$global.toSearchResult(item)" v-for="item in hotArr" :key="item.id">
                         {{ item.length>10 ? (item.substr(0,10)+"..."):item }}
                     </span>
                 </div>
@@ -39,16 +39,26 @@
                     '深南玖月海鲜烧烤音乐餐吧',
                     'Hui Hotel回酒店·La cafe自助餐',
                     'UNIVERSAL CAFFEN BAR环球咖啡厅（海上世界店）'
-                    ]
+                    ],
+                sosoInput:''            
             }
         },
         methods:{
             /**
              * 跳转到搜索结果页
              */
-            toSearchRulter:function(){
-                this.$router.push(this.$url.navigator.SearchResultPath);
+            toSearchResult:function(keyword){
+                if(keyword===''){
+                    keyword = this.tips;
+                }
+                this.$global.toSearchResult(keyword)
+            },
+            initDataRoute(){
+                this.sosoInput = this.$route.params.searchKeyword;
             }
+        },
+        created(){
+            this.initDataRoute();
         }
     }
 </script>

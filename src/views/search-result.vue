@@ -1,7 +1,7 @@
 <template>
         <t-page>
         <t-header-new slot="header">
-            <search-bar slot="center" class="search-bar"></search-bar>
+            <search-bar :keyword='searchKeyword' slot="center" class="search-bar"></search-bar>
         </t-header-new>
 
         <div class="seletor" slot="top-fix">
@@ -137,7 +137,8 @@ import {Toast} from 'mint-ui'
                 popupVisible:true,
                 loading:false,
                 items:[],
-                isBottomShow:[false,false,false]
+                isBottomShow:[false,false,false],
+                searchKeyword:null
             }
         },
         methods:{
@@ -178,10 +179,16 @@ import {Toast} from 'mint-ui'
                     position: 'bottom',
                     duration: 3000
                 });
+            },
+            initDataRoute(){
+                this.searchKeyword = this.$route.params.searchKeyword;
             }
         },
-        mounted:function(){
+        created(){
+            this.initDataRoute()
             this.requestData();
+        },
+        mounted:function(){
         }
     }
 </script>

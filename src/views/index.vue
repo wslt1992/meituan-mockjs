@@ -55,39 +55,39 @@
       <!-- 分类结束 -->
       <!-- 分类全部开始 -->
       <div class="classify classifyAll">
-        <div @click="$global.toSearch" class="classify-item">
+        <div @click="$global.toSearchResult('学习培训')" class="classify-item">
           <i class="icon iconfont icon-peixun1"></i>
         <p>学习培训</p>
         </div>
-        <div @click="$global.toSearch" class="classify-item">
+        <div @click="$global.toSearchResult('民宿/公寓')" class="classify-item">
           <i class="icon iconfont icon-jiudian1"></i>
           <p>民宿/公寓</p>
         </div>
-        <div @click="$global.toSearch" class="classify-item">
+        <div @click="$global.toSearchResult('周边游/旅游')" class="classify-item">
           <i class="icon iconfont icon-lvyou"></i>
           <p>周边游/旅游</p>
         </div>
-        <div @click="$global.toSearch" class="classify-item">
+        <div @click="$global.toSearchResult('丽人/美发')" class="classify-item">
           <i class="icon iconfont icon-meifa"></i>
           <p>丽人/美发</p>
         </div>
-        <div @click="$global.toSearch" class="classify-item">
+        <div @click="$global.toSearchResult('结婚/摄影')" class="classify-item">
           <i class="icon iconfont icon-sheying"></i>
           <p>结婚/摄影</p>
         </div>
-        <div @click="$global.toSearch" class="classify-item">
+        <div @click="$global.toSearchResult('闪购超市')" class="classify-item">
           <i class="icon iconfont icon-market"></i>
         <p>闪购超市</p>
         </div>
-        <div @click="$global.toSearch" class="classify-item">
+        <div @click="$global.toSearchResult('景点/门票')" class="classify-item">
           <i class="icon iconfont icon-jingdian"></i>
           <p>景点/门票</p>
         </div>
-        <div @click="$global.toSearch" class="classify-item">
+        <div @click="$global.toSearchResult('火车票/机票')" class="classify-item">
           <i class="icon iconfont icon-feijipiao"></i>
           <p>火车票/机票</p>
         </div>
-        <div @click="$global.toSearch" class="classify-item">
+        <div @click="$global.toSearchResult('按摩/足疗')" class="classify-item">
           <i class="icon iconfont icon-zuliao"></i>
           <p>按摩/足疗</p>
         </div>
