@@ -15,6 +15,7 @@ var url = {
   order:'/data/order', //收藏商品列表
   discounts:'/data/discounts', //狠优惠列表
   leisures:'/data/leisures', //有格调列表
+  scenerys:'/data/scenerys', //周末去哪儿
   /**
    * 数据访问路径---结束
    */

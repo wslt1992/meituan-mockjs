@@ -3,6 +3,18 @@ import url from "../global/url";
 
 let Random = Mock.Random;
 
+// 随机title
+function randomTitle(){
+    let title = Random.ctitle();
+    return title;
+}
+
+// 随机title
+function randomTitle2(min,max){
+    let arr = [Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),Random.ctitle(min,max),];
+    return arr;
+}
+
 Mock.mock(url.users,{
     "usermsg|1":[
         {
@@ -71,8 +83,8 @@ Mock.mock(url.goods,{
 Mock.mock(url.discounts,{
     "discounts|3-5":[
         {
-            "title|1":Random.ctitle(),
-            "tips|1":Random.ctitle(),
+            "title|1":randomTitle,
+            "tips|1":randomTitle,
             "address|1":["光谷 步行街","光谷","雄楚大道","江汉","江汉 汉正街"],
             "disPrice|0-50.0-1":1,
             "origPrice|50-100.0-1":1,
@@ -86,10 +98,21 @@ Mock.mock(url.discounts,{
 Mock.mock(url.leisures,{
     "leisures|3-5":[
         {
-            "title|1":Random.ctitle(),
-            "tips|1":Random.ctitle(),
+            "title|1":randomTitle,
+            "tips|1":randomTitle,
             "address|1":["光谷 步行街","光谷","雄楚大道","江汉","江汉 汉正街"],
             "price|0-500.0-1":1
+        }
+    ]
+});
+
+// 去哪儿
+Mock.mock(url.scenerys,{
+    "scenerys|3-5":[
+        {
+            "title|1":randomTitle2(3,6),
+            "content|1":randomTitle2(5,14),
+            "tips|1":randomTitle2(4,6)
         }
     ]
 });

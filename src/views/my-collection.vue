@@ -4,9 +4,9 @@
             <t-back-button slot="left">
                 <mt-button class="sett-back" icon="back">我的收藏</mt-button>
             </t-back-button>
-            <t-back-button slot="right">
+            <div slot="right">
                 <mt-button>编辑</mt-button>
-            </t-back-button>
+            </div>
         </mt-header>
         <tab-nav :navList="navList" v-model="activeNav" class="collection-nav"></tab-nav>
         <div class="collection-list">
