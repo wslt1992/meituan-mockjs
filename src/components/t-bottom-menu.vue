@@ -54,9 +54,7 @@ import $ from 'jquery'
                         
                     })})
             let bottomShowS = this.bottomShowS=this.$el.querySelectorAll('[bottomshow]');
-                bottomShowS.forEach((element,index) => {
                     this.hideRightALl();
-                })
             
         },
         methods:{
