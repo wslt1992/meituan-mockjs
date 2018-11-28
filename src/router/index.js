@@ -86,7 +86,7 @@ export default new Router({
     },
     {
       path: nav.searchPath,
-      name: 's',
+      name: 'Search',
       component: Search,
     },
     /**
