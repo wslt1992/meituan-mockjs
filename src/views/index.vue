@@ -262,7 +262,7 @@ div.index-header{
       }
       
       p{
-        margin: 0;
+        margin: 1.2vw 0 0;//txl--modify
         padding: 0;
       }
     
@@ -319,16 +319,16 @@ div.index-header{
   /* 分类主菜单 */
 .classify{background-color:#fff;padding:2vw 0;}
 .classify .classify-item i{color:rgba(255,255,255,0.93);font-size:6.6vw;}
-.classify-item:first-of-type i{background-image:linear-gradient(135deg,#fc9797,#f73835);filter:drop-shadow(1px 1px 2px rgba(247, 56, 53,0.3))}
-.classify-item:nth-of-type(2) i{background-image:linear-gradient(135deg,#aafd7a,#50b615);filter:drop-shadow(1px 1px 2px rgba(80, 182, 21,0.3))}
-.classify-item:nth-of-type(3) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e);filter:drop-shadow(1px 1px 2px rgba(10, 168, 142,0.3))}
-.classify-item:nth-of-type(4) i{background-image:linear-gradient(135deg,#ff94b4,#e4215b);filter:drop-shadow(1px 1px 2px rgba(228, 33, 91,0.3))}
-.classify-item:nth-of-type(5) i{background-image:linear-gradient(135deg,#f0fc89,#9faa08);filter:drop-shadow(1px 1px 2px rgba(159, 170, 8,0.3))}
-.classify-item:nth-of-type(6) i{background-image:linear-gradient(135deg,#eb98fc,#b714e9);filter:drop-shadow(1px 1px 2px rgba(183, 20, 233,0.3))}
-.classify-item:nth-of-type(7) i{background-image:linear-gradient(135deg,#ffd9a1,#db7908);filter:drop-shadow(1px 1px 2px rgba(219, 121, 8,0.3))}
-.classify-item:nth-of-type(8) i{background-image:linear-gradient(135deg,#9ddefc,#0693ca);filter:drop-shadow(1px 1px 2px rgba(6, 147, 202,0.3))}
-.classify-item:nth-of-type(9) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e);filter:drop-shadow(1px 1px 2px rgba(10, 168, 142,0.3))}
-.classify-item:nth-of-type(10) i{background-image:linear-gradient(135deg,#fcd7b8,#805310);filter:drop-shadow(1px 1px 2px rgba(128, 83, 16,0.3))}
+.classify-item:first-of-type i{background-image:linear-gradient(135deg,#fc9797,#f73835);box-shadow: 1px 1px 2px rgba(247, 56, 53,0.3);}
+.classify-item:nth-of-type(2) i{background-image:linear-gradient(135deg,#aafd7a,#50b615);box-shadow:1px 1px 2px rgba(80, 182, 21,0.3);}
+.classify-item:nth-of-type(3) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e);box-shadow:1px 1px 2px rgba(10, 168, 142,0.3);}
+.classify-item:nth-of-type(4) i{background-image:linear-gradient(135deg,#ff94b4,#e4215b);box-shadow:1px 1px 2px rgba(228, 33, 91,0.3);}
+.classify-item:nth-of-type(5) i{background-image:linear-gradient(135deg,#f0fc89,#9faa08);box-shadow:1px 1px 2px rgba(159, 170, 8,0.3);}
+.classify-item:nth-of-type(6) i{background-image:linear-gradient(135deg,#eb98fc,#b714e9);box-shadow:1px 1px 2px rgba(183, 20, 233,0.3);}
+.classify-item:nth-of-type(7) i{background-image:linear-gradient(135deg,#ffd9a1,#db7908);box-shadow:1px 1px 2px rgba(219, 121, 8,0.3)}
+.classify-item:nth-of-type(8) i{background-image:linear-gradient(135deg,#9ddefc,#0693ca);box-shadow:1px 1px 2px rgba(6, 147, 202,0.3);}
+.classify-item:nth-of-type(9) i{background-image:linear-gradient(135deg,#43fdde,#0aa88e);box-shadow:1px 1px 2px rgba(10, 168, 142,0.3);}
+.classify-item:nth-of-type(10) i{background-image:linear-gradient(135deg,#fcd7b8,#805310);box-shadow:1px 1px 2px rgba(128, 83, 16,0.3);}
   /* 狠优惠 有格调 电影 红包 */
 .index-ad{background-color:#fff;margin-top: 10px;padding:2vw 2vw;display:flex;flex-wrap:wrap;position: relative;justify-content: center;}
 .index-ad-item{width:48%;margin: 0.5vw;}
