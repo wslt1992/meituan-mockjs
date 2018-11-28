@@ -5,7 +5,7 @@
         </t-header-new>
 
         <div class="seletor" slot="top-fix">
-            <t-bottom-menu istopbottom='true' >
+            <t-bottom-menu ref="bottomMenu" istopbottom='true' >
                 <div slot="top" class="seletor-bar">
                     <p topclick>全部分类</p>
                     <p topclick>全城</p>
@@ -150,6 +150,10 @@ import {Toast} from 'mint-ui'
                     this.items.push(...data.list)
                 })
             },
+            resetRequestData(){
+                this.items.length=0;
+                this.requestData();
+            },
             switchBottom(num){
                 switch (num){
                     case 0:
@@ -174,11 +178,14 @@ import {Toast} from 'mint-ui'
             // 第三项排序的点击事件
             paixuSubItem(event){
                 // console.log(event.target.innerText,event)
+                this.searchKeyword = event.target.innerText;
+                this.resetRequestData()
                 Toast({
                     message: event.target.innerText,
                     position: 'bottom',
                     duration: 3000
                 });
+                this.$refs.bottomMenu.hideAllSubmenu();
             },
             initDataRoute(){
                 this.searchKeyword = this.$route.params.searchKeyword;

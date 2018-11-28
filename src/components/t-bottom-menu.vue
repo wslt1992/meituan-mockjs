@@ -33,9 +33,9 @@ import $ from 'jquery'
         },
         data:function(){
             return {
-                show:false,
+                show:false,//二级菜单显示或隐藏
                 topclicktagS:null,
-                bottomShowS:null,
+                bottomShowS:null,//下方显示的div
                 currentIndex:-1,
             }
         },
@@ -45,7 +45,7 @@ import $ from 'jquery'
                     element.addEventListener('click', (event)=>{
                         // console.log(index)
                         if(index===this.currentIndex){
-                            this.hideRightALl()
+                            this.hideAllSubmenu()
                         }else{
                             this.currentIndex = index;
                             this.hideRightOther(index);
@@ -54,7 +54,7 @@ import $ from 'jquery'
                         
                     })})
             let bottomShowS = this.bottomShowS=this.$el.querySelectorAll('[bottomshow]');
-                    this.hideRightALl();
+                    this.hideAllSubmenu();
             
         },
         methods:{
@@ -62,7 +62,7 @@ import $ from 'jquery'
                 
             },
             
-            hideRightALl(){
+            hideAllSubmenu(){
                 this.bottomShowS.forEach(element => {
                     $(element).hide();
                 });
