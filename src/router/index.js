@@ -2,27 +2,28 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 
-import HelloWorld from '@/components/HelloWorld'
-import Index from '@/views/index'
-import MainPage from '@/views/MainPage'
-import My from '@/views/my'
-import Order from '@/views/order'
-import discovery from '@/views/discovery'
-import ClasstifyAll from '@/views/ClasstifyAll'
-import Search from '@/views/search'
-import SearchResult from '@/views/search-result'
-import url from '../global/url'
-import map from '@/views/map'
-import Login from '@/views/login' //我的>登录
-import Setting from '@/views/setting' //我的>个人设置
-import MyCollection from '@/views/my-collection' //我的>我的收藏
-import LoginLerifyCode from '@/views/login-verify-code' //我的>登录>输入验证码
-import RecentView from '@/views/recent-view' //我的>最近浏览
-import DiscountPrice from '@/views/discount-price' //首页>狠优惠
-import Leisure from '@/views/leisure' //首页>有格调
-import Scenery from '@/views/scenery' //去哪儿
+const HelloWorld = ()=>import( '@/components/HelloWorld')
+const Index = ()=>import( '@/views/index')
+const MainPage = ()=>import( '@/views/MainPage')
+const My = ()=>import( '@/views/my')
+const Order = ()=>import( '@/views/order')
+const discovery = ()=>import( '@/views/discovery')
+const ClasstifyAll = ()=>import( '@/views/ClasstifyAll')
+const Search = ()=>import( '@/views/search')
+const SearchResult = ()=>import( '@/views/search-result')
+const map = ()=>import( '@/views/map')
+const Login = ()=>import( '@/views/login') //我的>登录
+const Setting = ()=>import( '@/views/setting') //我的>个人设置
+const MyCollection = ()=>import( '@/views/my-collection') //我的>我的收藏
+const LoginLerifyCode = ()=>import( '@/views/login-verify-code') //我的>登录>输入验证码
+const RecentView = ()=>import( '@/views/recent-view') //我的>最近浏览
+const DiscountPrice = ()=>import( '@/views/discount-price') //首页>狠优惠
+const Leisure = ()=>import( '@/views/leisure') //首页>有格调
+const Scenery = ()=>import( '@/views/scenery') //去哪儿
 
 Vue.use(Router)
+
+import url from '../global/url.js'
 
 let nav = url.navigator;
 import guard from './guard.js'
