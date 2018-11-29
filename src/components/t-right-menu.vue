@@ -102,6 +102,7 @@ import $ from 'jquery'
 .right-menu-root{
     display: flex;
     overflow: hidden;
+    height: 100%;
     >*{
         // width: 100%;
     }
