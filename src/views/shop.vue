@@ -1,6 +1,6 @@
 <template>
     <t-page>
-        <div slot="container" class="mecontainer">
+        <div slot="container">
         <t-right-menu >
             <div slot="left" class="menu-left" ref="go">
                 <p left-item default-show>口味选择</p>
@@ -192,15 +192,12 @@
         background-color: #fff;
     }
 }
-.menu-right-scroll{
-    overflow: scroll !important;
-}
 .menu-right{
     text-align: start;
     height: 100%;
     width: 75%;
     max-height: 100vh;
-    overflow: hidden;
+    overflow: scroll;
     color: #555;
     padding-left: 3vw;
     .food-item{
