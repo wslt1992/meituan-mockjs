@@ -1,12 +1,9 @@
 <template>
     <t-page>
-        <div slot="top-fix" class="banner">
-
-        </div>
         <div slot="container" class="mecontainer">
         <t-right-menu >
             <div slot="left" class="menu-left" ref="go">
-                <p left-item>口味选择</p>
+                <p left-item default-show>口味选择</p>
                 <p left-item>烤肉类</p>
                 <p left-item>蔬菜类</p>
                 <p left-item>海鲜类</p>
@@ -161,9 +158,7 @@
     export default {
         data() {
             return {
-                movestartStatY: 0,//movestart时候的touch点y的坐标
-                movestartHeight:0,//movestart时候的banner的高
-                movestartScrollTop:0//movestart时候的右侧食物列表scrollTop的值
+                
             }
         },
         methods: {
@@ -172,42 +167,7 @@
             }
         },
         mounted(){
-            let _this = this;
-            let topFix = _this.$el.querySelector('.banner');
-            this.$el.addEventListener('touchstart',function(event){
-                console.log('touchstart',event);
-                _this.movestartStatY = event.changedTouches[0].screenY;
-                _this.movestartHeight = topFix.clientHeight
-                _this.movestartScrollTop = _this.$el.querySelector('.menu-right').scrollTop;
-            })
-            this.$el.addEventListener('touchmove',function(event){
-                // console.log('touchmove',event);
-                
-                // console.log('scrollTop',scrollTop);
-                //鼠标点击是距离上面为0，right可以滑动，
-                let clientHeight = topFix.clientHeight
-                let scrollTop = _this.$el.querySelector('.menu-right').scrollTop;
-                if(scrollTop===0&&_this.movestartScrollTop===0){
-                    let height=_this.movestartHeight + event.changedTouches[0].screenY - _this.movestartStatY;
-                    if(height<=0){
-                        topFix.style.height=0;
-                        //添加scroll
-                        _this.$el.querySelector('.menu-right').classList.add('menu-right-scroll');
-                    }else if(height>=200){
-                        topFix.style.height=200+'px';
-                         _this.$el.querySelector('.menu-right').classList.add('menu-right-scroll');
-                    }else{
-                        topFix.style.height=height+'px';
-                        _this.$el.querySelector('.menu-right').classList.remove('menu-right-scroll');
-                    }
-                    // console.log('style.height',_this.$el.querySelector('.top-fix').offsetHeight+event.changedTouches.clientY-_this.statY);
-                }
-            })
-            // var hammer = new Hammer(this.$refs.go);
-            // hammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-            // hammer.on('swipe', function(ev) {
-            //     // console.log(ev,11111111)
-            // })
+           
         }
     }
 </script>
@@ -216,11 +176,6 @@
 .mecontainer{
     height: 100%;
     overflow: hidden;
-}
-.banner{
-    width: 200px;
-    height: 200px;
-    background-color: black;
 }
 
 // 左右菜单开始
