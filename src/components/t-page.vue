@@ -46,7 +46,8 @@
     .container{
         width: 100%;
         flex-grow: 1;
-        overflow-y: scroll;
+        // overflow: hidden;
+        overflow: scroll;
         height: 100%;
     }
     .footer{

@@ -1,8 +1,11 @@
 <template>
     <t-page>
-        
-        <t-right-menu slot="container">
-            <div slot="left" class="menu-left">
+        <div slot="top-fix" class="banner">
+
+        </div>
+        <div slot="container" class="mecontainer">
+        <t-right-menu >
+            <div slot="left" class="menu-left" ref="go">
                 <p left-item>口味选择</p>
                 <p left-item>烤肉类</p>
                 <p left-item>蔬菜类</p>
@@ -16,7 +19,7 @@
                     <div class="food-item">
                         <img src="../assets/imgs/food1.jpg" alt="">
                         <div>
-                            <span class="header">鸡脆骨</span>
+                            <span class="header">鸡脆骨112121</span>
                             <span class="tips">够脆、够香、嘎嘣脆</span>
                             <div><span class="sale">月销量：5435</span><span class="like">赞23</span></div>
                             <span class="price">￥23</span>
@@ -150,30 +153,101 @@
                 </div>
             </div>
         </t-right-menu>
+        </div>
     </t-page>
 </template>
 
 <script>
     export default {
-        
+        data() {
+            return {
+                movestartStatY: 0,//movestart时候的touch点y的坐标
+                movestartHeight:0,//movestart时候的banner的高
+                movestartScrollTop:0//movestart时候的右侧食物列表scrollTop的值
+            }
+        },
+        methods: {
+            touchmove($event) {
+                console.log($event,1)
+            }
+        },
+        mounted(){
+            let _this = this;
+            let topFix = _this.$el.querySelector('.banner');
+            this.$el.addEventListener('touchstart',function(event){
+                console.log('touchstart',event);
+                _this.movestartStatY = event.changedTouches[0].screenY;
+                _this.movestartHeight = topFix.clientHeight
+                _this.movestartScrollTop = _this.$el.querySelector('.menu-right').scrollTop;
+            })
+            this.$el.addEventListener('touchmove',function(event){
+                // console.log('touchmove',event);
+                
+                // console.log('scrollTop',scrollTop);
+                //鼠标点击是距离上面为0，right可以滑动，
+                let clientHeight = topFix.clientHeight
+                let scrollTop = _this.$el.querySelector('.menu-right').scrollTop;
+                if(scrollTop===0&&_this.movestartScrollTop===0){
+                    let height=_this.movestartHeight + event.changedTouches[0].screenY - _this.movestartStatY;
+                    if(height<=0){
+                        topFix.style.height=0;
+                        //添加scroll
+                        _this.$el.querySelector('.menu-right').classList.add('menu-right-scroll');
+                    }else if(height>=200){
+                        topFix.style.height=200+'px';
+                         _this.$el.querySelector('.menu-right').classList.add('menu-right-scroll');
+                    }else{
+                        topFix.style.height=height+'px';
+                        _this.$el.querySelector('.menu-right').classList.remove('menu-right-scroll');
+                    }
+                    // console.log('style.height',_this.$el.querySelector('.top-fix').offsetHeight+event.changedTouches.clientY-_this.statY);
+                }
+            })
+            // var hammer = new Hammer(this.$refs.go);
+            // hammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+            // hammer.on('swipe', function(ev) {
+            //     // console.log(ev,11111111)
+            // })
+        }
     }
 </script>
 
 <style lang='scss' scoped>
+.mecontainer{
+    height: 100%;
+    overflow: hidden;
+}
+.banner{
+    width: 200px;
+    height: 200px;
+    background-color: black;
+}
+
 // 左右菜单开始
 .menu-left{
     width: 25%;
     max-height: 100vh;
+    height: 100vh;
     overflow: scroll;
+    background-color: #eee;
     [left-item]{
-        padding: 3vw 0;
+        padding: 5vw 0;
+        background-color: #eee;
+        margin: 0;
     }
+    [left-item].t-active{
+        background-color: #fff;
+    }
+}
+.menu-right-scroll{
+    overflow: scroll !important;
 }
 .menu-right{
     text-align: start;
+    height: 100%;
     width: 75%;
     max-height: 100vh;
-    overflow: scroll;
+    overflow: hidden;
     color: #555;
     padding-left: 3vw;
     .food-item{

@@ -13,7 +13,7 @@
 import $ from 'jquery'
 /**
  * 左边被点击item需要添加‘[left-item]’属性
- * 
+ * t-active 被点击记过后的样式名
  */
 
     export default {
@@ -36,9 +36,27 @@ import $ from 'jquery'
                 leftclicktagS.forEach((element,index) => {
                     element.addEventListener('click', (event)=>{
                         this.hideRightOther(index);
-                        console.log(index)
+                        // console.log(index)
+                        this.updateActiveStyle(index);
                     })})
                 let rightShowS = this.rightShowS=this.$el.querySelectorAll('[right-item]');
+                
+                this.showDefaultItem();
+        },
+        methods:{
+            updateActiveStyle(indexParam){
+                this.leftclicktagS.forEach((element,index) => {
+                    if(indexParam === index){
+                        element.classList.add('t-active')
+                    }else{
+                        element.classList.remove('t-active')
+                    }
+                });
+            },
+            /**
+             * 显示默认的item
+             */
+            showDefaultItem(){
                 let defaultShow =this.$el.querySelector('[default-show]');
                 if(defaultShow){
                     this.hideRightALl();
@@ -46,9 +64,7 @@ import $ from 'jquery'
                 }else{
                     this.hideRightOther(0);
                 }
-                
-        },
-        methods:{
+            },
             leftOnClick(){
                 
             },
@@ -73,6 +89,7 @@ import $ from 'jquery'
 <style lang='scss' scoped>
 .right-menu-root{
     display: flex;
+    overflow: hidden;
     >*{
         // width: 100%;
     }
