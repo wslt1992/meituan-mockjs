@@ -18,7 +18,7 @@
                         <div>
                             <span class="header">鸡脆骨112121</span>
                             <span class="tips">够脆、够香、嘎嘣脆</span>
-                            <div><span class="sale">月销量：5435</span><span class="like">赞23</span></div>
+                            <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
                             <span class="price">￥23</span>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                         <div>
                             <span class="header">烤韭菜</span>
                             <span class="tips">够脆、够香、嘎嘣脆</span>
-                            <div><span class="sale">月销量：5435</span><span class="like">赞23</span></div>
+                            <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
                             <span class="price">￥23</span>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                         <div>
                             <span class="header">羊肉串</span>
                             <span class="tips">够脆、够香、嘎嘣脆</span>
-                            <div><span class="sale">月销量：5435</span><span class="like">赞23</span></div>
+                            <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
                             <span class="price">￥23</span>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         <div>
                             <span class="header">鸡全翅</span>
                             <span class="tips">够脆、够香、嘎嘣脆</span>
-                            <div><span class="sale">月销量：5435</span><span class="like">赞23</span></div>
+                            <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
                             <span class="price">￥23</span>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         <div>
                             <span class="header">葱香豆皮</span>
                             <span class="tips">够脆、够香、嘎嘣脆</span>
-                            <div><span class="sale">月销量：5435</span><span class="like">赞23</span></div>
+                            <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
                             <span class="price">￥23</span>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                         <div>
                             <span class="header">谈烤肥牛</span>
                             <span class="tips">够脆、够香、嘎嘣脆</span>
-                            <div><span class="sale">月销量：5435</span><span class="like">赞23</span></div>
+                            <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
                             <span class="price">￥23</span>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                         <div>
                             <span class="header">葱香茄子</span>
                             <span class="tips">够脆、够香、嘎嘣脆</span>
-                            <div><span class="sale">月销量：5435</span><span class="like">赞23</span></div>
+                            <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
                             <span class="price">￥23</span>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         <div>
                             <span class="header">台湾热狗</span>
                             <span class="tips">够脆、够香、嘎嘣脆</span>
-                            <div><span class="sale">月销量：5435</span><span class="like">赞23</span></div>
+                            <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
                             <span class="price">￥23</span>
                         </div>
                     </div>
@@ -182,14 +182,17 @@
     max-height: 100vh;
     height: 100vh;
     overflow: scroll;
-    background-color: #eee;
+    background-color: #f5f5f5;
     [left-item]{
         padding: 5vw 0;
-        background-color: #eee;
+        background-color: #f5f5f5;
+        color: #888;
         margin: 0;
     }
     [left-item].t-active{
-        background-color: #fff;
+        background-color: #ffffff;
+        color: #444;
+        font-weight: 700;
     }
 }
 .menu-right{
@@ -204,9 +207,9 @@
         display: flex;
         margin-bottom: 4vw;
         >img{
-            display: block;
-            width: 22.6vw;
-            height: 22.6vw;
+            padding-top: 1vw;
+            width: 20vw;
+            height: 20vw;
         }
         >div{
             padding-left: 3vw;
@@ -224,6 +227,9 @@
         .sale , .like{
             font-size: 3.6vw;
             color: #aaa;
+        }
+        .like{
+            padding-left: 2vw;
         }
         .price{
             color: #ff4c41;
