@@ -162,9 +162,7 @@
             }
         },
         methods: {
-            touchmove($event) {
-                console.log($event,1)
-            }
+          
         },
         mounted(){
            
