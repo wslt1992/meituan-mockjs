@@ -20,6 +20,7 @@ const RecentView = ()=>import( '@/views/recent-view') //我的>最近浏览
 const DiscountPrice = ()=>import( '@/views/discount-price') //首页>狠优惠
 const Leisure = ()=>import( '@/views/leisure') //首页>有格调
 const Scenery = ()=>import( '@/views/scenery') //去哪儿
+const Shop = ()=>import( '@/views/shop') //店铺
 
 Vue.use(Router)
 
@@ -167,6 +168,14 @@ export default new Router({
       path:nav.sceneryPath,
       name:"scenery",
       component:Scenery
+    },
+     /**
+     * shop 店铺
+     */
+    {
+      path:nav.shopPath,
+      name:"Shop",
+      component:Shop
     }
   ]
 })

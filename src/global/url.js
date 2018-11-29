@@ -16,6 +16,7 @@ var url = {
   discounts:'/data/discounts', //狠优惠列表
   leisures:'/data/leisures', //有格调列表
   scenerys:'/data/scenerys', //周末去哪儿
+  shop:'/data/shop',//店铺页
   /**
    * 数据访问路径---结束
    */
@@ -50,11 +51,10 @@ var url = {
     discountPricePath:'/discount-price', //狠优惠
     leisurePath:'/leisure', //有格调
     sceneryPath:'/scenery', //去哪儿
+    shopPath:'/shop'//店铺页
 
   },
-  /**
-     * 导航路径 ---结束
-     */
+  /***导航路径 ---结束*/
   /**
    * 调用后，在子组件vue中，可以使用this.$url调用
    * @param {*} Vue 

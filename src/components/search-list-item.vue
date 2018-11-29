@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="(item,index) in items" :key="index" class="list-item">
+        <div v-for="(item,index) in items" :key="index" class="list-item" @click="toShop">
             <h6>{{item.id}}</h6>
             <div class="item-left">
                 <!-- <img :src='item.img' alt=""> -->
@@ -34,6 +34,11 @@
         data() {
             return {
                 // key: value
+            }
+        },
+        methods: {
+            toShop() {
+                this.$router.push(this.$url.navigator.shopPath)
             }
         },
     }

@@ -7,23 +7,23 @@
         <div class="seletor" slot="top-fix">
             <t-bottom-menu ref="bottomMenu" istopbottom='true' >
                 <div slot="top" class="seletor-bar">
-                    <p topclick>全部分类</p>
-                    <p topclick>全城</p>
-                    <p topclick>智能排序</p>
+                    <p top-item>全部分类</p>
+                    <p top-item>全城</p>
+                    <p top-item>智能排序</p>
                 </div >
                 <div slot='bottom' class="bottom-menu-style">
-                    <div bottomshow>
-                        <t-right-menu >
+                    <div bottom-item>
+                        <t-right-menu class="right-menu">
                             <div slot="left">
-                                <p leftclick>美食</p>
-                                <p leftclick>休闲娱乐</p>
-                                <p leftclick>生活服务</p>
-                                <p leftclick>宴会</p>
-                                <p leftclick>汽车服务</p>
-                                <p leftclick>结婚</p>
+                                <p left-item>美食</p>
+                                <p left-item>休闲娱乐</p>
+                                <p left-item>生活服务</p>
+                                <p left-item>宴会</p>
+                                <p left-item>汽车服务</p>
+                                <p left-item>结婚</p>
                             </div>
                             <div  slot='right'>
-                                <div rightshow>
+                                <div right-item>
                                     <p @click='paixuSubItem'>日本菜</p>
                                     <p @click='paixuSubItem'>饮品店</p>
                                     <p @click='paixuSubItem'>面包甜点</p>
@@ -33,46 +33,46 @@
                                     <p @click='paixuSubItem'>日本料理</p>
                                     <p @click='paixuSubItem'>西餐</p>
                                 </div>
-                                <div rightshow>
+                                <div right-item>
                                     <p @click='paixuSubItem'>酒吧</p>
                                 </div>
-                                <div rightshow>
+                                <div right-item>
                                     <p @click='paixuSubItem'>照片冲洗</p>
                                     <p @click='paixuSubItem'>其他生活</p>
                                 </div>
-                                <div rightshow>
+                                <div right-item>
                                     <p @click='paixuSubItem'>特色餐厅</p>
                                 </div>
-                                <div rightshow>
+                                <div right-item>
                                     <p @click='paixuSubItem'>停车场</p>
                                 </div>
-                                <div rightshow>
+                                <div right-item>
                                     <p @click='paixuSubItem'>婚宴</p>
                                 </div>
                             </div>
                         </t-right-menu>
                     </div>
-                    <div bottomshow>
-                        <t-right-menu >
+                    <div bottom-item>
+                        <t-right-menu class="right-menu">
                             <div slot="left">
-                                <p leftclick>left1</p>
-                                <p leftclick>left2</p>
-                                <p leftclick>left3</p>
+                                <p left-item>left1</p>
+                                <p left-item>left2</p>
+                                <p left-item>left3</p>
                             </div>
                             <div  slot='right'>
-                                <div rightshow>
+                                <div right-item>
                                     <p @click='paixuSubItem'>right21</p>
                                     <p @click='paixuSubItem'>right22</p>
                                     <p @click='paixuSubItem'>right23</p>
                                     <p @click='paixuSubItem'>right24</p>
                                 </div>
-                                <div rightshow>
+                                <div right-item>
                                     <p @click='paixuSubItem'>right21</p>
                                     <p @click='paixuSubItem'>right22</p>
                                     <p @click='paixuSubItem'>right23</p>
                                     <p @click='paixuSubItem'>right24</p>
                                 </div>
-                                <div rightshow>
+                                <div right-item>
                                     <p @click='paixuSubItem'>right31</p>
                                     <p @click='paixuSubItem'>right32</p>
                                     <p @click='paixuSubItem'>right33</p>
@@ -81,7 +81,7 @@
                             </div>
                         </t-right-menu>
                     </div>
-                    <div bottomshow>
+                    <div bottom-item>
                         <p @click='paixuSubItem'>智能排序</p>
                         <p @click='paixuSubItem'>好评优先</p>
                         <p @click='paixuSubItem'>离我最近</p>
@@ -230,6 +230,12 @@ import {Toast} from 'mint-ui'
             top:12vw;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
+
+            .right-menu{
+                >div{
+                    width: 50%;
+                }
+            }
         }
     }
     

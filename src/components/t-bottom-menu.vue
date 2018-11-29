@@ -16,13 +16,13 @@
 <script>
 import $ from 'jquery'
 /**
- * 左边被点击item需要添加‘[leftclick]’属性
+ * 左边被点击item需要添加‘[left-item]’属性
  * 
  */
 
     export default {
         leftclickTag:'div',
-        // leftclickTag:'[leftclick]',
+        // leftclickTag:'[left-item]',
         props:{
             istopbottom:{
                 default:true
@@ -40,7 +40,7 @@ import $ from 'jquery'
             }
         },
         mounted(){
-                let topclicktagS =this.topclicktagS= this.$el.querySelectorAll('[topclick]');
+                let topclicktagS =this.topclicktagS= this.$el.querySelectorAll('[top-item]');
                 topclicktagS.forEach((element,index) => {
                     element.addEventListener('click', (event)=>{
                         // console.log(index)
@@ -53,7 +53,7 @@ import $ from 'jquery'
                         // console.log(index)
                         
                     })})
-            let bottomShowS = this.bottomShowS=this.$el.querySelectorAll('[bottomshow]');
+            let bottomShowS = this.bottomShowS=this.$el.querySelectorAll('[bottom-item]');
                     this.hideAllSubmenu();
             
         },

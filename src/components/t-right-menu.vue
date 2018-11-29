@@ -12,13 +12,13 @@
 <script>
 import $ from 'jquery'
 /**
- * 左边被点击item需要添加‘[leftclick]’属性
+ * 左边被点击item需要添加‘[left-item]’属性
  * 
  */
 
     export default {
         leftclickTag:'div',
-        // leftclickTag:'[leftclick]',
+        // leftclickTag:'[left-item]',
         props:{
             istopbottom:{
                 default:false
@@ -32,17 +32,21 @@ import $ from 'jquery'
             }
         },
         mounted(){
-                let leftclicktagS =this.leftclicktagS= this.$el.querySelectorAll('[leftclick]');
+                let leftclicktagS =this.leftclicktagS= this.$el.querySelectorAll('[left-item]');
                 leftclicktagS.forEach((element,index) => {
                     element.addEventListener('click', (event)=>{
                         this.hideRightOther(index);
                         console.log(index)
                     })})
-                let rightShowS = this.rightShowS=this.$el.querySelectorAll('[rightshow]');
-                    rightShowS.forEach((element,index) => {
-                        this.hideRightALl();
-                        })
-            
+                let rightShowS = this.rightShowS=this.$el.querySelectorAll('[right-item]');
+                let defaultShow =this.$el.querySelector('[default-show]');
+                if(defaultShow){
+                    this.hideRightALl();
+                    $(defaultShow).show();
+                }else{
+                    this.hideRightOther(0);
+                }
+                
         },
         methods:{
             leftOnClick(){
@@ -70,14 +74,7 @@ import $ from 'jquery'
 .right-menu-root{
     display: flex;
     >*{
-        width: 100%;
-    }
-    // flex-direction: column;
-    .left{
-        // width: 50%;
-    }
-    .right{
-        // width: 50%;
+        // width: 100%;
     }
 }
 .top-bottom{
