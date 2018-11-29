@@ -58,7 +58,7 @@ import $ from 'jquery'
              * 显示默认的item
              */
             showDefaultItem(){
-                let defaultShow =this.$el.querySelector('[default-show][right-item]');
+                let defaultShow =this.$el.querySelector('.default-show[right-item]');
                 if(defaultShow){
                     this.hideRightALl();
                     $(defaultShow).show();
@@ -70,7 +70,7 @@ import $ from 'jquery'
              * 显示默认的item
              */
             showDefaultLeftItem(){
-                let defaultShow =this.$el.querySelector('[default-show][left-item]');
+                let defaultShow =this.$el.querySelector('.default-show[left-item]');
                 if(defaultShow){
                     defaultShow.classList.add('t-active')
                 }else{
