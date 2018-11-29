@@ -41,7 +41,6 @@
     // height: 100vh;//不可以设置，设置后，部分也没有100vh高。让父为100vh高，所以设置app的改的呀
     .header{
         width: 100%;
-        color: #fff;
     }
     .container{
         width: 100%;
