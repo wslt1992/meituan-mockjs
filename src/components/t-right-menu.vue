@@ -42,6 +42,7 @@ import $ from 'jquery'
                 let rightShowS = this.rightShowS=this.$el.querySelectorAll('[right-item]');
                 
                 this.showDefaultItem();
+                this.showDefaultLeftItem()
         },
         methods:{
             updateActiveStyle(indexParam){
@@ -57,12 +58,23 @@ import $ from 'jquery'
              * 显示默认的item
              */
             showDefaultItem(){
-                let defaultShow =this.$el.querySelector('[default-show]');
+                let defaultShow =this.$el.querySelector('[default-show][right-item]');
                 if(defaultShow){
                     this.hideRightALl();
                     $(defaultShow).show();
                 }else{
                     this.hideRightOther(0);
+                }
+            },
+            /**
+             * 显示默认的item
+             */
+            showDefaultLeftItem(){
+                let defaultShow =this.$el.querySelector('[default-show][left-item]');
+                if(defaultShow){
+                    defaultShow.classList.add('t-active')
+                }else{
+                    this.updateActiveStyle(0)
                 }
             },
             leftOnClick(){
