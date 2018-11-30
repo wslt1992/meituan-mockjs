@@ -28,6 +28,13 @@
                 
             </div>
         </t-right-menu>
+        <div slot="footer" >
+            <div class="footer" >
+                <div class="price-div"><span></span><span class="price">15份</span></div>
+                <div class="account">结算(￥2345)</div>
+            </div>
+            
+        </div>
     </t-page>
 </template>
 
@@ -66,6 +73,9 @@
     color: #555;
     font-size: 5vw;
     font-weight: bold;
+    height: 10vw;
+    display: flex;
+    align-items: center;
 }
 // header结束
 // 左右菜单开始
@@ -129,4 +139,35 @@
     
 }
 // 左右菜单结束
+// footer开始
+.footer{
+    background-color: #666;
+    display: flex;
+    height: 15vw;
+    justify-content: center;
+    align-items: stretch;
+    font-size: 6vw;
+    .price-div{
+        flex-grow: 1;
+        background-color:#fff;
+        font-weight: 700;
+        line-height: 15vw;
+        font-size: 6vw;
+        .price{
+            color: #ff4c41;
+            font-size: 6vw;
+        }
+    }
+    
+    .account{
+        // flex-grow: 1;
+        padding: 0 8vw;
+        background-color:#ff4c41;
+        color: #f5f5f5;
+        height: 15vw;
+        line-height: 15vw;
+
+    }
+}
+// footer结束
 </style>
