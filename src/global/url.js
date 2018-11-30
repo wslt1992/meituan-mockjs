@@ -51,7 +51,8 @@ var url = {
     discountPricePath:'/discount-price', //狠优惠
     leisurePath:'/leisure', //有格调
     sceneryPath:'/scenery', //去哪儿
-    shopPath:'/shop'//店铺页
+    shopPath:'/shop',//店铺页
+    placingOrderPath:'/placingorder'//下单页
 
   },
   /***导航路径 ---结束*/
