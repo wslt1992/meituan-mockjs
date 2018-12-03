@@ -21,7 +21,7 @@
                                 <span class="header">{{item}}</span>
                                 <span class="tips">够脆、够香、嘎嘣脆</span>
                                 <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
-                                <span class="price">￥23</span>
+                                <div class="priceAndaddtoChe"><span class="price">￥23</span><span @click="addToChe" class="addToChe">+</span></div>
                             </div>
                     </div>
                 </div>
@@ -30,8 +30,8 @@
         </t-right-menu>
         <div slot="footer" >
             <div class="footer" >
-                <div class="price-div" @click="popupChe" id="popupTarget"><span></span><span class="price">15份</span></div>
-                <div class="account" @click="toPlacingOrder">结算(￥2345)</div>
+                <div class="price-div" @click="popupChe" id="popupTarget"><span></span><span class="price">{{gouwucheArr.length}}份</span></div>
+                <div class="account" @click="toPlacingOrder">结算(￥{{this.account}})</div>
             </div>
             <t-popup :target='popupTarget' direction='top' :show="popupShow">
                 <div class="zhezhao" @click="closePopup">
@@ -40,24 +40,16 @@
                             清空购物者
                         </div>
                         <div class="popup-che-container">
-                            <div class="cell">
-                                <span class="name">正新无骨鸡柳</span>
-                                <span class="price">￥12</span>
+                            <div v-for="item in gouwucheArr" :key="item.id" class="cell">
+                                <span class="name">{{item.footname}}</span>
+                                <span class="price">￥{{item.price}}</span>
                                 <div class="input">
                                     <span>-</span>
-                                    <span>1</span>
+                                    <span>{{item.num}}</span>
                                     <span>+</span>
                                 </div>
                             </div>
-                            <div class="cell">
-                                <span class="name">正新无骨鸡柳</span>
-                                <span class="price">￥12</span>
-                                <div class="input">
-                                    <span>-</span>
-                                    <span>1</span>
-                                    <span>+</span>
-                                </div>
-                            </div>
+                            
                         </div>
                         
                     </div>
@@ -86,6 +78,7 @@
                         '玉米','油炸花生米','烤大葱','白干豆腐'
                     ]                
                 ],
+                gouwucheArr:[],
                 popupTarget:null,
                 popupShow:false
             }
@@ -110,17 +103,33 @@
                 if($event.target===this.$el.querySelector('.zhezhao')){
                     this.popupShow = false;
                 }
+            },
+            /**
+             * 添加到购物车
+             */
+            addToChe(){
+                let o = {
+                    footname:'烧烤面包',
+                    price:24,
+                    num:1,//数量
+                }
+                this.gouwucheArr.push(o)
             }
         },
-        // computed: {
-        //     popupTarget() {
-        //         return this.$refs.pop;
-        //     }
-        // },
-        watch: {
-            '$refs.pop'(newValue, oldValue) {
-                this.popupTarget = this.$refs.pop;
+        computed: {
+            /**
+             * 结算
+             */
+            account() {
+                let count = 0;
+                this.gouwucheArr.forEach(element => {
+                    count+=element.price*element.num;
+                });
+                return count;
             }
+        },
+        watch: {
+            
         },
         mounted(){
            this.popupTarget = this.$el.querySelector('#popupTarget')
@@ -173,6 +182,7 @@
         }
         >div{
             padding-left: 3vw;
+            flex-grow: 1;
         }
         .header{
             color: #555;
@@ -191,11 +201,34 @@
         .like{
             padding-left: 2vw;
         }
-        .price{
-            color: #ff4c41;
-            font-weight: 700;
-            font-size: 5vw;
+        
+        .priceAndaddtoChe{
+            width: 100%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            .price{
+                color: #ff4c41;
+                font-weight: 700;
+                font-size: 5vw;
+            }
+            .addToChe{
+                box-sizing: border-box;
+                padding-top: 1px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                width: 5vw;
+                height: 5vw;
+                background-color: rgb(240, 186, 9);
+                margin-right: 6vw;
+                // font-weight: 700;
+                font-size: 6vw;
+                // border: 1px solid ;
+            }
         }
+        
     }
     
 }
