@@ -8,7 +8,7 @@
             </t-header-new>
         </div>
         <t-right-menu slot="container">
-            <div slot="left" class="menu-left" ref="go">
+            <div slot="left" class="menu-left">
                 <div v-for="(item,index) in leftArr" :key="item.id">
                     <p left-item :class="index===0?'default-show':''">{{item}}</p>
                 </div>
@@ -30,11 +30,41 @@
         </t-right-menu>
         <div slot="footer" >
             <div class="footer" >
-                <div class="price-div"><span></span><span class="price">15份</span></div>
+                <div class="price-div" @click="popupChe" id="popupTarget"><span></span><span class="price">15份</span></div>
                 <div class="account" @click="toPlacingOrder">结算(￥2345)</div>
             </div>
-            
+            <t-popup :target='popupTarget' direction='top' :show="popupShow">
+                <div class="zhezhao" @click="closePopup">
+                    <div class="popup-che">
+                        <div class="header">
+                            清空购物者
+                        </div>
+                        <div class="popup-che-container">
+                            <div class="cell">
+                                <span class="name">正新无骨鸡柳</span>
+                                <span class="price">￥12</span>
+                                <div class="input">
+                                    <span>-</span>
+                                    <span>1</span>
+                                    <span>+</span>
+                                </div>
+                            </div>
+                            <div class="cell">
+                                <span class="name">正新无骨鸡柳</span>
+                                <span class="price">￥12</span>
+                                <div class="input">
+                                    <span>-</span>
+                                    <span>1</span>
+                                    <span>+</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </t-popup>
         </div>
+        
     </t-page>
 </template>
 
@@ -55,19 +85,45 @@
                         '青椒','烤面筋','葱香豆皮','香叶豆腐','葱香茄子','烤年糕',
                         '玉米','油炸花生米','烤大葱','白干豆腐'
                     ]                
-                ]
+                ],
+                popupTarget:null,
+                popupShow:false
             }
         },
         methods: {
             /**
                 跳转到下单页
              */
-          toPlacingOrder(){
-            this.$router.push(this.$url.navigator.placingOrderPath)
-          }
+            toPlacingOrder(){
+                this.$router.push(this.$url.navigator.placingOrderPath)
+            },
+            /**
+             * 弹出购物车
+             */
+            popupChe() {
+                this.popupShow=!this.popupShow;
+            },
+            /**
+             * 关闭弹出的窗口
+             */
+            closePopup($event){
+                if($event.target===this.$el.querySelector('.zhezhao')){
+                    this.popupShow = false;
+                }
+            }
+        },
+        // computed: {
+        //     popupTarget() {
+        //         return this.$refs.pop;
+        //     }
+        // },
+        watch: {
+            '$refs.pop'(newValue, oldValue) {
+                this.popupTarget = this.$refs.pop;
+            }
         },
         mounted(){
-           
+           this.popupTarget = this.$el.querySelector('#popupTarget')
         }
     }
 </script>
@@ -175,4 +231,32 @@
     }
 }
 // footer结束
+
+// 弹出的框购物数量开始
+.zhezhao{
+    height: 90vh;
+    background-color: #555c;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.popup-che{
+    width: 100vw;
+    background-color: #fff;
+    .cell{
+        display: flex;
+        .name{
+            width: 50vw;
+
+        }
+        .price{
+            width: 25vw;
+        }
+        .input{
+            width:25vw;
+        }
+    }
+}
+// 弹出的框购物数量结束
+
 </style>
