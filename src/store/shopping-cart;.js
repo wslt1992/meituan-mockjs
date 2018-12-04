@@ -5,8 +5,8 @@ const shoppingCart = {
     namespaced: true,
     state: {
         /**
-         * footid,
-            footname:'烧烤面包',
+         * foodid,
+            foodname:'烧烤面包',
             price:24,
             num:1,//数量
          */
@@ -25,15 +25,23 @@ const shoppingCart = {
          */
         push(state,data){
             let target = _.find(state.gouwucheArr,(o)=>{
-                return o.footid === data.footid
+                return o.foodid === data.foodid
             })
-            console.log(state.gouwucheArr,'--',data.footid,'---------',target)
+            console.log(state.gouwucheArr,'--',data.foodid,'---------',target)
             if(target){
                 target.num+=data.num;
             }else{
                 state.gouwucheArr.push(data);
             }
             console.log(state.gouwucheArr,'data')
+        },
+        jian(state,foodid){
+            let target = _.find(state.gouwucheArr,(o)=>{
+                return o.foodid === foodid;
+            });
+            if(target&&target.num>1){
+                target.num-=1;
+            }
         }
     },
     actions: {  }

@@ -21,7 +21,7 @@
                                 <span class="header">{{item}}</span>
                                 <span class="tips">够脆、够香、嘎嘣脆</span>
                                 <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
-                                <div class="priceAndaddtoChe"><span class="price">￥23</span><span @click="addToChe(index)" class="addToChe">+</span></div>
+                                <div class="priceAndaddtoChe"><span class="price">￥23</span><span @click="addToChe(index,item)" class="addToChe">+</span></div>
                             </div>
                     </div>
                 </div>
@@ -36,17 +36,17 @@
             <t-popup :target='popupTarget' direction='top' :show="popupShow">
                 <div class="zhezhao" @click="closePopup">
                     <div class="popup-che">
-                        <div class="header">
+                        <div >
                             清空购物者
                         </div>
                         <div class="popup-che-container">
                             <div v-for="item in gouwucheArr" :key="item.id" class="cell">
-                                <span class="name">{{item.footname}}</span>
+                                <span class="name">{{item.foodname}}</span>
                                 <span class="price">￥{{item.price}}</span>
                                 <div class="input">
-                                    <span>-</span>
+                                    <span class="input-jian" @click="jianToChe(item.foodid)">-</span>
                                     <span>{{item.num}}</span>
-                                    <span>+</span>
+                                    <span class="input-add" @click="addToCheByFoodid(item.foodid,1)">+</span>
                                 </div>
                             </div>
                             
@@ -107,16 +107,26 @@
             /**
              * 添加到购物车
              */
-            addToChe(index){
-                let footid=index;
-                console.log(footid,'footid');
+            addToChe(index,foodname){
+                let foodid=index;
+                console.log(foodid,'foodid');
                 let o = {
-                    footid,
-                    footname:'烧烤面包',
+                    foodid,
+                    foodname:foodname,
                     price:_.floor(1+Math.random()*999,2),
                     num:1,//数量
                 }
                  this.$store.commit('shoppingCart/push',o);
+            },
+            addToCheByFoodid(foodid,num){
+                let o = {
+                    foodid,
+                    num:num,//数量
+                }
+                 this.$store.commit('shoppingCart/push',o);
+            },
+            jianToChe(foodid){
+                this.$store.commit('shoppingCart/jian',foodid);
             }
         },
         computed: {
@@ -295,6 +305,12 @@
         }
         .input{
             width:25vw;
+            .input-jian,.input-add{
+                display: inline-block;
+                width: 6vw;
+                border: 1px solid black; 
+                // border-radius: 11px 0 0 11px ;
+            }
         }
     }
 }
