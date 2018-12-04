@@ -27,13 +27,11 @@ const shoppingCart = {
             let target = _.find(state.gouwucheArr,(o)=>{
                 return o.foodid === data.foodid
             })
-            console.log(state.gouwucheArr,'--',data.foodid,'---------',target)
             if(target){
                 target.num+=data.num;
             }else{
                 state.gouwucheArr.push(data);
             }
-            console.log(state.gouwucheArr,'data')
         },
         jian(state,foodid){
             let target = _.find(state.gouwucheArr,(o)=>{

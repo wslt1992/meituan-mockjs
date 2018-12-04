@@ -109,7 +109,6 @@
              */
             addToChe(index,foodname){
                 let foodid=index;
-                console.log(foodid,'foodid');
                 let o = {
                     foodid,
                     foodname:foodname,
