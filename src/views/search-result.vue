@@ -55,28 +55,36 @@
                     <div bottom-item>
                         <t-right-menu class="right-menu">
                             <div slot="left">
-                                <p left-item>left1</p>
-                                <p left-item>left2</p>
-                                <p left-item>left3</p>
+                                <p left-item>宝安</p>
+                                <p left-item>南山</p>
+                                <p left-item>福田</p>
                             </div>
                             <div  slot='right'>
                                 <div right-item>
-                                    <p @click='paixuSubItem'>right21</p>
-                                    <p @click='paixuSubItem'>right22</p>
-                                    <p @click='paixuSubItem'>right23</p>
-                                    <p @click='paixuSubItem'>right24</p>
+                                    <p @click='paixuSubItem'>宝安中心</p>
+                                    <p @click='paixuSubItem'>新安</p>
+                                    <p @click='paixuSubItem'>西乡</p>
+                                    <p @click='paixuSubItem'>松岗</p>
+                                    <p @click='paixuSubItem'>沙井</p>
+                                    <p @click='paixuSubItem'>翻身路</p>
                                 </div>
                                 <div right-item>
-                                    <p @click='paixuSubItem'>right21</p>
-                                    <p @click='paixuSubItem'>right22</p>
-                                    <p @click='paixuSubItem'>right23</p>
-                                    <p @click='paixuSubItem'>right24</p>
+                                    <p @click='paixuSubItem'>白石洲</p>
+                                    <p @click='paixuSubItem'>后海</p>
+                                    <p @click='paixuSubItem'>华侨城</p>
+                                    <p @click='paixuSubItem'>深圳湾</p>
+                                    <p @click='paixuSubItem'>科技园</p>
+                                    <p @click='paixuSubItem'>海上世界</p>
+                                    <p @click='paixuSubItem'>西丽</p>
                                 </div>
                                 <div right-item>
-                                    <p @click='paixuSubItem'>right31</p>
-                                    <p @click='paixuSubItem'>right32</p>
-                                    <p @click='paixuSubItem'>right33</p>
-                                    <p @click='paixuSubItem'>right34</p>
+                                    <p @click='paixuSubItem'>百花</p>
+                                    <p @click='paixuSubItem'>车公庙</p>
+                                    <p @click='paixuSubItem'>岗厦</p>
+                                    <p @click='paixuSubItem'>赤尾</p>
+                                    <p @click='paixuSubItem'>保税区</p>
+                                    <p @click='paixuSubItem'>笔架山</p>
+                                    <p @click='paixuSubItem'>购物公园</p>
                                 </div>
                             </div>
                         </t-right-menu>
