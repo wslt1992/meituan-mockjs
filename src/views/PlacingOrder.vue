@@ -30,7 +30,7 @@
             </div>
         </div>
         <div slot="footer">
-            <div class="order">下&ensp;&ensp;单</div>
+            <div class="order">提交订单</div>
         </div>
     </t-page>
 </template>
