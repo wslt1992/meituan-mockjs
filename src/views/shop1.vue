@@ -15,13 +15,13 @@
             </div>
             <div slot='right' class="menu-right">
                 <div right-item class="default-show" v-for="(itemArr) in rightArr" :key="itemArr.id">
-                    <div class="food-item" v-for="(item) in itemArr" :key="item.id">
+                    <div class="food-item" v-for="(item,index) in itemArr" :key="item.id">
                         <img src="../assets/imgs/food1.jpg" alt="">
                             <div>
                                 <span class="header">{{item}}</span>
                                 <span class="tips">够脆、够香、嘎嘣脆</span>
                                 <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
-                                <div class="priceAndaddtoChe"><span class="price">￥23</span><span @click="addToChe" class="addToChe">+</span></div>
+                                <div class="priceAndaddtoChe"><span class="price">￥23</span><span @click="addToChe(index)" class="addToChe">+</span></div>
                             </div>
                     </div>
                 </div>
@@ -61,6 +61,7 @@
 </template>
 
 <script>
+
     export default {
         data() {
             return {
@@ -78,7 +79,6 @@
                         '玉米','油炸花生米','烤大葱','白干豆腐'
                     ]                
                 ],
-                gouwucheArr:[],
                 popupTarget:null,
                 popupShow:false
             }
@@ -107,13 +107,16 @@
             /**
              * 添加到购物车
              */
-            addToChe(){
+            addToChe(index){
+                let footid=index;
+                console.log(footid,'footid');
                 let o = {
+                    footid,
                     footname:'烧烤面包',
-                    price:24,
+                    price:_.floor(1+Math.random()*999,2),
                     num:1,//数量
                 }
-                this.gouwucheArr.push(o)
+                 this.$store.commit('shoppingCart/push',o);
             }
         },
         computed: {
@@ -125,7 +128,10 @@
                 this.gouwucheArr.forEach(element => {
                     count+=element.price*element.num;
                 });
-                return count;
+                return _.floor(count,2);
+            },
+            gouwucheArr(){
+                return this.$store.state.shoppingCart.gouwucheArr;
             }
         },
         watch: {
@@ -243,6 +249,7 @@
     font-size: 6vw;
     .price-div{
         flex-grow: 1;
+        max-width: 50vw;
         background-color:#fff;
         font-weight: 700;
         line-height: 15vw;
@@ -254,8 +261,9 @@
     }
     
     .account{
-        // flex-grow: 1;
-        padding: 0 8vw;
+        flex-grow: 1;
+        // padding: 0 8vw;
+        max-width: 50vw;
         background-color:#ff4c41;
         color: #f5f5f5;
         height: 15vw;

@@ -10,6 +10,8 @@ import './style/style.css'
 import './style/theme-style.scss';
 import './assets/iconfont/iconfont.css'
 Vue.config.productionTip = false
+//引入lodash
+// import _ from 'lodash';
 /**自动注册components中的组件,为index.js文件 */
 import './components/index.js'
 
