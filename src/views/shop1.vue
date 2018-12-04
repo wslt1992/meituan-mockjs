@@ -9,19 +9,20 @@
         </div>
         <t-right-menu slot="container">
             <div slot="left" class="menu-left">
-                <div v-for="(item,index) in leftArr" :key="item.id">
-                    <p left-item :class="index===0?'default-show':''">{{item}}</p>
+                <div v-for="(item,index) in dataArr" :key="item.id">
+                    <p left-item :class="index===0?'default-show':''">{{item.fenlei}}</p>
                 </div>
             </div>
             <div slot='right' class="menu-right">
-                <div right-item class="default-show" v-for="(itemArr) in rightArr" :key="itemArr.id">
-                    <div class="food-item" v-for="(item,index) in itemArr" :key="item.id">
-                        <img src="../assets/imgs/food1.jpg" alt="">
+                <div right-item class="default-show" v-for="(itemArr) in dataArr" :key="itemArr.id">
+                    <span>itemArr</span>
+                    <div class="food-item" v-for="(item) in itemArr.arr" :key="item.id">
+                        <img :src="item.img" alt="">
                             <div>
-                                <span class="header">{{item}}</span>
+                                <span class="header">{{item.name}}</span>
                                 <span class="tips">够脆、够香、嘎嘣脆</span>
                                 <div><span class="sale">月销：5435</span><span class="like">赞23</span></div>
-                                <div class="priceAndaddtoChe"><span class="price">￥23</span><span @click="addToChe(index,item)" class="addToChe">+</span></div>
+                                <div class="priceAndaddtoChe"><span class="price">￥23</span><span @click="addToChe(item)" class="addToChe">+</span></div>
                             </div>
                     </div>
                 </div>
@@ -41,7 +42,7 @@
                         </div>
                         <div class="popup-che-container">
                             <div v-for="item in gouwucheArr" :key="item.id" class="cell">
-                                <span class="name">{{item.foodname}}</span>
+                                <span class="name">{{item.name}}</span>
                                 <span class="price">￥{{item.price}}</span>
                                 <div class="input">
                                     <span class="input-jian" @click="jianToChe(item.foodid)">-</span>
@@ -61,24 +62,25 @@
 </template>
 
 <script>
-
+import axios from 'axios'
     export default {
         data() {
             return {
-                leftArr:['烤肉类','蔬菜类','海鲜类','锡纸类','小炒类','酒水类'],
-                rightArr:[
-                    ['烤韭菜','羊肉串','鸡全翅','葱香豆皮','谈烤肥牛','葱香茄子','台湾热狗'],
-                    [
-                        '羊肉串','蜜汁牛排','滋补羊腰','香辣牛蹄','牛肉串','牛板筋','鸡脆骨','鸡全翅','鸡中翅','鸡腿','鸡爪','骨肉相连','香辣猪蹄','麻辣牛肚','羊肉串','蜜汁牛排','滋补羊腰','香辣牛蹄',
-                        '牛肉串','牛板筋','鸡脆骨','鸡全翅','鸡中翅','鸡腿','鸡爪','骨肉相连','香辣猪蹄','麻辣牛肚','羊肉串','蜜汁牛排','滋补羊腰','香辣牛蹄','牛肉串','牛板筋','鸡脆骨','鸡全翅','鸡中翅','鸡腿',
-                        '鸡爪','骨肉相连','香辣猪蹄','麻辣牛肚'
-                    ],
-                    [
-                        '烤韭菜','金针菇','娃娃菜','土豆片','四季豆','烤香菇',
-                        '青椒','烤面筋','葱香豆皮','香叶豆腐','葱香茄子','烤年糕',
-                        '玉米','油炸花生米','烤大葱','白干豆腐'
-                    ]                
-                ],
+                // leftArr:['烤肉类','蔬菜类','海鲜类','锡纸类','小炒类','酒水类'],
+                // rightArr:[
+                //     ['烤韭菜','羊肉串','鸡全翅','葱香豆皮','谈烤肥牛','葱香茄子','台湾热狗'],
+                //     [
+                //         '羊肉串','蜜汁牛排','滋补羊腰','香辣牛蹄','牛肉串','牛板筋','鸡脆骨','鸡全翅','鸡中翅','鸡腿','鸡爪','骨肉相连','香辣猪蹄','麻辣牛肚','羊肉串','蜜汁牛排','滋补羊腰','香辣牛蹄',
+                //         '牛肉串','牛板筋','鸡脆骨','鸡全翅','鸡中翅','鸡腿','鸡爪','骨肉相连','香辣猪蹄','麻辣牛肚','羊肉串','蜜汁牛排','滋补羊腰','香辣牛蹄','牛肉串','牛板筋','鸡脆骨','鸡全翅','鸡中翅','鸡腿',
+                //         '鸡爪','骨肉相连','香辣猪蹄','麻辣牛肚'
+                //     ],
+                //     [
+                //         '烤韭菜','金针菇','娃娃菜','土豆片','四季豆','烤香菇',
+                //         '青椒','烤面筋','葱香豆皮','香叶豆腐','葱香茄子','烤年糕',
+                //         '玉米','油炸花生米','烤大葱','白干豆腐'
+                //     ]                
+                // ],
+                dataArr:[],
                 popupTarget:null,
                 popupShow:false
             }
@@ -107,16 +109,16 @@
             /**
              * 添加到购物车
              */
-            addToChe(index,foodname){
-                let foodid=index;
+            addToChe(item){
                 let o = {
-                    foodid,
-                    foodname:foodname,
-                    price:_.floor(1+Math.random()*999,2),
+                    ...item,
                     num:1,//数量
                 }
                  this.$store.commit('shoppingCart/push',o);
             },
+            /**
+             * 购物车已经存在改商品，通过foodid添加数量
+             */
             addToCheByFoodid(foodid,num){
                 let o = {
                     foodid,
@@ -147,7 +149,14 @@
             
         },
         mounted(){
-           this.popupTarget = this.$el.querySelector('#popupTarget')
+           this.popupTarget = this.$el.querySelector('#popupTarget');
+
+           axios.get(this.$url.shop).then(res=>{
+               console.log('res',res);
+               this.dataArr.push(...res.data.data);
+            //    this.leftArr =res.data.leftArr;
+            //    this.rightArr = res.data.rightArr;
+           })
         }
     }
 </script>

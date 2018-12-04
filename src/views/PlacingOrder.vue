@@ -10,10 +10,11 @@
                 神探烧烤(上川店)
             </div>
             <div class="food" v-for="item in gouwucheArr" :key="item.id">
-                <img src="../assets/imgs/food1.jpg" alt="">
+                <!-- <img src="../assets/imgs/food1.jpg" alt=""> -->
+                <img :src="item.img" alt="">
                 <div class="food-center">
                     <span class="foodname">
-                        {{item.foodname}}
+                        {{item.name}}
                     </span>
                     <span class="count">
                         x{{item.num}}

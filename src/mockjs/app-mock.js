@@ -125,3 +125,89 @@ Mock.mock(RegExp(url.order + ".*"), function(options) {
         
     }) 
 })
+
+
+// 店铺开始
+var shaokao = [
+  'https://p0.meituan.net/210.0/wmproductdwm/41e2d9014bb34cab377d902ec1e334fa307457.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/7d206c04c08eda38fd1d07b6273687e9294748.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/8849af26321b6ee73da6a98da2e451c9316010.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/4c2be009b5d9b207bfce9348eb6aa573284454.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/db7784eea83c7e1634557e5ad9a9c9cf225148.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/0d1ee4ab8e9546e2915da1d23c81733f336173.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/bd2c8c8b873628eee68736334f27d7de201865.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/b3b219bd3b0b7c3d27bc1c24b3702f1d172627.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/c20e9928418d79722836113d75733e11248478.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/a6cae48f590d5456dde7a2e7bb4cb846187787.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/b4b753efd7982b8bd4c36dbcc8505e58425880.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/dcbac7407e8c502e0f74fab2731dca1b300097.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/a4a3c851105f22f47ea5200ccaa6a33d515061.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/f28b7da424e0a7912e6e3317ebb9f9bb192280.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/6ac299c43788439544c0bdfe0ce02b4a259461.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/4dcc3e815018f2499ecc049d42da6d95285123.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/8d0f6a87f27a232e9964cf9dc785b37e393925.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/8e4a3223c951fef82d594355f545cad4225054.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/3d787452dd1a151657abc9f6bc2f2ba3205257.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/4b94efd122cde23ed7f96d214e87faa1181037.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/0b06fb5b1a941f35d4cffbfdd9bceaeb298817.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/2c9ae3a79504d03db2855ab067d79875309570.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/b0e977b4bfcd8f5dcbc66b5023e5c8a5241641.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/a2a69db7e22a6cda430e26941ff55d39196236.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/97288b83ff784e686d3d3caa6b56d09c126822.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/abd2a47418f1ba24385da62989bb4d5b267614.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/35968bcfe4942d883d15a07ef49556ba399938.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/37c1465bb566e92c181dd6456ef3519c240395.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/b2473608efe75c1b970fdbcdfb818863309417.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/d1a5b0f64ec98ba67cabcaf8c198fd0e205979.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/817fb273fd039ba7e7ae594125cd7d5a195437.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/793bc9d44a637bd0bb94f99fe75ec314201990.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/17fa0ee5ed196f7c5384124553ef29ad251528.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/1df9c69e1c257efcd40b1040fe18b3f7184380.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/72e544f12624cbd9e217d93e507edb46155662.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/b6d46aad61f6f1b05dade4b97e3e2453344252.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/60f388e7fd10792191c27e45b630b704214413.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/7ca2b519dca8afce1f42efbaf47421da180474.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/697cf21429bf99210d43f184bb1cc5a3344442.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/ce42e62e61660c7c6ec81206f9422419253332.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/ba6c007645067df55de7163595526629285869.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/596fee44d7f4a1b97ce9234c5637aa60185200.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/7082c386a5813c24404603a0746b5cbe201733.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/a48a1e30530d93c41781c5664e047710205471.jpg',
+  'https://p1.meituan.net/210.0/xianfudwm/3ae591e2a3b042db24381d66d99cc0c1185338.jpg',
+  'https://p0.meituan.net/210.0/xianfudwm/48ea897d75a66c19a69b7811090baf1b198437.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/d0ac759fc86b6f820d945ac48ed7091b334625.jpg',
+  'https://p1.meituan.net/210.0/wmproductdwm/e225f2d99e913951edaa6cc65f06e5d1432329.jpg',
+  'https://p0.meituan.net/210.0/wmproductdwm/0689ea1680a22d9656d4ff4965b4a337327151.jpg',
+]
+let leftArr=['烤肉类','蔬菜类','海鲜类','锡纸类','小炒类','酒水类'];
+let index=0;
+Mock.mock(url.shop, {
+  
+  "data|6":[{
+    'fenlei':function(){
+      if(index>=leftArr.length){
+        index = 0;
+      }
+      return leftArr[index++];
+    },
+    'arr|10':[{
+      'foodid|+1':10000,
+      'img|1':shaokao,
+      'price|89-200':100,
+      'name|1':
+          ['烤韭菜','羊肉串','鸡全翅','葱香豆皮','谈烤肥牛','葱香茄子','台湾热狗',
+              '羊肉串','蜜汁牛排','滋补羊腰','香辣牛蹄','牛肉串','牛板筋','鸡脆骨','鸡全翅','鸡中翅','鸡腿','鸡爪','骨肉相连','香辣猪蹄','麻辣牛肚','羊肉串','蜜汁牛排','滋补羊腰','香辣牛蹄',
+              '牛肉串','牛板筋','鸡脆骨','鸡全翅','鸡中翅','鸡腿','鸡爪','骨肉相连','香辣猪蹄','麻辣牛肚','羊肉串','蜜汁牛排','滋补羊腰','香辣牛蹄','牛肉串','牛板筋','鸡脆骨','鸡全翅','鸡中翅','鸡腿',
+              '鸡爪','骨肉相连','香辣猪蹄','麻辣牛肚'
+          ,
+              '烤韭菜','金针菇','娃娃菜','土豆片','四季豆','烤香菇',
+              '青椒','烤面筋','葱香豆皮','香叶豆腐','葱香茄子','烤年糕',
+              '玉米','油炸花生米','烤大葱','白干豆腐'
+          ]                
+    }]
+  }]
+  
+  
+})
+
+// 店铺结束
