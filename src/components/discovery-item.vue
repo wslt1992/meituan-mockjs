@@ -4,7 +4,7 @@
             {{item.title}}
         </div>
         <div class="imgs">
-            <img v-for="img in item.imgs" :key="img.id" src="../assets/imgs/shop.jpg"/>
+            <img v-for="img in item.imgs" :key="img.id" :src="img"/>
         </div>
         <div class="tips">
             <span>{{item.author}}</span>

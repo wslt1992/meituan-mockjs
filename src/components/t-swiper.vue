@@ -49,7 +49,8 @@ import $ from 'jquery';
             //item被选中时,激活的样式名
             checkedClass: {
                 type: String,
-                default: 't-swiper-item-checked'
+                default: 't-swiper-item-checked',
+                initedBool:false
             },
             
             normalClass:{
@@ -81,41 +82,57 @@ import $ from 'jquery';
             initStartClass(val){
                 this.itemS[val].classList.add(this.checkedClass);
                 // this.initNormalClass();
+            },
+            /**
+             * 是否完成了初始化
+             */
+            isInit(){
+                return this.$el.querySelectorAll('.scroll>*').length>0&&!this.initedBool
+            },
+            init(){
+                if(this.isInit())
+                {
+                    let _this = this;
+                    this.scrollDiv = this.$el.querySelector('.scroll');
+                    this.scrollDiv.addEventListener('scroll',function(){
+                        // console.log(this.scrollLeft)
+                    })
+
+                    //找出目标点
+                    let scrollDivMiddle = this.scrollDiv.offsetWidth/2;
+                    // 后添加样式，获取的宽错误
+                    // let itemWidth = this.$el.querySelector('.scroll>*').offsetWidth;
+                    // let targetPoint = scrollDivMiddle - itemWidth/2;
+                    // ------->改
+                    let targetPoint = scrollDivMiddle - this.scrollDiv.offsetWidth/5;
+
+                    let childs =this.itemS= this.$el.querySelectorAll('.scroll>*')
+                    childs.forEach((element,index) => {
+                        element.addEventListener('click',function(){
+                            _this.currentCheckedNum = index;
+                            // console.log(this,this.offsetLeft,'123')
+                            /**
+                             * scrollDiv需要滚动的距离，
+                             * leftByTargetPoint：表示item的x距离target的x之间的距离，
+                             * 即item相对于target的left
+                             * 
+                             * 距离<0：移动到0
+                             */
+                            _this.leftByTargetPoint = this.offsetLeft-targetPoint;
+                            console.log(_this.leftByTargetPoint,this.offsetLeft,targetPoint,'_this.leftByTargetPoint')
+                            // console.log(distance,targetPoint,'5')
+                        })
+                    });
+                    this.initStartClass(this.currentCheckedNum);
+                    this.initedBool=true;
+                }
             }
         },
         mounted(){
-            let _this = this;
-            this.scrollDiv = this.$el.querySelector('.scroll');
-            this.scrollDiv.addEventListener('scroll',function(){
-                // console.log(this.scrollLeft)
-            })
-
-            //找出目标点
-            let scrollDivMiddle = this.scrollDiv.offsetWidth/2;
-            // 后添加样式，获取的宽错误
-            // let itemWidth = this.$el.querySelector('.scroll>*').offsetWidth;
-            // let targetPoint = scrollDivMiddle - itemWidth/2;
-            // ------->改
-            let targetPoint = scrollDivMiddle - this.scrollDiv.offsetWidth/5;
-
-            let childs =this.itemS= this.$el.querySelectorAll('.scroll>*')
-            childs.forEach((element,index) => {
-                element.addEventListener('click',function(){
-                    _this.currentCheckedNum = index;
-                    // console.log(this,this.offsetLeft,'123')
-                    /**
-                     * scrollDiv需要滚动的距离，
-                     * leftByTargetPoint：表示item的x距离target的x之间的距离，
-                     * 即item相对于target的left
-                     * 
-                     * 距离<0：移动到0
-                     */
-                    _this.leftByTargetPoint = this.offsetLeft-targetPoint;
-                    console.log(_this.leftByTargetPoint,this.offsetLeft,targetPoint,'_this.leftByTargetPoint')
-                    // console.log(distance,targetPoint,'5')
-                })
-            });
-            this.initStartClass(this.currentCheckedNum);
+            
+        },
+        updated(){
+            this.init();
         },
         watch: {
             /**

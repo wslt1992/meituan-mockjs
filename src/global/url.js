@@ -17,6 +17,7 @@ var url = {
   leisures:'/data/leisures', //有格调列表
   scenerys:'/data/scenerys', //周末去哪儿
   shop:'/data/shop',//店铺页
+  discovery:'data/discovery',//发现
   /**
    * 数据访问路径---结束
    */

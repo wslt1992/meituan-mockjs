@@ -3,8 +3,8 @@
         <div v-for="(item,index) in items" :key="index" class="list-item" @click="toShop">
             <h6>{{item.id}}</h6>
             <div class="item-left">
-                <!-- <img :src='item.img' alt=""> -->
-                <img src="../assets/imgs/shop.jpg" alt="">
+                <img :src='item.img' alt="">
+                <!-- <img src="../assets/imgs/shop.jpg" alt=""> -->
             </div>
             <div class="item-right">
                 <span class="shopname">{{item.shopname}}</span>

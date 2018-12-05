@@ -155,6 +155,7 @@ import {Toast} from 'mint-ui'
             },
             requestData(){
                 this.$https.listing.request().then((data)=>{
+                    console.log(data)
                     this.items.push(...data.list)
                 })
             },
