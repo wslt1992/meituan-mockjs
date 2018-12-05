@@ -22,6 +22,7 @@ const Leisure = ()=>import( '@/views/leisure') //首页>有格调
 const Scenery = ()=>import( '@/views/scenery') //去哪儿
 const Shop = ()=>import( '@/views/shop1') //店铺
 const PlacingOrder = ()=>import( '@/views/PlacingOrder') //店铺
+const DiscoveryDetail = ()=>import( '@/views/discovery-detail') //店铺
 
 Vue.use(Router)
 
@@ -185,6 +186,14 @@ export default new Router({
       path:nav.placingOrderPath,
       name:"PlacingOrder",
       component:PlacingOrder
+    },
+    /**
+     * 发现的文章的详情页
+     */
+    {
+      path:nav.discoveryDetail,
+      name:"discoveryDetail",
+      component:DiscoveryDetail
     }
   ]
 })

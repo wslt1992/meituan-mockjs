@@ -1,5 +1,5 @@
 <template>
-    <div class="discovery-item-root" @click="show">
+    <div class="discovery-item-root" @click="toDiscoveryDetail">
         <div class="title">
             {{item.title}}
         </div>
@@ -22,8 +22,8 @@
             },
         },
         methods: {
-            show() {
-                console.log(111111111111111)
+            toDiscoveryDetail(){
+                this.$router.push(this.$url.navigator.discoveryDetail)
             }
         },
     }

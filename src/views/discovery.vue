@@ -15,7 +15,7 @@
         <!-- tab结束 -->
 
         <div slot="container" >
-            <discovery-item :item='item' v-for="(item,index) in currentListArr" :key="index"></discovery-item>
+            <discovery-item :item='item' v-for="(item,index) in currentListArr" :key="index" ></discovery-item>
         </div>
     </t-page>
     <!-- tab-container -->
@@ -39,7 +39,8 @@ import axios from 'axios'
                     axios.get(this.$url.discovery).then((res)=>{
                         this.items.push(...res.data.data)
                     })
-                }
+                },
+                
         },
         mounted(){
             this.requestData();
