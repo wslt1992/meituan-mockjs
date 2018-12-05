@@ -15,7 +15,6 @@
             </div>
             <div slot='right' class="menu-right">
                 <div right-item class="default-show" v-for="(itemArr) in dataArr" :key="itemArr.id">
-                    <span>itemArr</span>
                     <div class="food-item" v-for="(item) in itemArr.arr" :key="item.id">
                         <img :src="item.img" alt="">
                             <div>
