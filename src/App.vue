@@ -7,8 +7,8 @@
           :enter-active-class="transitionInName"
           :leave-active-class="transitionOutName"
             >
-    <keep-alive include="mainpage">
-    <!-- <keep-alive > -->
+    <!-- <keep-alive include="mainpage"> -->
+    <keep-alive>
         <router-view></router-view>
     </keep-alive>
       </transition>
@@ -74,8 +74,9 @@ export default {
   height: 100vh;
 }
 .animated{
-  animation-duration: 0.5s;
-  position:absolute
+  animation-duration: .6s;
+  position:absolute;
+  top:0
 }
 .animated-delay{
   /* animation-delay: 3.3s; */
