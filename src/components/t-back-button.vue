@@ -1,5 +1,5 @@
 <template>
-    <div @click="$router.back()">
+    <div @click="back">
         <slot></slot>
     </div>
 </template>
@@ -9,7 +9,12 @@
  * 返回上一层的按钮
  */
     export default {
-        
+        methods: {
+            back() {
+                this.$global.isRouterForward = false;
+                this.$router.back()
+            }
+        },
     }
 </script>
 
