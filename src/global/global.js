@@ -1,4 +1,5 @@
 import router from '../router/index'
+import store from '../store/index'
 import url from '../global/url'
 var global ={
     /**
@@ -13,7 +14,8 @@ var global ={
       let params ={
         searchKeyword
       }
-      router.push({name:'SearchResult',params})
+      store.commit('changeSearchKeyword',searchKeyword);
+      router.push({name:'SearchResult'})
     },
     /**
      * 跳转到搜索页 

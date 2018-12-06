@@ -7,7 +7,7 @@
                     <input v-model="sosoInput" type="text" :placeholder="tips">
                 </div>
             </div>
-            <span class="sousuo" slot='right' @click="toSearchResult(sosoInput)">搜索</span>
+            <span class="sousuo" slot='right' @click="toSearchResult(sosoInputValue)">搜索</span>
         </t-header-new>
         <div class="content">
             <div>
@@ -42,7 +42,7 @@
                     'Hui Hotel回酒店·La cafe自助餐',
                     'UNIVERSAL CAFFEN BAR环球咖啡厅（海上世界店）'
                     ],
-                sosoInput:''            
+                sosoInputValue:''            
             }
         },
         methods:{
@@ -55,12 +55,24 @@
                 }
                 this.$global.toSearchResult(keyword)
             },
-            initDataRoute(){
-                this.sosoInput = this.$route.params.searchKeyword;
+            // initDataRoute(){
+            //     this.sosoInput = this.$route.params.searchKeyword;
+            // }
+        },
+        computed: {
+            sosoInput: {
+                // getter
+                get: function () {
+                    return this.$store.state.common.searchKeyword;
+                },
+                // setter
+                set: function (newValue) {
+                    this.sosoInputValue = newValue;
+                }
             }
         },
         created(){
-            this.initDataRoute();
+            // this.initDataRoute();
         }
     }
 </script>

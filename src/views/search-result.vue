@@ -146,7 +146,6 @@ import {Toast} from 'mint-ui'
                 loading:false,
                 items:[],
                 isBottomShow:[false,false,false],
-                searchKeyword:null
             }
         },
         methods:{
@@ -187,7 +186,7 @@ import {Toast} from 'mint-ui'
             // 第三项排序的点击事件
             paixuSubItem(event){
                 // console.log(event.target.innerText,event)
-                this.searchKeyword = event.target.innerText;
+                this.$store.commit('changeSearchKeyword',event.target.innerText);
                 this.resetRequestData()
                 Toast({
                     message: event.target.innerText,
@@ -196,16 +195,19 @@ import {Toast} from 'mint-ui'
                 });
                 this.$refs.bottomMenu.hideAllSubmenu();
             },
-            initDataRoute(){
-                this.searchKeyword = this.$route.params.searchKeyword;
+            // initDataRoute(){
+            //     console.log(this.searchKeyword,this.$store.state,'searchKeyword')
+            // }
+        },
+        computed: {
+            searchKeyword() {
+                return this.$store.state.common.searchKeyword;
             }
         },
         created(){
-            this.initDataRoute()
             this.requestData();
         },
-        mounted:function(){
-        }
+        
     }
 </script>
 
