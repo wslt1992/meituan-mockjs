@@ -1,12 +1,14 @@
 <template>
     <div class="search-container">
-        <t-header class="search-header">
-            <div class="search-input">
-                <i class="iconfont icon-sousuo"></i>
-                <input v-model="sosoInput" type="text" :placeholder="tips">
+        <t-header-new class="search-header">
+            <div slot="center" class="search-input-root">
+                <div  class="search-input">
+                    <i class="iconfont icon-sousuo"></i>
+                    <input v-model="sosoInput" type="text" :placeholder="tips">
+                </div>
             </div>
             <span class="sousuo" slot='right' @click="toSearchResult(sosoInput)">搜索</span>
-        </t-header>
+        </t-header-new>
         <div class="content">
             <div>
                 <div class="class-tag">热门搜索</div>
@@ -64,8 +66,18 @@
 </script>
 
 <style lang='scss' scoped>
+.search-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-input-root{
+    display: flex;
+    justify-content: center;
+}
 .search-input{
     // border: 1px solid #ddd;
+    
     font-size: 4vw;
     text-align: center;
     color: #999;
@@ -89,6 +101,8 @@
 }
 .sousuo{
     margin-right: 2vw;
+    font-size: 4vw;
+    padding-right: 4vw;
 }
 .content{
     .class-tag{
