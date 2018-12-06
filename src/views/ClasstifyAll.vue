@@ -1,6 +1,6 @@
 
 <template>
-    <div class="classtify-all">
+    <t-page class="classtify-all">
         <!-- <div class="header-bar">
             <mt-header  title="全部分类">
                 <mt-button icon="back" slot="left" @click="$router.go(-1)">返回</mt-button> -->
@@ -8,16 +8,16 @@
             <!-- </mt-header>
         </div> -->
         <!-- <search-bar class="search-bar"></search-bar> -->
-        <t-header>
-            <search-bar class="search-bar"></search-bar>
-        </t-header>
-        <div class="namelist-all">
+        <t-header-new slot='header'>
+            <search-bar slot='center' class="search-bar"></search-bar>
+        </t-header-new>
+        <div slot='container' class="namelist-all">
             <div  v-for="(item,index) in namelistAll" :key="item.id">
                 <span><i class="icon iconfont" :class="iconClassName[index]"></i>{{item.classtifyName}}</span>
                 <classtify-item class="classtify-all-item" :nameArr='item.list'></classtify-item>
             </div>
         </div>
-    </div>
+    </t-page>
 </template>
 
 <script>
@@ -140,7 +140,7 @@ export default {
 }
 /* txl-------------start */
 /deep/.lt-header-root .header .mint-header{background-color:#fff;color:#333;height:13vw;}
-/deep/ .search-bar .root{background-color:#f5f5f5;font-size:3.6vw;line-height: 8.7vw;height:8vw;}
+// /deep/ .search-bar .root{background-color:#f5f5f5;font-size:3.6vw;line-height: 8.7vw;height:8vw;}
 /deep/ .lt-header-root .center{position: fixed!important;z-index:10000;top:2.6vw;}
 /deep/ .search-bar .root i.icon-sousuo{font-size:3.6vw;font-weight: bold;}
 /deep/.lt-header-root .center{top:2.5vw;}
