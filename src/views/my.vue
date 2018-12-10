@@ -11,8 +11,16 @@
             <div class="login-entry">
                 <router-link to="/login">
                     <!-- <img src="" alt=""> -->
-                    <i class="iconfont icon-touxiang-kong"></i>
-                    <h2>{{userInfo.username}}</h2>
+                    <template v-if='this.$store.state.user.headerImg!==""'>
+                        <img   :src="this.$store.state.user.headerImg" alt="">
+                        <h2>{{this.$store.state.user.username}}</h2>
+                    </template>                   
+                    <template v-else>
+                        <i class="iconfont icon-touxiang-kong"></i>
+                        <h2>{{userInfo.username}}</h2>
+                    </template>                   
+                    
+                    
                 </router-link>
             </div>
         </div>

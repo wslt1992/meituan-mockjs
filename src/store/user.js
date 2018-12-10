@@ -7,6 +7,7 @@ const user = {
         token:'',
         userId:'',
         username:'长风破浪',
+        headerImg:'',
         /**
          * 登录状态
          */
@@ -24,6 +25,7 @@ const user = {
             let user = data.user;
             state.userId = user.userId;
             state.username = user.username;
+            state.headerImg = user.headerImg;
         }
     },
     actions: {  }

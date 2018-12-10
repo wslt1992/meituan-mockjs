@@ -127,7 +127,8 @@ Mock.mock(RegExp(url.login + ".*"), function(options) {
           state:200,
           "user": {
             'username': '@cname',
-            'userId|+1': 888888
+            'userId|+1': 888888,
+            'headerImg':'/static/imgs/header.jpg'
           }
         
       });
