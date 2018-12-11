@@ -57,6 +57,7 @@ export default {
         text-align: start;
         font-size: 3.5vw;
         margin: 2vw 4vw;
+        border-bottom: 1px solid #eee;
         .item-left{
             img {
                 margin-top: 1.6vw;
@@ -85,7 +86,9 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 .price{
-                    color: #666;
+                    color: #fa8328;
+                    font-size: 4.6vw;
+                    font-weight: bold;
                 }
                 .state{
                     color: green;

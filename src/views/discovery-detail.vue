@@ -1,9 +1,12 @@
 <template>
     <t-page class="dd-root">
         <div slot="header">
-            <t-header-new>
-                <div slot="center" class="header-title">文章</div>
-            </t-header-new>
+            <div class="header">
+                <t-header-new>
+                    <div slot="center" class="header-title">文章</div>
+                </t-header-new>
+            </div>
+            
         </div>
         <div slot="container" class="container1">
             <p>
@@ -12,7 +15,7 @@
             <p>今天 小编就给大家分享一种美味的早餐饼，一起来看一下吧</p>
             <img src="static/imgs/discovery-detail1.jpg" alt="">
             
-            做法:
+            <h3>做法:</h3>
 
             <p>1.粉丝提前用凉水泡上，凉水泡软后，再用热水泡几分钟</p>
 
@@ -58,12 +61,25 @@
 
 <style lang='scss' scoped>
 .dd-root{
+    .header{
+        border-bottom: 1px solid #ddd;
+        .header-title{
+            font-size: 5.3vw;
+            
+        }
+    }
+    
     .container1{
         margin: auto;
         width: 92vw;
         overflow: hidden;
+        h3{
+            text-align: start;
+        }
         img{
-            width: 100%;
+            margin: 0 auto;
+            display: block;
+            max-width: 88%;
         }
         p{
             text-align: start;
