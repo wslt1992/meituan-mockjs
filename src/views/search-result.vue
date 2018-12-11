@@ -273,7 +273,11 @@ import {Toast} from 'mint-ui'
             }
         }
     }
-    
+    .t-active{
+        background-color: #ffffff;
+        color: #25abb1;
+        // font-weight: 700;
+    }
     // 分类bar结束
 /* txl-------------start */
 // /deep/.lt-header-root .mint-header{background-color:#fff;color:#333;position:fixed;top:0;right:0;left:0;z-index:9999;height:13vw!important;}

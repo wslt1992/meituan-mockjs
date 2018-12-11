@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(item,index) in items" :key="index" class="list-item" @click="toShop">
-            <h6>{{item.id}}</h6>
+            <!-- <h6>{{item.id}}</h6> -->
             <div class="item-left">
                 <img :src='item.img' alt="">
                 <!-- <img src="../assets/imgs/shop.jpg" alt=""> -->
@@ -52,7 +52,9 @@
         flex-direction: row;
         text-align: start;
         font-size: 4.3vw;
-        margin: 2vw 0;
+        border-bottom: 1px solid #eee;
+        margin: 0vw 2vw;
+        padding: 3vw 0;
         .item-left{
             img {
                 width: 20vw;//txl-modify
@@ -113,6 +115,6 @@
     }
     //列表结束
 /* txl -------start */
-.list-item{background-color:#fff;padding:3vw;}
+// .list-item{background-color:#fff;padding:3vw;}
 /* txl--------end */
 </style>
