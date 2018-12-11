@@ -5,7 +5,7 @@
                 <div slot="center" class="header-title">文章</div>
             </t-header-new>
         </div>
-        <div slot="container">
+        <div slot="container" class="container1">
             <p>
                 一日之计在于晨，随着生活水平的提高，大家对早餐也是越来越重视了。早餐不仅要吃饱，更要吃好，营养才是关键。
             </p>
@@ -58,8 +58,17 @@
 
 <style lang='scss' scoped>
 .dd-root{
-    p{
-        text-align: start;
+    .container1{
+        margin: auto;
+        width: 92vw;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+        p{
+            text-align: start;
+        }
     }
+    
 }
 </style>
