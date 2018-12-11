@@ -34,10 +34,10 @@
                 <div class="account" @click="toPlacingOrder">结算(￥{{this.account}})</div>
             </div>
             <t-popup :target='popupTarget' direction='top' :show="popupShow">
-                <div class="zhezhao" @click="closePopup">
+                <div class="zhezhao" @click.self="closePopup">
                     <div class="popup-che">
-                        <div >
-                            清空购物者
+                        <div class="gouwuche-title">
+                            购物车
                         </div>
                         <div class="popup-che-container">
                             <div v-for="item in gouwucheArr" :key="item.id" class="cell">
@@ -112,9 +112,9 @@ import {Toast} from 'mint-ui'
              * 关闭弹出的窗口
              */
             closePopup($event){
-                if($event.target===this.$el.querySelector('.zhezhao')){
+                // if($event.target===this.$el.querySelector('.zhezhao')){
                     this.popupShow = false;
-                }
+                // }
             },
             /**
              * 添加到购物车
@@ -304,7 +304,7 @@ import {Toast} from 'mint-ui'
 // 弹出的框购物数量开始
 .zhezhao{
     height: 90vh;
-    background-color: #555c;
+    background-color: #000b;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -312,8 +312,18 @@ import {Toast} from 'mint-ui'
 .popup-che{
     width: 100vw;
     background-color: #fff;
+    .gouwuche-title{
+        text-align: start;
+        padding-left: 4vw;
+        background-color: #f3f3f3;
+        padding: 2vw 0 2.3vw 2vw;
+    }
     .cell{
         display: flex;
+        justify-items: center;
+        align-items: center;
+        height: 13vw;
+        border-bottom: 1px solid #f4f4f4;
         .name{
             width: 50vw;
 
@@ -323,11 +333,37 @@ import {Toast} from 'mint-ui'
         }
         .input{
             width:25vw;
-            .input-jian,.input-add{
-                display: inline-block;
-                width: 6vw;
-                border: 1px solid black; 
-                // border-radius: 11px 0 0 11px ;
+            .input-jian{
+                box-sizing: border-box;
+                // padding-bottom: 2px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                width: 5vw;
+                height: 5vw;
+                border: 1px solid #ddd;
+                margin-right: 1vw;
+                // line-height: 3vw;
+                background-color: #fff;
+                // font-weight: 700;
+                font-size: 6vw;
+                // border: 1px solid ;
+            }
+            .input-add{
+                box-sizing: border-box;
+                padding-top: 1px;
+                display: inline-flex;
+                margin-left: 1vw;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                width: 5vw;
+                height: 5vw;
+                background-color: rgb(240, 186, 9);
+                // font-weight: 700;
+                font-size: 6vw;
+                // border: 1px solid ;
             }
         }
     }
