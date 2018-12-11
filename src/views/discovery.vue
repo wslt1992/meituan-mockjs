@@ -41,21 +41,25 @@ import axios from 'axios'
                 handleClick(tab, event) {
                     console.log(tab, event);
                 },
-                requestData(){
-                    axios.get(this.$url.discovery).then((res)=>{
-                        console.log(res.data.data);
-                        this.items.push(...res.data.data)
-                    })
-                },
+                // requestData(){
+                //     axios.get(this.$url.discovery).then((res)=>{
+                //         console.log(res.data.data);
+                //         this.items.push(...res.data.data)
+                //     })
+                // },
                 loadMore(){
                     axios.get(this.$url.discovery).then((res)=>{
-                        this.items[this.selectedIndex].arr.push(...res.data.data[this.selectedIndex].arr)
+                        if(this.items.length===0){
+                            this.items.push(...res.data.data)
+                        }else{
+                            this.items[this.selectedIndex].arr.push(...res.data.data[this.selectedIndex].arr)
+                        }
                     })
                 }
                 
         },
         mounted(){
-            this.requestData();
+            // this.requestData();
         },
         watch: {
             items(newValue, oldValue) {
