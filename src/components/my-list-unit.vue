@@ -73,7 +73,7 @@ a{text-decoration:none;}
 .line::after{border-bottom:1px solid #ddd;content:"";display:block;height:0;position:absolute;bottom:0;right:3vw;left:3vw;transform:scaleY(0.5);}
 
 /* 字体颜色透明 */
-.txt-transparent{-webkit-background-clip:text;-webkit-text-fill-color: transparent;}
+.txt-transparent{-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color: transparent;}
 /* 135deg渐变色 */
 .linear135-red{background-image:linear-gradient(135deg,#fb8297,#e9516c);}
 .linear135-green{background-image:linear-gradient(135deg,#03ebd8,#09b8b8);}

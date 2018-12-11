@@ -24,8 +24,10 @@ export default {
   name: 'App',
   data() {
     return {
-    transitionInName:'animated slideInRight',
-    transitionOutName:'animated slideOutLeft'
+    transitionInName:'',
+    transitionOutName:''
+    // transitionInName:'animated slideInRight',
+    // transitionOutName:'animated slideOutLeft'
     }
   },
   components:{
@@ -50,12 +52,19 @@ export default {
   },
   watch: {
   '$route' (to, from) {
+    // if(this.$global.isRouterForward){
+    //   this.transitionInName =  'animated animated1 slideInRight'
+    //   this.transitionOutName = 'animated animated1 animated-delay slideOutLeft' 
+    // }else{
+    //   this.transitionInName = 'animated  animated1 slideInLeft' 
+    //   this.transitionOutName = 'animated animated1 animated-delay slideOutRight'
+    // }
     if(this.$global.isRouterForward){
-      this.transitionInName =  'animated slideInRight'
-      this.transitionOutName = 'animated animated-delay slideOutLeft' 
+      this.transitionInName =  'animated animated1 slideInRight'
+      this.transitionOutName = 'animated animated1 animated-delay slideOutLeft' 
     }else{
-      this.transitionInName = 'animated  slideInLeft' 
-      this.transitionOutName = 'animated animated-delay slideOutRight'
+      this.transitionInName = 'animated  animated1 slideInLeft' 
+      this.transitionOutName = 'animated animated1 animated-delay slideOutRight'
     }
     // 默认为true
     this.$global.isRouterForward  = true;
@@ -73,8 +82,13 @@ export default {
   color: #2c3e50;
   height: 100vh;
 }
-.animated{
-  animation-duration: .6s;
+.animated.animated1{
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  /* -moz-animation-duration: 0.5s; */
+  /* -webkit-animation-duration:  */
   position:absolute;
   top:0
 }

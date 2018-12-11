@@ -304,7 +304,8 @@ import {Toast} from 'mint-ui'
 // 弹出的框购物数量开始
 .zhezhao{
     height: 90vh;
-    background-color: #000b;
+    // background: #000000bb;
+    background: rgba(0, 0, 0, 0.75);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
