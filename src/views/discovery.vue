@@ -15,7 +15,13 @@
         <!-- tab结束 -->
 
         <div slot="container" >
-            <discovery-item :item='item' v-for="(item,index) in currentListArr" :key="index" ></discovery-item>
+            <div v-infinite-scroll="loadMore"
+                infinite-scroll-disabled="loading"
+                infinite-scroll-distance="50">
+                    <discovery-item :item='item' v-for="(item,index) in currentListArr" :key="index" ></discovery-item>
+                    <mt-spinner type="triple-bounce"></mt-spinner>
+            </div>
+            
         </div>
     </t-page>
     <!-- tab-container -->
@@ -37,9 +43,15 @@ import axios from 'axios'
                 },
                 requestData(){
                     axios.get(this.$url.discovery).then((res)=>{
+                        console.log(res.data.data);
                         this.items.push(...res.data.data)
                     })
                 },
+                loadMore(){
+                    axios.get(this.$url.discovery).then((res)=>{
+                        this.items[this.selectedIndex].arr.push(...res.data.data[this.selectedIndex].arr)
+                    })
+                }
                 
         },
         mounted(){
