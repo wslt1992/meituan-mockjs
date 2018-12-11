@@ -8,8 +8,8 @@
             <t-bottom-menu ref="bottomMenu" istopbottom='true' >
                 <div slot="top" class="seletor-bar">
                     <p top-item>全部分类</p>
-                    <p top-item>全城</p>
-                    <p top-item>智能排序</p>
+                    <p top-item>{{paixuItemSecond}}</p>
+                    <p top-item>{{paixuItemThird}}</p>
                 </div >
                 <div slot='bottom' class="bottom-menu-style">
                     <div bottom-item>
@@ -61,40 +61,40 @@
                             </div>
                             <div  slot='right'>
                                 <div right-item>
-                                    <p @click='paixuSubItem'>宝安中心</p>
-                                    <p @click='paixuSubItem'>新安</p>
-                                    <p @click='paixuSubItem'>西乡</p>
-                                    <p @click='paixuSubItem'>松岗</p>
-                                    <p @click='paixuSubItem'>沙井</p>
-                                    <p @click='paixuSubItem'>翻身路</p>
+                                    <p @click='paixuSubItem2'>宝安中心</p>
+                                    <p @click='paixuSubItem2'>新安</p>
+                                    <p @click='paixuSubItem2'>西乡</p>
+                                    <p @click='paixuSubItem2'>松岗</p>
+                                    <p @click='paixuSubItem2'>沙井</p>
+                                    <p @click='paixuSubItem2'>翻身路</p>
                                 </div>
                                 <div right-item>
-                                    <p @click='paixuSubItem'>白石洲</p>
-                                    <p @click='paixuSubItem'>后海</p>
-                                    <p @click='paixuSubItem'>华侨城</p>
-                                    <p @click='paixuSubItem'>深圳湾</p>
-                                    <p @click='paixuSubItem'>科技园</p>
-                                    <p @click='paixuSubItem'>海上世界</p>
-                                    <p @click='paixuSubItem'>西丽</p>
+                                    <p @click='paixuSubItem2'>白石洲</p>
+                                    <p @click='paixuSubItem2'>后海</p>
+                                    <p @click='paixuSubItem2'>华侨城</p>
+                                    <p @click='paixuSubItem2'>深圳湾</p>
+                                    <p @click='paixuSubItem2'>科技园</p>
+                                    <p @click='paixuSubItem2'>海上世界</p>
+                                    <p @click='paixuSubItem2'>西丽</p>
                                 </div>
                                 <div right-item>
-                                    <p @click='paixuSubItem'>百花</p>
-                                    <p @click='paixuSubItem'>车公庙</p>
-                                    <p @click='paixuSubItem'>岗厦</p>
-                                    <p @click='paixuSubItem'>赤尾</p>
-                                    <p @click='paixuSubItem'>保税区</p>
-                                    <p @click='paixuSubItem'>笔架山</p>
-                                    <p @click='paixuSubItem'>购物公园</p>
+                                    <p @click='paixuSubItem2'>百花</p>
+                                    <p @click='paixuSubItem2'>车公庙</p>
+                                    <p @click='paixuSubItem2'>岗厦</p>
+                                    <p @click='paixuSubItem2'>赤尾</p>
+                                    <p @click='paixuSubItem2'>保税区</p>
+                                    <p @click='paixuSubItem2'>笔架山</p>
+                                    <p @click='paixuSubItem2'>购物公园</p>
                                 </div>
                             </div>
                         </t-right-menu>
                     </div>
                     <div bottom-item>
-                        <p @click='paixuSubItem'>智能排序</p>
-                        <p @click='paixuSubItem'>好评优先</p>
-                        <p @click='paixuSubItem'>离我最近</p>
-                        <p @click='paixuSubItem'>人均最低</p>
-                        <p @click='paixuSubItem'>人气最高</p>
+                        <p @click='paixuSubItem3'>智能排序</p>
+                        <p @click='paixuSubItem3'>好评优先</p>
+                        <p @click='paixuSubItem3'>离我最近</p>
+                        <p @click='paixuSubItem3'>人均最低</p>
+                        <p @click='paixuSubItem3'>人气最高</p>
                     </div>
                 </div>
             </t-bottom-menu>
@@ -146,21 +146,24 @@ import {Toast} from 'mint-ui'
                 loading:false,
                 items:[],
                 isBottomShow:[false,false,false],
+                paixuItemSecond:'全城',
+                paixuItemThird:'智能排序'
             }
         },
         methods:{
             loadMore(){
-                    this.requestData();
+                    this.requestData(1);
+                    console.log('24424')
             },
-            requestData(){
+            requestData(num){
                 this.$https.listing.request().then((data)=>{
-                    console.log(data)
+                    console.log(data ,num)
                     this.items.push(...data.list)
                 })
             },
             resetRequestData(){
-                this.items.length=0;
-                this.requestData();
+                this.items=[];
+                this.requestData(2);
             },
             switchBottom(num){
                 switch (num){
@@ -183,11 +186,9 @@ import {Toast} from 'mint-ui'
                     break;
                 }
             },
-            // 第三项排序的点击事件
+            // 第1项排序的点击事件1
             paixuSubItem(event){
-                // console.log(event.target.innerText,event)
                 this.$store.commit('changeSearchKeyword',event.target.innerText);
-                this.resetRequestData()
                 Toast({
                     message: event.target.innerText,
                     position: 'bottom',
@@ -195,9 +196,28 @@ import {Toast} from 'mint-ui'
                 });
                 this.$refs.bottomMenu.hideAllSubmenu();
             },
-            // initDataRoute(){
-            //     console.log(this.searchKeyword,this.$store.state,'searchKeyword')
-            // }
+            // 第2项排序的点击事件2
+            paixuSubItem2(event){
+                this.paixuItemSecond = event.target.innerText;
+                this.resetRequestData();
+                Toast({
+                    message: event.target.innerText,
+                    position: 'bottom',
+                    duration: 3000
+                });
+                this.$refs.bottomMenu.hideAllSubmenu();
+            },
+            // 第3项排序的点击事件3
+            paixuSubItem3(event){
+                this.paixuItemThird = event.target.innerText;
+                this.resetRequestData()
+                Toast({
+                    message: event.target.innerText,
+                    position: 'bottom',
+                    duration: 3000
+                });
+                this.$refs.bottomMenu.hideAllSubmenu();
+            }
         },
         computed: {
             searchKeyword() {
@@ -205,9 +225,13 @@ import {Toast} from 'mint-ui'
             }
         },
         created(){
-            this.requestData();
+            // this.requestData();
         },
-        
+        watch: {
+            searchKeyword(newValue, oldValue) {
+                this.resetRequestData();
+            }
+        },
     }
 </script>
 
