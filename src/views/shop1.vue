@@ -62,6 +62,7 @@
 
 <script>
 import axios from 'axios'
+import {Toast} from 'mint-ui'
     export default {
         data() {
             return {
@@ -89,7 +90,17 @@ import axios from 'axios'
                 跳转到下单页
              */
             toPlacingOrder(){
-                this.$router.push(this.$url.navigator.placingOrderPath)
+                //购物车不为空，跳转到结算
+                if(this.gouwucheArr.length>0){
+                    this.$router.push(this.$url.navigator.placingOrderPath)
+                }else{
+                    //购物车为空，提示
+                    Toast({
+                        message: '购物车为空',
+                        position: 'bottom',
+                        duration: 3000
+                });
+                }
             },
             /**
              * 弹出购物车
