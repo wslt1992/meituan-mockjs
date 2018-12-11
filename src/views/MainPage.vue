@@ -82,14 +82,23 @@ export default {
   overflow-y: hidden;
 }
 .footer-tab {
-    height: 9vh;
+    /deep/ .mint-tabbar{
+        background: #fff;
+        border-top: 1px solid #eee;
+    }
+    /deep/ .mint-tabbar > .mint-tab-item.is-selected{
+        background-color: transparent;
+        color: #25abb1;
+    }
+    height: 13.8vw;
+    color: #777;
     i{
         display: block;
         font-size: 6vw;
-        margin-bottom: 2vw;
+        margin-bottom: 1vw;
     }
     span{
-        font-size: 3.6vw;
+        font-size: 3.2vw;
     }
   /* background-color: bisque; */
 }
