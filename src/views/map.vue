@@ -52,7 +52,7 @@
 
                 }
                 var url = `https://webapi.amap.com/maps?v=1.4.11&key=${this.$global.amapKey}&callback=${this.onMapLoad}`;
-                console.log(url,'url',_this.amapKey)
+                // console.log(url,'url',_this.amapKey)
                 var jsapi = document.createElement('script');
                 jsapi.charset = 'utf-8';
                 jsapi.src = url;
@@ -60,10 +60,10 @@
             },
             onComplete(onComplete){
                 this.message = onComplete;
-                console.log(onComplete,'onComplete')
+                // console.log(onComplete,'onComplete')
             },
             onError(onError){
-                console.log(onError,'onError')
+                // console.log(onError,'onError')
             },
         },
 
