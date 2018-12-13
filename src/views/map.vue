@@ -1,5 +1,6 @@
 <template>
     <div class="map-root">
+        <!-- <span>{{message}}</span> -->
         <div id="container"></div> 
     </div>
 </template>
@@ -12,7 +13,8 @@
                 map:null,
                 onMapLoad:'onMapLoad',//地图加载完成，回调的函数
                 latitude:0,
-                longitude:0
+                longitude:0,
+                message:'moren'
             }
         },
         methods: {
@@ -44,8 +46,8 @@
                         });
                         map.addControl(geolocation);
                         geolocation.getCurrentPosition();
-                    // AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
-                    // AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+                    AMap.event.addListener(geolocation, 'complete', _this.onComplete);//返回定位信息
+                    AMap.event.addListener(geolocation, 'error', _this.onError);      //返回定位出错信息
                 });
 
                 }
@@ -56,23 +58,18 @@
                 jsapi.src = url;
                 document.head.appendChild(jsapi);
             },
-            geo_success(position) {
-                // alert(position.coords.latitude+""+position.coords.longitude);
-                var marker = new AMap.Marker({
-                    position: [116.481181, 39.989792]
-                })
-                this.map.add(marker);
+            onComplete(onComplete){
+                this.message = onComplete;
+                console.log(onComplete,'onComplete')
             },
-            geo_error(msg) {
-                alert(msg.code);
-                alert(msg.message);
-            }
+            onError(onError){
+                console.log(onError,'onError')
+            },
         },
+
         mounted(){
             this.initMap();
-            // navigator.geolocation.getCurrentPosition(this.geo_success, this.geo_error);
 
-            
         }
     }
 </script>
