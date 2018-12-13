@@ -47,6 +47,7 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
+        publicPath:'../',//css中引用的文件位置（比如背景图片文件）
         fallback: 'vue-style-loader'
       })
     } else {

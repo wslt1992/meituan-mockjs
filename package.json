@@ -11,7 +11,7 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "build": "node build/build.js",
-    "android": "npm run build && cd ../z-meituan-cordova && cordova run android",
+    "android": "npm run build && cd ../z-meituan-cordova && cordova run android"
   },
   "dependencies": {
     "animate.css": "^3.7.0",

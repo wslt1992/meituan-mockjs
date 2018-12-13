@@ -38,14 +38,26 @@ module.exports = {
   },
 
   build: {
-    // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    // 路径被修改到cordova的www目录
+    index: path.resolve(__dirname, '../../z-meituan-cordova/www/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../../z-meituan-cordova/www'),
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
+    /**
+     * 原配置开始
+     */
+    // // Template for index.html
+    // index: path.resolve(__dirname, '../dist/index.html'),
 
+    // // Paths
+    // assetsRoot: path.resolve(__dirname, '../dist'),
+    // assetsSubDirectory: 'static',
+    // assetsPublicPath: './',
+    /**
+      * 原配置结束
+      */
     /**
      * Source Maps
      */
