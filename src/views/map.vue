@@ -8,7 +8,7 @@
     export default {
         data() {
             return {
-                amapKey: this.$global.key,
+                amapKey: this.$global.amapKey,
                 map:null,
                 onMapLoad:'onMapLoad',//地图加载完成，回调的函数
                 latitude:0,
@@ -17,6 +17,7 @@
         },
         methods: {
             initMap() {
+                let _this = this;
                 window[this.onMapLoad]  = function(){
                     let map = this.map = new AMap.Map('container',{
                         zoom:19,
@@ -48,7 +49,8 @@
                 });
 
                 }
-                var url = `https://webapi.amap.com/maps?v=1.4.11&key=${this.key}值&callback=${this.onMapLoad}`;
+                var url = `https://webapi.amap.com/maps?v=1.4.11&key=${this.$global.amapKey}&callback=${this.onMapLoad}`;
+                console.log(url,'url',_this.amapKey)
                 var jsapi = document.createElement('script');
                 jsapi.charset = 'utf-8';
                 jsapi.src = url;
