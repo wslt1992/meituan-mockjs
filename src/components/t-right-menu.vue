@@ -103,6 +103,9 @@ import $ from 'jquery'
                     $(element).hide();
                 });
             },
+            /**
+             * 显示其中指定的num，右侧菜单
+             */
             hideRightOther(num){
                 this.rightShowS.forEach((element,index) => {
                     if(index===num){
